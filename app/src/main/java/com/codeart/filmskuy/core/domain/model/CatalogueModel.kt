@@ -1,15 +1,15 @@
 package com.codeart.filmskuy.core.domain.model
 
 /**
- * Created by wahyu_septiadi on 17, January 2021.
+ * Created by wahyu_septiadi on 08, January 2021.
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class TvShowModel(
+class CatalogueModel(
     val id: Int? = 0,
     val posterPath: String? = null,
-    val name: String? = null,
+    val entry: String? = null,
     val overview: String? = null,
     val voteAverage: Double? = null,
-    val firstAirDate: String? = null
+    val date: String? = null
 )

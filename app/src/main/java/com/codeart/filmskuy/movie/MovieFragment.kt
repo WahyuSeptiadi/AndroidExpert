@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
+import com.codeart.filmskuy.core.ui.CatalogueListAdapter
 import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentMovieBinding
 
@@ -32,8 +33,8 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val movieListAdapter = MovieListAdapter()
-            movieListAdapter.onItemClick = {
+            val catalogueListAdapter = CatalogueListAdapter()
+            catalogueListAdapter.onItemClick = {
                 Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show()
             }
 
@@ -46,7 +47,7 @@ class MovieFragment : Fragment() {
                         is Resource.Loading -> binding.progressMovie.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressMovie.visibility = View.GONE
-                            movieListAdapter.setData(movie.data)
+                            catalogueListAdapter.setData(movie.data)
                         }
                         is Resource.Error -> {
                             binding.progressMovie.visibility = View.GONE
@@ -64,7 +65,7 @@ class MovieFragment : Fragment() {
                     GridLayoutManager(context, 2)
                 }
                 setHasFixedSize(true)
-                adapter = movieListAdapter
+                adapter = catalogueListAdapter
             }
         }
     }

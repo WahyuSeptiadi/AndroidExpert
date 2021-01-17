@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentTvShowBinding
+import com.codeart.filmskuy.core.ui.CatalogueListAdapter
 
 class TvShowFragment : Fragment() {
 
@@ -32,8 +33,8 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val tvShowListAdapter = TvShowListAdapter()
-            tvShowListAdapter.onItemClick = {
+            val catalogueListAdapter = CatalogueListAdapter()
+            catalogueListAdapter.onItemClick = {
                 Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show()
             }
 
@@ -46,7 +47,7 @@ class TvShowFragment : Fragment() {
                         is Resource.Loading -> binding.progressTvShow.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressTvShow.visibility = View.GONE
-                            tvShowListAdapter.setData(tvShow.data)
+                            catalogueListAdapter.setData(tvShow.data)
                         }
                         is Resource.Error -> {
                             binding.progressTvShow.visibility = View.GONE
@@ -64,7 +65,7 @@ class TvShowFragment : Fragment() {
                     GridLayoutManager(context, 2)
                 }
                 setHasFixedSize(true)
-                adapter = tvShowListAdapter
+                adapter = catalogueListAdapter
             }
         }
     }

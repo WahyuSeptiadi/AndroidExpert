@@ -7,8 +7,7 @@ import com.codeart.filmskuy.core.data.source.remote.RemoteDataSource
 import com.codeart.filmskuy.core.data.source.remote.network.ApiResponse
 import com.codeart.filmskuy.core.data.source.remote.response.MovieResultResponse
 import com.codeart.filmskuy.core.data.source.remote.response.TvShowResultResponse
-import com.codeart.filmskuy.core.domain.model.MovieModel
-import com.codeart.filmskuy.core.domain.model.TvShowModel
+import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
 import com.codeart.filmskuy.core.utils.AppExecutors
 import com.codeart.filmskuy.core.utils.DataMapper
@@ -38,15 +37,15 @@ class CatalogueRepository private constructor(
             }
     }
 
-    override fun getAllMovieCatalogue(): LiveData<Resource<List<MovieModel>>> =
-        object : NetworkBoundResource<List<MovieModel>, List<MovieResultResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<MovieModel>> {
+    override fun getAllMovieCatalogue(): LiveData<Resource<List<CatalogueModel>>> =
+        object : NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
+            override fun loadFromDB(): LiveData<List<CatalogueModel>> {
                 return Transformations.map(localDataSource.getAllMovie()) {
                     DataMapper.mapMovieEntitiesToDomain(it)
                 }
             }
 
-            override fun shouldFetch(data: List<MovieModel>?): Boolean =
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
                 data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<MovieResultResponse>>> =
@@ -58,15 +57,15 @@ class CatalogueRepository private constructor(
             }
         }.asLiveData()
 
-    override fun getAllTvShowCatalogue(): LiveData<Resource<List<TvShowModel>>> =
-        object : NetworkBoundResource<List<TvShowModel>, List<TvShowResultResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<TvShowModel>> {
+    override fun getAllTvShowCatalogue(): LiveData<Resource<List<CatalogueModel>>> =
+        object : NetworkBoundResource<List<CatalogueModel>, List<TvShowResultResponse>>(appExecutors) {
+            override fun loadFromDB(): LiveData<List<CatalogueModel>> {
                 return Transformations.map(localDataSource.getAllTvShow()) {
                     DataMapper.mapTvShowEntitiesToDomain(it)
                 }
             }
 
-            override fun shouldFetch(data: List<TvShowModel>?): Boolean =
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
                 data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<TvShowResultResponse>>> =

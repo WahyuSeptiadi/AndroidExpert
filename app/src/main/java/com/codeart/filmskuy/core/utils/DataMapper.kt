@@ -4,8 +4,7 @@ import com.codeart.filmskuy.core.data.source.local.entity.MovieEntity
 import com.codeart.filmskuy.core.data.source.local.entity.TvShowEntity
 import com.codeart.filmskuy.core.data.source.remote.response.MovieResultResponse
 import com.codeart.filmskuy.core.data.source.remote.response.TvShowResultResponse
-import com.codeart.filmskuy.core.domain.model.MovieModel
-import com.codeart.filmskuy.core.domain.model.TvShowModel
+import com.codeart.filmskuy.core.domain.model.CatalogueModel
 
 /**
  * Created by wahyu_septiadi on 17, January 2021.
@@ -31,15 +30,15 @@ object DataMapper {
         return movieList
     }
 
-    fun mapMovieEntitiesToDomain(input: List<MovieEntity>): List<MovieModel> =
+    fun mapMovieEntitiesToDomain(input: List<MovieEntity>): List<CatalogueModel> =
         input.map {
-            MovieModel(
+            CatalogueModel(
                 id = it.id,
                 posterPath = it.posterPath,
-                title = it.title,
+                entry = it.title,
                 overview = it.overview,
                 voteAverage = it.voteAverage,
-                releaseDate = it.releaseDate
+                date = it.releaseDate
             )
         }
 
@@ -61,15 +60,15 @@ object DataMapper {
         return tvShowList
     }
 
-    fun mapTvShowEntitiesToDomain(input: List<TvShowEntity>): List<TvShowModel> =
+    fun mapTvShowEntitiesToDomain(input: List<TvShowEntity>): List<CatalogueModel> =
         input.map {
-            TvShowModel(
+            CatalogueModel(
                 id = it.id,
                 posterPath = it.posterPath,
-                name = it.name,
+                entry = it.name,
                 overview = it.overview,
                 voteAverage = it.voteAverage,
-                firstAirDate = it.firstAirDate
+                date = it.firstAirDate
             )
         }
 }

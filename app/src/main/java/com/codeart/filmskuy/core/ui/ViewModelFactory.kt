@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.codeart.filmskuy.core.di.Injection
-import com.codeart.filmskuy.core.domain.model.TvShowModel
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 import com.codeart.filmskuy.movie.MovieViewModel
 import com.codeart.filmskuy.tvshow.TvShowViewModel
