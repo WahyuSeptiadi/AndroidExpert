@@ -15,7 +15,7 @@ interface CatalogueDao {
     @Query("SELECT * FROM movie_favorite")
     fun getAllMovie(): LiveData<List<MovieEntity>>
 
-    @Query("SELECT * FROM movie_favorite where favorite = 1")
+    @Query("SELECT * FROM movie_favorite where isFavorite = 1")
     fun getFavoriteMovie(): LiveData<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -27,7 +27,7 @@ interface CatalogueDao {
     @Query("SELECT * FROM tv_show_favorite")
     fun getAllTvShow(): LiveData<List<TvShowEntity>>
 
-    @Query("SELECT * FROM tv_show_favorite where favorite = 1")
+    @Query("SELECT * FROM tv_show_favorite where isFavorite = 1")
     fun getFavoriteTvShow(): LiveData<List<TvShowEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

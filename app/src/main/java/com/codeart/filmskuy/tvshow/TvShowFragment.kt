@@ -1,5 +1,6 @@
 package com.codeart.filmskuy.tvshow
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentTvShowBinding
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
+import com.codeart.filmskuy.detail.DetailActivity
 
 class TvShowFragment : Fragment() {
 
@@ -34,8 +36,10 @@ class TvShowFragment : Fragment() {
 
         if (activity != null) {
             val catalogueListAdapter = CatalogueListAdapter()
-            catalogueListAdapter.onItemClick = {
-                Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show()
+            catalogueListAdapter.onItemClick = { selectedData ->
+                val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
+                startActivity(intent)
             }
 
             val factory = ViewModelFactory.getInstance(requireContext())

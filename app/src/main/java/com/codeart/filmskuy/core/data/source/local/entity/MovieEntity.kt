@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "movie_favorite")
 data class MovieEntity(
-    val popular: Boolean? = null,
-    val favorite: Boolean,
+    val popular: Boolean,
+    var isFavorite: Boolean,
     @PrimaryKey
     val id: Int,
     val overview: String,

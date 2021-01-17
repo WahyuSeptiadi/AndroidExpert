@@ -16,8 +16,8 @@ object DataMapper {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                popular = null,
-                favorite = false,
+                popular = false,
+                isFavorite = false,
                 id = it.id,
                 overview = it.overview,
                 posterPath = it.posterPath,
@@ -33,6 +33,8 @@ object DataMapper {
     fun mapMovieEntitiesToDomain(input: List<MovieEntity>): List<CatalogueModel> =
         input.map {
             CatalogueModel(
+                popular = it.popular,
+                isFavorite = it.isFavorite,
                 id = it.id,
                 posterPath = it.posterPath,
                 entry = it.title,
@@ -46,8 +48,8 @@ object DataMapper {
         val tvShowList = ArrayList<TvShowEntity>()
         input.map {
             val tvShow = TvShowEntity(
-                popular = null,
-                favorite = false,
+                popular = false,
+                isFavorite = false,
                 id = it.id,
                 overview = it.overview,
                 posterPath = it.posterPath,
@@ -63,6 +65,8 @@ object DataMapper {
     fun mapTvShowEntitiesToDomain(input: List<TvShowEntity>): List<CatalogueModel> =
         input.map {
             CatalogueModel(
+                popular = it.popular,
+                isFavorite = it.isFavorite,
                 id = it.id,
                 posterPath = it.posterPath,
                 entry = it.name,
@@ -71,4 +75,15 @@ object DataMapper {
                 date = it.firstAirDate
             )
         }
+
+    fun mapMovieDomainToEntity(input: CatalogueModel) = MovieEntity(
+        popular = input.popular,
+        isFavorite = input.isFavorite,
+        id = input.id,
+        overview = input.overview.toString(),
+        posterPath = input.posterPath,
+        releaseDate = input.date,
+        title = input.entry.toString(),
+        voteAverage = input.voteAverage
+    )
 }

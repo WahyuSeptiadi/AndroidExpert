@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tv_show_favorite")
 data class TvShowEntity (
-    val popular: Boolean? = null,
-    val favorite: Boolean,
+    val popular: Boolean,
+    var isFavorite: Boolean,
     @PrimaryKey
     val id: Int,
     val overview: String,

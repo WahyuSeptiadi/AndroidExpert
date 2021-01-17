@@ -16,7 +16,7 @@ import java.util.ArrayList
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewHolder>(){
+class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewHolder>() {
 
     private var listData = ArrayList<CatalogueModel>()
     var onItemClick: ((CatalogueModel) -> Unit)? = null
@@ -32,15 +32,26 @@ class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewH
         private val binding = ItemListCatalogueBinding.bind(itemView)
         fun bind(data: CatalogueModel) {
             with(binding) {
-                val imageSize = itemView.context.getString(R.string.size_url_image_list)
-                val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
-                Glide.with(itemView.context)
-                    .load(urlImage)
-                    .placeholder(R.drawable.loading)
-                    .into(imageFilm)
+                if (data.posterPath != null) {
+                    val imageSize = itemView.context.getString(R.string.size_url_image_list)
+                    val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
+                    Glide.with(itemView.context)
+                        .load(urlImage)
+                        .placeholder(R.drawable.loading)
+                        .into(imageFilm)
+                } else {
+                    Glide.with(itemView.context)
+                        .load(R.drawable.img_notfound)
+                        .placeholder(R.drawable.loading)
+                        .into(imageFilm)
+                }
+
                 ratingFilm.text = data.voteAverage.toString()
                 titleFilm.text = data.entry
-                yearFilm.text = data.date
+
+                if (data.date != "") {
+                    yearFilm.text = data.date?.substring(0, 4)
+                }
             }
         }
 
@@ -52,7 +63,9 @@ class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_catalogue, parent, false))
+        ListViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list_catalogue, parent, false)
+        )
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]

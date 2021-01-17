@@ -12,4 +12,5 @@ import com.codeart.filmskuy.core.domain.model.CatalogueModel
 interface CatalogueUsecase {
     fun getAllMovieCatalogue(): LiveData<Resource<List<CatalogueModel>>>
     fun getAllTvShowCatalogue(): LiveData<Resource<List<CatalogueModel>>>
+    fun setFavoriteMovieCatalogue(catalogueModel: CatalogueModel, state: Boolean)
 }

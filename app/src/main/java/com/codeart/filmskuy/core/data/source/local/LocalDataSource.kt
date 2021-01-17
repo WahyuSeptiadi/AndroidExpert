@@ -27,4 +27,9 @@ class LocalDataSource private constructor(private val catalogueDao: CatalogueDao
     fun getAllTvShow(): LiveData<List<TvShowEntity>> = catalogueDao.getAllTvShow()
 
     fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
+
+    fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
+        movie.isFavorite = newState
+        catalogueDao.updateFavoriteMovie(movie)
+    }
 }

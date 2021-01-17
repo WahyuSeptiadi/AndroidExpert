@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.codeart.filmskuy.core.di.Injection
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
+import com.codeart.filmskuy.detail.DetailViewModel
 import com.codeart.filmskuy.movie.MovieViewModel
 import com.codeart.filmskuy.tvshow.TvShowViewModel
 
@@ -36,6 +37,9 @@ class ViewModelFactory private constructor(private val catalogueUseCase: Catalog
             }
             modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
                 TvShowViewModel(catalogueUseCase) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(catalogueUseCase) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

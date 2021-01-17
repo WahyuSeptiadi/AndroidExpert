@@ -38,7 +38,8 @@ class CatalogueRepository private constructor(
     }
 
     override fun getAllMovieCatalogue(): LiveData<Resource<List<CatalogueModel>>> =
-        object : NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
             override fun loadFromDB(): LiveData<List<CatalogueModel>> {
                 return Transformations.map(localDataSource.getAllMovie()) {
                     DataMapper.mapMovieEntitiesToDomain(it)
@@ -58,7 +59,8 @@ class CatalogueRepository private constructor(
         }.asLiveData()
 
     override fun getAllTvShowCatalogue(): LiveData<Resource<List<CatalogueModel>>> =
-        object : NetworkBoundResource<List<CatalogueModel>, List<TvShowResultResponse>>(appExecutors) {
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<TvShowResultResponse>>(appExecutors) {
             override fun loadFromDB(): LiveData<List<CatalogueModel>> {
                 return Transformations.map(localDataSource.getAllTvShow()) {
                     DataMapper.mapTvShowEntitiesToDomain(it)
@@ -76,4 +78,9 @@ class CatalogueRepository private constructor(
                 localDataSource.insertTvShow(tvShowList)
             }
         }.asLiveData()
+
+    override fun setFavoriteMovieCatalogue(catalogueModel: CatalogueModel, state: Boolean) {
+        val movieEntity = DataMapper.mapMovieDomainToEntity(catalogueModel)
+        appExecutors.diskIO().execute { localDataSource.setFavoriteMovie(movieEntity, state) }
+    }
 }
