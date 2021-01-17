@@ -1,5 +1,6 @@
 package com.codeart.filmskuy.movie
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -56,7 +57,12 @@ class MovieFragment : Fragment() {
             })
 
             with(binding.rvMovie) {
-                layoutManager = GridLayoutManager(context, 2)
+                val orientation = resources.configuration.orientation
+                layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    GridLayoutManager(context, 4)
+                } else {
+                    GridLayoutManager(context, 2)
+                }
                 setHasFixedSize(true)
                 adapter = movieListAdapter
             }

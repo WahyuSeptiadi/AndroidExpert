@@ -1,5 +1,6 @@
 package com.codeart.filmskuy.tvshow
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -56,7 +57,12 @@ class TvShowFragment : Fragment() {
             })
 
             with(binding.rvTvShow) {
-                layoutManager = GridLayoutManager(context, 2)
+                val orientation = resources.configuration.orientation
+                layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    GridLayoutManager(context, 4)
+                } else {
+                    GridLayoutManager(context, 2)
+                }
                 setHasFixedSize(true)
                 adapter = tvShowListAdapter
             }

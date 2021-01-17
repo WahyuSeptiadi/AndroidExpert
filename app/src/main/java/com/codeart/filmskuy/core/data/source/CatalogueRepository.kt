@@ -47,8 +47,7 @@ class CatalogueRepository private constructor(
             }
 
             override fun shouldFetch(data: List<MovieModel>?): Boolean =
-//                data == null || data.isEmpty()
-                true
+                data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<MovieResultResponse>>> =
                 remoteDataSource.getAllMovie()
@@ -68,7 +67,7 @@ class CatalogueRepository private constructor(
             }
 
             override fun shouldFetch(data: List<TvShowModel>?): Boolean =
-                true
+                data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<TvShowResultResponse>>> =
                 remoteDataSource.getAllTvShow()
