@@ -5,6 +5,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def STRING = 'String'
+def API_KEY = '"' + key + '"' ?: '"Define your TheMovieDB API KEY!"'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
@@ -17,6 +20,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        each { type ->
+            type.buildConfigField STRING, 'key', API_KEY
+        }
     }
     buildTypes {
         release {
@@ -60,6 +67,7 @@ dependencies {
     // RETROFIT
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
 
     // ROOM
     implementation "androidx.room:room-runtime:$roomVersion"

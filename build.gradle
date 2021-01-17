@@ -29,4 +29,5 @@ ext {
     roomVersion = '2.2.6'
     retrofitVersion = '2.9.0'
     archLifecycleVersion = '2.2.0'
+    ext.logging_interceptor_version = '4.9.0'
 }
