@@ -1,4 +1,4 @@
-package com.codeart.filmskuy.core.domain.repository
+package com.codeart.filmskuy.core.domain.usecase
 
 import androidx.lifecycle.LiveData
 import com.codeart.filmskuy.core.data.source.Resource
@@ -10,8 +10,7 @@ import com.codeart.filmskuy.core.domain.model.TvShowModel
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-interface ICatalogueRepository {
+interface CatalogueUsecase {
     fun getAllMovieCatalogue(): LiveData<Resource<List<MovieModel>>>
-
     fun getAllTvShowCatalogue(): LiveData<Resource<List<TvShowModel>>>
 }

@@ -1,4 +1,4 @@
-package com.codeart.filmskuy.core.ui
+package com.codeart.filmskuy.movie
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codeart.filmskuy.R
-import com.codeart.filmskuy.core.domain.model.CatalogueModel
+import com.codeart.filmskuy.core.domain.model.MovieModel
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
 import com.codeart.filmskuy.databinding.ItemListCatalogueBinding
 import java.util.ArrayList
@@ -18,10 +18,10 @@ import java.util.ArrayList
 
 class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ListViewHolder>(){
 
-    private var listData = ArrayList<CatalogueModel>()
-    var onItemClick: ((CatalogueModel) -> Unit)? = null
+    private var listData = ArrayList<MovieModel>()
+    var onItemClick: ((MovieModel) -> Unit)? = null
 
-    fun setData(newListData: List<CatalogueModel>?) {
+    fun setData(newListData: List<MovieModel>?) {
         if (newListData == null) return
         listData.clear()
         listData.addAll(newListData)
@@ -30,7 +30,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ListViewHolder>()
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemListCatalogueBinding.bind(itemView)
-        fun bind(data: CatalogueModel) {
+        fun bind(data: MovieModel) {
             with(binding) {
                 val imageSize = itemView.context.getString(R.string.size_url_image_list)
                 val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"

@@ -7,14 +7,14 @@ import com.google.gson.annotations.SerializedName
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-data class MovieResultResponse(
+data class TvShowResultResponse(
     val id: Int,
-    val title: String,
+    val name: String,
     val overview: String,
     @SerializedName("poster_path")
     val posterPath: String? = null,
-    @SerializedName("release_date")
-    val releaseDate: String? = null,
+    @SerializedName("first_air_date")
+    val firstAirDate: String? = null,
     @SerializedName("vote_average")
     val voteAverage: Double
 )

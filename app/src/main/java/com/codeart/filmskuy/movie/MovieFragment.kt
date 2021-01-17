@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
-import com.codeart.filmskuy.core.ui.MovieListAdapter
 import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentMovieBinding
 

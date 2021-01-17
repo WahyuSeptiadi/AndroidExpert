@@ -7,11 +7,11 @@ import com.google.gson.annotations.SerializedName
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-data class MovieListResponse(
+data class TvShowListResponse(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
-    val movieResultRespons: List<MovieResultResponse>,
+    val tvShowResultRespons: List<TvShowResultResponse>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")

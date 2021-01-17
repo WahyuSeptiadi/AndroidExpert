@@ -2,6 +2,7 @@ package com.codeart.filmskuy.core.data.source.local
 
 import androidx.lifecycle.LiveData
 import com.codeart.filmskuy.core.data.source.local.entity.MovieEntity
+import com.codeart.filmskuy.core.data.source.local.entity.TvShowEntity
 import com.codeart.filmskuy.core.data.source.local.room.CatalogueDao
 
 /**
@@ -22,4 +23,8 @@ class LocalDataSource private constructor(private val catalogueDao: CatalogueDao
     fun getAllMovie(): LiveData<List<MovieEntity>> = catalogueDao.getAllMovie()
 
     fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
+
+    fun getAllTvShow(): LiveData<List<TvShowEntity>> = catalogueDao.getAllTvShow()
+
+    fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
 }

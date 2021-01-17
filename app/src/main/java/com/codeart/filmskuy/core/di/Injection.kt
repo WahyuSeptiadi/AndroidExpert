@@ -7,8 +7,8 @@ import com.codeart.filmskuy.core.data.source.local.room.CatalogueDatabase
 import com.codeart.filmskuy.core.data.source.remote.RemoteDataSource
 import com.codeart.filmskuy.core.data.source.remote.network.ApiConfig
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
-import com.codeart.filmskuy.core.domain.usecase.MovieInteractor
-import com.codeart.filmskuy.core.domain.usecase.MovieUsecase
+import com.codeart.filmskuy.core.domain.usecase.CatalogueInteractor
+import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 import com.codeart.filmskuy.core.utils.AppExecutors
 
 /**
@@ -21,14 +21,14 @@ object Injection {
         val database = CatalogueDatabase.getInstance(context)
 
         val remoteDataSource = RemoteDataSource.getInstance(ApiConfig.provideApiService())
-        val localDataSource = LocalDataSource.getInstance(database.movieDao())
+        val localDataSource = LocalDataSource.getInstance(database.catalogueDao())
         val appExecutors = AppExecutors()
 
         return CatalogueRepository.getInstance(remoteDataSource, localDataSource, appExecutors)
     }
 
-    fun provideTourismUseCase(context: Context): MovieUsecase {
+    fun provideCatalogueUseCase(context: Context): CatalogueUsecase {
         val repository = provideRepository(context)
-        return MovieInteractor(repository)
+        return CatalogueInteractor(repository)
     }
 }

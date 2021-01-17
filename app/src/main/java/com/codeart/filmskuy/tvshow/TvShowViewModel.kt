@@ -1,4 +1,4 @@
-package com.codeart.filmskuy.movie
+package com.codeart.filmskuy.tvshow
 
 import androidx.lifecycle.ViewModel
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
@@ -8,6 +8,6 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class MovieViewModel(catalogueUseCase: CatalogueUsecase) : ViewModel() {
-    val movie = catalogueUseCase.getAllMovieCatalogue()
+class TvShowViewModel(catalogueUsecase: CatalogueUsecase) : ViewModel() {
+    val tvShow = catalogueUsecase.getAllTvShowCatalogue()
 }
