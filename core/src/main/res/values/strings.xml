@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmSkuy</string>
+    <string name="todo">todo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">movie</string>
+    <string name="tv_show">tv show</string>
+    <string name="sample_rate">0.0</string>
+    <string name="dot">. . .</string>
+    <string name="size_url_image_list">/w780</string>
+    <string name="overview">Overview</string>
+    <string name="my_favorite">My Favorite</string>
+</resources>

@@ -1,6 +1,6 @@
 package com.codeart.filmskuy.core.utils
 
-import com.codeart.filmskuy.BuildConfig.key
+import com.codeart.filmskuy.core.BuildConfig.key
 
 /**
  * Created by wahyu_septiadi on 17, January 2021.

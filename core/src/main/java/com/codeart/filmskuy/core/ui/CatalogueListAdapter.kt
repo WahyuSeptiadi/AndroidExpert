@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.codeart.filmskuy.R
+import com.codeart.filmskuy.core.R
+import com.codeart.filmskuy.core.databinding.ItemListCatalogueBinding
 import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
-import com.codeart.filmskuy.databinding.ItemListCatalogueBinding
 import java.util.ArrayList
 
 /**

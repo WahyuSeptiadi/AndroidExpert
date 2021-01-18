@@ -1,9 +1,14 @@
 package com.codeart.filmskuy
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.codeart.filmskuy.core.ui.MyPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.codeart.filmskuy.databinding.ActivityMainBinding
+import com.codeart.filmskuy.movie.MovieFragment
+import com.codeart.filmskuy.tvshow.TvShowFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,5 +21,30 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewpagerMain.adapter = MyPagerAdapter(this, supportFragmentManager)
         binding.tabsMain.setupWithViewPager(binding.viewpagerMain)
+    }
+}
+
+class MyPagerAdapter(private val context: Context, fm: FragmentManager) :
+
+    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
+    private val pages = listOf(
+        MovieFragment(),
+        TvShowFragment()
+    )
+
+    override fun getItem(position: Int): Fragment {
+        return pages[position]
+    }
+
+    override fun getCount(): Int {
+        return pages.size
+    }
+
+    override fun getPageTitle(position: Int): CharSequence {
+        return when (position) {
+            0 -> context.getString(R.string.movie)
+            else -> context.getString(R.string.tv_show)
+        }
     }
 }
