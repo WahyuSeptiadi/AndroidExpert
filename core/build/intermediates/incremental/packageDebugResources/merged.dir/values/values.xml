@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#01D17F</color>
+    <color name="black">#FF000000</color>
+    <color name="primary">#003E70</color>
+    <color name="primary_dark">#00294A</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_op70">#B3FFFFFF</color>
+    <string name="app_name">FilmSkuy</string>
+    <string name="dot">. . .</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">movie</string>
+    <string name="my_favorite">My Favorite</string>
+    <string name="overview">Overview</string>
+    <string name="sample_rate">0.0</string>
+    <string name="size_url_image_list">/w780</string>
+    <string name="todo">todo</string>
+    <string name="tv_show">tv show</string>
+</resources>
