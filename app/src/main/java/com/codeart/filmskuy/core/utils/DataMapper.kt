@@ -86,4 +86,15 @@ object DataMapper {
         title = input.entry.toString(),
         voteAverage = input.voteAverage
     )
+
+    fun mapTvShowDomainToEntity(input: CatalogueModel) = TvShowEntity(
+        popular = input.popular,
+        isFavorite = input.isFavorite,
+        id = input.id,
+        overview = input.overview.toString(),
+        posterPath = input.posterPath,
+        firstAirDate = input.date,
+        name = input.entry.toString(),
+        voteAverage = input.voteAverage
+    )
 }

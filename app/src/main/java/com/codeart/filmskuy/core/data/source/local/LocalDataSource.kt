@@ -32,4 +32,9 @@ class LocalDataSource private constructor(private val catalogueDao: CatalogueDao
         movie.isFavorite = newState
         catalogueDao.updateFavoriteMovie(movie)
     }
+
+    fun setFavoriteTvShow(tvShow: TvShowEntity, newState: Boolean) {
+        tvShow.isFavorite = newState
+        catalogueDao.updateFavoriteTvShow(tvShow)
+    }
 }

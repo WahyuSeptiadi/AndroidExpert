@@ -83,4 +83,9 @@ class CatalogueRepository private constructor(
         val movieEntity = DataMapper.mapMovieDomainToEntity(catalogueModel)
         appExecutors.diskIO().execute { localDataSource.setFavoriteMovie(movieEntity, state) }
     }
+
+    override fun setFavoriteTvShowCatalogue(catalogueModel: CatalogueModel, state: Boolean) {
+        val tvShowEntity = DataMapper.mapTvShowDomainToEntity(catalogueModel)
+        appExecutors.diskIO().execute { localDataSource.setFavoriteTvShow(tvShowEntity, state) }
+    }
 }

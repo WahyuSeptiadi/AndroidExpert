@@ -10,6 +10,9 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  */
 
 class DetailViewModel(private val catalogueUsecase: CatalogueUsecase) : ViewModel() {
-    fun setFavoriteCatalogue(catalogue: CatalogueModel, newStatus: Boolean) =
+    fun setFavoriteMovie(catalogue: CatalogueModel, newStatus: Boolean) =
         catalogueUsecase.setFavoriteMovieCatalogue(catalogue, newStatus)
+
+    fun setFavoriteTvShow(catalogue: CatalogueModel, newStatus: Boolean) =
+        catalogueUsecase.setFavoriteTvShowCatalogue(catalogue, newStatus)
 }

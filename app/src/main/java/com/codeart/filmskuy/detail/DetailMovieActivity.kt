@@ -4,6 +4,7 @@ import android.graphics.text.LineBreaker
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.codeart.filmskuy.R
@@ -12,7 +13,7 @@ import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
 import com.codeart.filmskuy.databinding.ActivityDetailBinding
 
-class DetailActivity : AppCompatActivity() {
+class DetailMovieActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DATA = "extra_data"
@@ -48,20 +49,20 @@ class DetailActivity : AppCompatActivity() {
             if (catalogueModel.posterPath != null) {
                 val imageSize = getString(R.string.size_url_image_list)
                 val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${catalogueModel.posterPath}"
-                Glide.with(this@DetailActivity)
+                Glide.with(this@DetailMovieActivity)
                     .load(urlImage)
                     .placeholder(R.drawable.loading)
                     .into(binding.imageDetailFilm)
-                Glide.with(this@DetailActivity)
+                Glide.with(this@DetailMovieActivity)
                     .load(urlImage)
                     .placeholder(R.drawable.loading)
                     .into(binding.backgroundDetailFilm)
             } else {
-                Glide.with(this@DetailActivity)
+                Glide.with(this@DetailMovieActivity)
                     .load(R.drawable.img_notfound)
                     .placeholder(R.drawable.loading)
                     .into(binding.imageDetailFilm)
-                Glide.with(this@DetailActivity)
+                Glide.with(this@DetailMovieActivity)
                     .load(R.drawable.img_notfound)
                     .placeholder(R.drawable.loading)
                     .into(binding.backgroundDetailFilm)
@@ -74,13 +75,21 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
 
-//            var statusFavorite = catalogueModel.isFavorite
-//            setStatusFavorite(statusFavorite)
-//            binding.fab.setOnClickListener {
-//                statusFavorite = !statusFavorite
-//                detailViewModel.setFavoriteCatalogue(catalogueModel, statusFavorite)
-//                setStatusFavorite(statusFavorite)
-//            }
+            var statusFavorite = catalogueModel.isFavorite
+            setStatusFavorite(statusFavorite)
+            binding.fab.setOnClickListener {
+                statusFavorite = !statusFavorite
+                detailViewModel.setFavoriteMovie(catalogueModel, statusFavorite)
+                setStatusFavorite(statusFavorite)
+            }
+        }
+    }
+
+    private fun setStatusFavorite(statusFavorite: Boolean) {
+        if (statusFavorite) {
+            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
+        } else {
+            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_not_favorite_white))
         }
     }
 }

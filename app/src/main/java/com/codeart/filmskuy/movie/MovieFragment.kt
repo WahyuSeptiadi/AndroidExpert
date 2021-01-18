@@ -14,7 +14,7 @@ import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
 import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentMovieBinding
-import com.codeart.filmskuy.detail.DetailActivity
+import com.codeart.filmskuy.detail.DetailMovieActivity
 
 class MovieFragment : Fragment() {
 
@@ -38,8 +38,8 @@ class MovieFragment : Fragment() {
             val catalogueListAdapter = CatalogueListAdapter()
 
             catalogueListAdapter.onItemClick = { selectedData ->
-                val intent = Intent(activity, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
+                val intent = Intent(activity, DetailMovieActivity::class.java)
+                intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
 

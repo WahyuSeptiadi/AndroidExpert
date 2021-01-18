@@ -14,7 +14,8 @@
         android:theme="@style/Theme.FilmSkuy"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute">
-        <activity android:name=".detail.DetailActivity"></activity>
+        <activity android:name=".detail.DetailTvShowActivity" />
+        <activity android:name=".detail.DetailMovieActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

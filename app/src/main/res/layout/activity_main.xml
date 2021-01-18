@@ -33,7 +33,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/ic_round_favorite_filled_white" />
+            android:src="@drawable/ic_favorite_white" />
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
