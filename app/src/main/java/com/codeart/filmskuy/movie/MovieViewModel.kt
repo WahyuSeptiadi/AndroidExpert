@@ -1,6 +1,7 @@
 package com.codeart.filmskuy.movie
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 
 /**
@@ -9,5 +10,5 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  */
 
 class MovieViewModel(catalogueUseCase: CatalogueUsecase) : ViewModel() {
-    val movie = catalogueUseCase.getAllMovieCatalogue()
+    val movie = catalogueUseCase.getAllMovieCatalogue().asLiveData()
 }

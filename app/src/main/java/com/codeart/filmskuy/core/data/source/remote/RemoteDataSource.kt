@@ -1,17 +1,14 @@
 package com.codeart.filmskuy.core.data.source.remote
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.codeart.filmskuy.core.data.source.remote.network.ApiResponse
 import com.codeart.filmskuy.core.data.source.remote.network.ApiService
-import com.codeart.filmskuy.core.data.source.remote.response.MovieListResponse
 import com.codeart.filmskuy.core.data.source.remote.response.MovieResultResponse
-import com.codeart.filmskuy.core.data.source.remote.response.TvShowListResponse
 import com.codeart.filmskuy.core.data.source.remote.response.TvShowResultResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 /**
  * Created by wahyu_septiadi on 08, January 2021.
@@ -29,49 +26,37 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
     }
 
-    fun getAllMovie(): LiveData<ApiResponse<List<MovieResultResponse>>> {
-        val resultData = MutableLiveData<ApiResponse<List<MovieResultResponse>>>()
-
-        val client = apiService.getMovies()
-
-        client.enqueue(object : Callback<MovieListResponse> {
-            override fun onResponse(
-                call: Call<MovieListResponse>,
-                responseMovie: Response<MovieListResponse>
-            ) {
-                val dataArray = responseMovie.body()?.movieResultRespons
-                resultData.value = if (dataArray != null) ApiResponse.Success(dataArray) else ApiResponse.Empty
+    suspend fun getAllMovie(): Flow<ApiResponse<List<MovieResultResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getMovies()
+                val dataArray = response.movieResultRespons
+                if (dataArray.isNotEmpty()){
+                    emit(ApiResponse.Success(response.movieResultRespons))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
             }
-
-            override fun onFailure(call: Call<MovieListResponse>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
-                Log.e("RemoteDataSource", t.message.toString())
-            }
-        })
-
-        return resultData
+        }.flowOn(Dispatchers.IO)
     }
 
-    fun getAllTvShow(): LiveData<ApiResponse<List<TvShowResultResponse>>> {
-        val resultData = MutableLiveData<ApiResponse<List<TvShowResultResponse>>>()
-
-        val client = apiService.getTvShows()
-
-        client.enqueue(object : Callback<TvShowListResponse> {
-            override fun onResponse(
-                call: Call<TvShowListResponse>,
-                responseTvShow: Response<TvShowListResponse>
-            ) {
-                val dataArray = responseTvShow.body()?.tvShowResultRespons
-                resultData.value = if (dataArray != null) ApiResponse.Success(dataArray) else ApiResponse.Empty
+    fun getAllTvShow(): Flow<ApiResponse<List<TvShowResultResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getTvShows()
+                val dataArray = response.tvShowResultRespons
+                if (dataArray.isNotEmpty()){
+                    emit(ApiResponse.Success(response.tvShowResultRespons))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
             }
-
-            override fun onFailure(call: Call<TvShowListResponse>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
-                Log.e("RemoteDataSource", t.message.toString())
-            }
-        })
-
-        return resultData
+        }.flowOn(Dispatchers.IO)
     }
 }

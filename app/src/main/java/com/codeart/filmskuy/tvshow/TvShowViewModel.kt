@@ -1,6 +1,7 @@
 package com.codeart.filmskuy.tvshow
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 
 /**
@@ -9,5 +10,5 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  */
 
 class TvShowViewModel(catalogueUsecase: CatalogueUsecase) : ViewModel() {
-    val tvShow = catalogueUsecase.getAllTvShowCatalogue()
+    val tvShow = catalogueUsecase.getAllTvShowCatalogue().asLiveData()
 }
