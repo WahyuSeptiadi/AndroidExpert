@@ -1,6 +1,7 @@
 package com.codeart.filmskuy.favorite.di
 
 import com.codeart.filmskuy.favorite.movie.MovieFavoriteViewModel
+import com.codeart.filmskuy.favorite.tvshow.TvShowFavoriteViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -11,4 +12,5 @@ import org.koin.dsl.module
 
 val favoriteModule = module {
     viewModel { MovieFavoriteViewModel(get()) }
+    viewModel { TvShowFavoriteViewModel(get()) }
 }

@@ -75,4 +75,8 @@ class CatalogueRepository(
     override fun getFavoriteMovie(): Flow<List<CatalogueModel>> {
         return localDataSource.getFavoriteMovie().map { DataMapper.mapMovieEntitiesToDomain(it) }
     }
+
+    override fun getFavoriteTvShow(): Flow<List<CatalogueModel>> {
+        return localDataSource.getFavoriteTvShow().map { DataMapper.mapTvShowEntitiesToDomain(it) }
+    }
 }

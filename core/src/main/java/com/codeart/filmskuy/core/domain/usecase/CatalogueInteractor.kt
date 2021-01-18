@@ -17,4 +17,5 @@ class CatalogueInteractor(private val iCatalogueRepository: ICatalogueRepository
     override fun setFavoriteTvShowCatalogue(catalogueModel: CatalogueModel, state: Boolean) =
         iCatalogueRepository.setFavoriteTvShowCatalogue(catalogueModel, state)
     override fun getFavoriteMovie() = iCatalogueRepository.getFavoriteMovie()
+    override fun getFavoriteTvShow() = iCatalogueRepository.getFavoriteTvShow()
 }

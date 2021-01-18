@@ -15,4 +15,5 @@ interface CatalogueUsecase {
     fun setFavoriteMovieCatalogue(catalogueModel: CatalogueModel, state: Boolean)
     fun setFavoriteTvShowCatalogue(catalogueModel: CatalogueModel, state: Boolean)
     fun getFavoriteMovie(): Flow<List<CatalogueModel>>
+    fun getFavoriteTvShow(): Flow<List<CatalogueModel>>
 }
