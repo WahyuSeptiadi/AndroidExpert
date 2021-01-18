@@ -22,11 +22,11 @@ class LocalDataSource private constructor(private val catalogueDao: CatalogueDao
 
     fun getAllMovie(): Flow<List<MovieEntity>> = catalogueDao.getAllMovie()
 
-    fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
+    suspend fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
 
     fun getAllTvShow(): Flow<List<TvShowEntity>> = catalogueDao.getAllTvShow()
 
-    fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
+    suspend fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
 
     fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
         movie.isFavorite = newState
