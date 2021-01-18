@@ -1,0 +1,8 @@
+com/codeart/filmskuy/favorite/databinding/FragmentMovieFavoriteBinding.java
+ com.codeart.filmskuy.favorite.databinding.FragmentMovieFavoriteBinding
+com/codeart/filmskuy/favorite/databinding/FragmentTvShowFavoriteBinding.java
+ com.codeart.filmskuy.favorite.databinding.FragmentTvShowFavoriteBinding
+com/codeart/filmskuy/favorite/databinding/ActivityFavoriteBinding.java
+ com.codeart.filmskuy.favorite.databinding.ActivityFavoriteBinding
+com/codeart/filmskuy/favorite/BuildConfig.java
+ com.codeart.filmskuy.favorite.BuildConfig

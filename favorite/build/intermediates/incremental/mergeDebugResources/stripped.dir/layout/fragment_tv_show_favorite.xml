@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_dark"
+    tools:context=".tvshow.TvShowFavoriteFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavTvShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        tools:listitem="@layout/item_list_catalogue" />
+
+    <ProgressBar
+        android:id="@+id/progressTvShowFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tvShowFavoriteNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/not_yet_tv_show_favorite"
+        android:textColor="@color/accent"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+</RelativeLayout>

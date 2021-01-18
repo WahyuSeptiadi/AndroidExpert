@@ -1,0 +1,105 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7234b0f152df6b18bd13a45c80f358e4\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7e8ff6e03fac3b93c2b0bf38c8666dd9\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\32ea2dd8d5ab30841bd21098dc8b5569\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\91da1a5181021f91a56a1222ac27e2a4\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\26e4eb6e9bebf59aa3426759a686271d\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\64f50f4988ae4c85745ff4e1ae1e3e8e\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ca360a336bbc993878ce8e0cd1dc0caa\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\8d1987beef5e01e3a0a5abc85f6361be\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\fa896f12ed7cf4536bd5d5880aa662e0\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\1a0f803fcda82c135932fe0b00cab5d2\print-1.0.0\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+	package
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:4:5-44
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	xmlns:dist
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:3:5-61
+	android:versionCode
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:11-69
+dist:module
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:6:5-14:19
+	dist:instant
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:7:9-29
+	dist:title
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:8:9-44
+dist:delivery
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-11:25
+dist:install-time
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:10:13-34
+dist:fusing
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:13:9-44
+	dist:include
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:13:22-41
+application
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:16:5-26:19
+activity#com.codeart.filmskuy.favorite.FavoriteActivity
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:9-25:20
+	android:name
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:19-51
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:host:favorite+data:scheme:filmskuy
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:18:13-24:29
+action#android.intent.action.VIEW
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:19:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:17-76
+	android:name
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:27-73
+data
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:21:17-23:49
+	android:host
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:22:21-44
+	android:scheme
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:23:21-46
+uses-sdk
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7234b0f152df6b18bd13a45c80f358e4\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7234b0f152df6b18bd13a45c80f358e4\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7e8ff6e03fac3b93c2b0bf38c8666dd9\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7e8ff6e03fac3b93c2b0bf38c8666dd9\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\32ea2dd8d5ab30841bd21098dc8b5569\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\32ea2dd8d5ab30841bd21098dc8b5569\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\91da1a5181021f91a56a1222ac27e2a4\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\91da1a5181021f91a56a1222ac27e2a4\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\26e4eb6e9bebf59aa3426759a686271d\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\26e4eb6e9bebf59aa3426759a686271d\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\64f50f4988ae4c85745ff4e1ae1e3e8e\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\64f50f4988ae4c85745ff4e1ae1e3e8e\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ca360a336bbc993878ce8e0cd1dc0caa\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ca360a336bbc993878ce8e0cd1dc0caa\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\8d1987beef5e01e3a0a5abc85f6361be\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\8d1987beef5e01e3a0a5abc85f6361be\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\fa896f12ed7cf4536bd5d5880aa662e0\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\fa896f12ed7cf4536bd5d5880aa662e0\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\1a0f803fcda82c135932fe0b00cab5d2\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\1a0f803fcda82c135932fe0b00cab5d2\print-1.0.0\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml

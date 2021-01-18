@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\build\\intermediates\\res\\merged\\debug\\layout_fragment_tv_show_favorite.xml.flat",
+        "source": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\src\\main\\res\\layout\\fragment_tv_show_favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\build\\intermediates\\res\\merged\\debug\\layout_fragment_movie_favorite.xml.flat",
+        "source": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\src\\main\\res\\layout\\fragment_movie_favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\build\\intermediates\\res\\merged\\debug\\layout_activity_favorite.xml.flat",
+        "source": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\src\\main\\res\\layout\\activity_favorite.xml"
+    }
+]
