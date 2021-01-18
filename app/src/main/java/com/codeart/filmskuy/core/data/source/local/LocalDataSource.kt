@@ -11,22 +11,14 @@ import kotlinx.coroutines.flow.Flow
  */
 
 class LocalDataSource(private val catalogueDao: CatalogueDao) {
-    companion object {
-        private var instance: LocalDataSource? = null
-
-        fun getInstance(catalogueDao: CatalogueDao): LocalDataSource =
-            instance ?: synchronized(this) {
-                instance ?: LocalDataSource(catalogueDao)
-            }
-    }
 
     fun getAllMovie(): Flow<List<MovieEntity>> = catalogueDao.getAllMovie()
 
-    fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
+    suspend fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
 
     fun getAllTvShow(): Flow<List<TvShowEntity>> = catalogueDao.getAllTvShow()
 
-    fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
+    suspend fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
 
     fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
         movie.isFavorite = newState

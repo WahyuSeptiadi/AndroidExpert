@@ -23,20 +23,6 @@ class CatalogueRepository(
     private val appExecutors: AppExecutors
 ) : ICatalogueRepository {
 
-    companion object {
-        @Volatile
-        private var instance: CatalogueRepository? = null
-
-        fun getInstance(
-            remoteData: RemoteDataSource,
-            localData: LocalDataSource,
-            appExecutors: AppExecutors
-        ): CatalogueRepository =
-            instance ?: synchronized(this) {
-                instance ?: CatalogueRepository(remoteData, localData, appExecutors)
-            }
-    }
-
     override fun getAllMovieCatalogue(): Flow<Resource<List<CatalogueModel>>> =
         object :
             NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {

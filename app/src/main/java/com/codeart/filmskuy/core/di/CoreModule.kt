@@ -7,6 +7,7 @@ import com.codeart.filmskuy.core.data.source.local.room.CatalogueDatabase
 import com.codeart.filmskuy.core.data.source.remote.RemoteDataSource
 import com.codeart.filmskuy.core.data.source.remote.network.ApiService
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
+import com.codeart.filmskuy.core.utils.API_BASE
 import com.codeart.filmskuy.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,7 +42,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://tourism-api.dicoding.dev/")
+            .baseUrl(API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

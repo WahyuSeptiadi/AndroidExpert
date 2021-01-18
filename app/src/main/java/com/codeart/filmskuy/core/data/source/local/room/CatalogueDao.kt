@@ -19,7 +19,7 @@ interface CatalogueDao {
     fun getFavoriteMovie(): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertMovie(movie: List<MovieEntity>)
+    suspend fun insertMovie(movie: List<MovieEntity>)
 
     @Update
     fun updateFavoriteMovie(movie: MovieEntity)
@@ -31,7 +31,7 @@ interface CatalogueDao {
     fun getFavoriteTvShow(): Flow<List<TvShowEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTvShow(tvShow: List<TvShowEntity>)
+    suspend fun insertTvShow(tvShow: List<TvShowEntity>)
 
     @Update
     fun updateFavoriteTvShow(tvShow: TvShowEntity)
