@@ -43,7 +43,7 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    fun getAllTvShow(): Flow<ApiResponse<List<TvShowResultResponse>>> {
+    suspend fun getAllTvShow(): Flow<ApiResponse<List<TvShowResultResponse>>> {
         return flow {
             try {
                 val response = apiService.getTvShows()
