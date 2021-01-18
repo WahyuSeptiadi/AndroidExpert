@@ -5,13 +5,12 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.codeart.filmskuy.R
 import com.codeart.filmskuy.core.domain.model.CatalogueModel
-import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
 import com.codeart.filmskuy.databinding.ActivityDetailBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * Created by wahyu_septiadi on 18, January 2021.
@@ -23,16 +22,13 @@ class DetailTvShowActivity : AppCompatActivity() {
         const val EXTRA_DATA = "extra_data"
     }
 
-    private lateinit var detailViewModel: DetailViewModel
+    private val detailViewModel: DetailViewModel by viewModel()
     private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val factory = ViewModelFactory.getInstance(this)
-        detailViewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         val detailCatalogue = intent.getParcelableExtra<CatalogueModel>(EXTRA_DATA)
         showDetailTourism(detailCatalogue)

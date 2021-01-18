@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class LocalDataSource private constructor(private val catalogueDao: CatalogueDao) {
+class LocalDataSource(private val catalogueDao: CatalogueDao) {
     companion object {
         private var instance: LocalDataSource? = null
 

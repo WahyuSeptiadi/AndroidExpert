@@ -8,17 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
-import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentTvShowBinding
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
 import com.codeart.filmskuy.detail.DetailTvShowActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class TvShowFragment : Fragment() {
 
-    private lateinit var tvShowViewModel: TvShowViewModel
+    private val tvShowViewModel: TvShowViewModel by viewModel()
 
     private var _binding: FragmentTvShowBinding? = null
     private val binding get() = _binding!!
@@ -41,9 +40,6 @@ class TvShowFragment : Fragment() {
                 intent.putExtra(DetailTvShowActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireContext())
-            tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
 
             tvShowViewModel.tvShow.observe(viewLifecycleOwner, { tvShow ->
                 if (tvShow != null) {

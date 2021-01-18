@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.map
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class CatalogueRepository private constructor(
+class CatalogueRepository(
     val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors

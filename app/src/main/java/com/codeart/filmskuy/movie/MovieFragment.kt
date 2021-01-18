@@ -8,17 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
-import com.codeart.filmskuy.core.ui.ViewModelFactory
 import com.codeart.filmskuy.databinding.FragmentMovieBinding
 import com.codeart.filmskuy.detail.DetailMovieActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieFragment : Fragment() {
 
-    private lateinit var movieViewModel: MovieViewModel
+    private val movieViewModel: MovieViewModel by viewModel()
 
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
@@ -42,9 +41,6 @@ class MovieFragment : Fragment() {
                 intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireContext())
-            movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             movieViewModel.movie.observe(viewLifecycleOwner, { movie ->
                 if (movie != null) {
