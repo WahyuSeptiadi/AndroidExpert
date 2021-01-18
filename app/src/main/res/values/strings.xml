@@ -11,4 +11,8 @@
     <string name="overview">Overview</string>
     <string name="my_favorite">My Favorite</string>
     <string name="title_favorite">Favorite</string>
+    <string name="search_movie">search movie</string>
+    <string name="your_movie_not_found">Sorry, Movie Not Found</string>
+    <string name="search_tv_show">search tv show</string>
+    <string name="your_tv_show_not_found">Sorry, Tv Show Not Found</string>
 </resources>

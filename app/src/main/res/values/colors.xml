@@ -13,4 +13,5 @@
     <color name="primary">#003E70</color>
     <color name="white_op70">#B3FFFFFF</color>
     <color name="accent">#01D17F</color>
+    <color name="gray">#222222</color>
 </resources>
