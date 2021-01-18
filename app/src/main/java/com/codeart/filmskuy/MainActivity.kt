@@ -1,6 +1,8 @@
 package com.codeart.filmskuy
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,6 +23,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewpagerMain.adapter = MyPagerAdapter(this, supportFragmentManager)
         binding.tabsMain.setupWithViewPager(binding.viewpagerMain)
+
+        binding.favorite.setOnClickListener {
+            val uri = Uri.parse("filmskuy://favorite")
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
+        }
     }
 }
 
