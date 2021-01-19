@@ -33,6 +33,9 @@ interface CatalogueDao {
     @Query("SELECT * FROM tv_show_favorite WHERE isFavorite = 1")
     fun getFavoriteTvShow(): Flow<List<TvShowEntity>>
 
+    @Query("SELECT * FROM tv_show_favorite WHERE name LIKE :name")
+    fun getSearchTvShowByName(name: String): Flow<List<TvShowEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTvShow(tvShow: List<TvShowEntity>)
 

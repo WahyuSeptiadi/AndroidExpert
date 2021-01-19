@@ -22,12 +22,12 @@ class RemoteDataSource(private val apiService: ApiService) {
             try {
                 val response = apiService.getMovies()
                 val dataArray = response.movieResultRespons
-                if (dataArray.isNotEmpty()){
+                if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(response.movieResultRespons))
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception){
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
                 Log.e("RemoteDataSource", e.toString())
             }
@@ -39,12 +39,12 @@ class RemoteDataSource(private val apiService: ApiService) {
             try {
                 val response = apiService.getTvShows()
                 val dataArray = response.tvShowResultRespons
-                if (dataArray.isNotEmpty()){
+                if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(response.tvShowResultRespons))
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception){
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
                 Log.e("RemoteDataSource", e.toString())
             }
@@ -56,12 +56,29 @@ class RemoteDataSource(private val apiService: ApiService) {
             try {
                 val response = apiService.searchMovie(title)
                 val dataArray = response.movieResultRespons
-                if (dataArray.isNotEmpty()){
+                if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(response.movieResultRespons))
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception){
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getSearchTvShow(name: String): Flow<ApiResponse<List<TvShowResultResponse>>> {
+        return flow {
+            try {
+                val response = apiService.searchTvShow(name)
+                val dataArray = response.tvShowResultRespons
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(response.tvShowResultRespons))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
                 Log.e("RemoteDataSource", e.toString())
             }

@@ -536,4 +536,66 @@ public final class CatalogueDao_Impl implements CatalogueDao {
       }
     });
   }
+
+  @Override
+  public Flow<List<TvShowEntity>> getSearchTvShowByName(final String name) {
+    final String _sql = "SELECT * FROM tv_show_favorite WHERE name LIKE ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (name == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, name);
+    }
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"tv_show_favorite"}, new Callable<List<TvShowEntity>>() {
+      @Override
+      public List<TvShowEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
+          final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
+          final int _cursorIndexOfFirstAirDate = CursorUtil.getColumnIndexOrThrow(_cursor, "first_air_date");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfVoteAverage = CursorUtil.getColumnIndexOrThrow(_cursor, "vote_average");
+          final List<TvShowEntity> _result = new ArrayList<TvShowEntity>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final TvShowEntity _item;
+            final boolean _tmpPopular;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfPopular);
+            _tmpPopular = _tmp != 0;
+            final boolean _tmpIsFavorite;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
+            _tmpIsFavorite = _tmp_1 != 0;
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            final String _tmpOverview;
+            _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpPosterPath;
+            _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
+            final String _tmpFirstAirDate;
+            _tmpFirstAirDate = _cursor.getString(_cursorIndexOfFirstAirDate);
+            final String _tmpName;
+            _tmpName = _cursor.getString(_cursorIndexOfName);
+            final double _tmpVoteAverage;
+            _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
 }

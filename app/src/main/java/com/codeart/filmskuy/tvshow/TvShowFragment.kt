@@ -7,11 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.databinding.FragmentTvShowBinding
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
+import com.codeart.filmskuy.core.utils.gone
+import com.codeart.filmskuy.core.utils.hideKeyboard
+import com.codeart.filmskuy.core.utils.toast
+import com.codeart.filmskuy.core.utils.visible
 import com.codeart.filmskuy.detail.DetailTvShowActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -44,18 +48,53 @@ class TvShowFragment : Fragment() {
             tvShowViewModel.tvShow.observe(viewLifecycleOwner, { tvShow ->
                 if (tvShow != null) {
                     when (tvShow) {
-                        is Resource.Loading -> binding.progressTvShow.visibility = View.VISIBLE
+                        is Resource.Loading -> binding.progressTvShow.visible()
                         is Resource.Success -> {
-                            binding.progressTvShow.visibility = View.GONE
+                            binding.progressTvShow.gone()
                             catalogueListAdapter.setData(tvShow.data)
                         }
                         is Resource.Error -> {
-                            binding.progressTvShow.visibility = View.GONE
-                            Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
+                            binding.progressTvShow.gone()
+                            toast("Check Your Connection!")
                         }
                     }
                 }
             })
+
+            binding.etSearchTvShow.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    val nameKey = binding.etSearchTvShow.text
+
+                    binding.progressTvShow.visible()
+
+                    if (nameKey.isNotEmpty()) {
+                        tvShowViewModel.getAllTvShowByName(nameKey.toString())
+                            .observe(viewLifecycleOwner, { tvShow ->
+                                if (tvShow != null) {
+                                    when (tvShow) {
+                                        is Resource.Loading -> binding.progressTvShow.visible()
+                                        is Resource.Success -> {
+                                            binding.progressTvShow.gone()
+                                            catalogueListAdapter.setData(tvShow.data)
+                                        }
+                                        is Resource.Error -> {
+                                            binding.progressTvShow.gone()
+                                            toast("Check Your Connection!")
+                                        }
+                                    }
+                                }
+                            })
+                    } else {
+                        binding.progressTvShow.gone()
+                        toast("Please, Enter Keyword!")
+                    }
+
+                    nameKey.clear()
+                    hideKeyboard()
+                    return@setOnEditorActionListener true
+                }
+                false
+            }
 
             with(binding.rvTvShow) {
                 val orientation = resources.configuration.orientation

@@ -84,7 +84,8 @@ class CatalogueRepository(
         object :
             NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
             override fun loadFromDB(): Flow<List<CatalogueModel>> {
-                return localDataSource.getSearchMovie(title).map { DataMapper.mapMovieEntitiesToDomain(it) }
+                return localDataSource.getSearchMovie(title)
+                    .map { DataMapper.mapMovieEntitiesToDomain(it) }
             }
 
             override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
@@ -96,6 +97,26 @@ class CatalogueRepository(
             override suspend fun saveCallResult(data: List<MovieResultResponse>) {
                 val movieList = DataMapper.mapSearchMovieResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)
+            }
+        }.asFlow()
+
+    override fun getSearchTvShowByName(name: String): Flow<Resource<List<CatalogueModel>>> =
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<TvShowResultResponse>>(appExecutors) {
+            override fun loadFromDB(): Flow<List<CatalogueModel>> {
+                return localDataSource.getSearchTvShow(name)
+                    .map { DataMapper.mapTvShowEntitiesToDomain(it) }
+            }
+
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
+                data == null || data.isEmpty()
+
+            override suspend fun createCall(): Flow<ApiResponse<List<TvShowResultResponse>>> =
+                remoteDataSource.getSearchTvShow(name)
+
+            override suspend fun saveCallResult(data: List<TvShowResultResponse>) {
+                val tvShowList = DataMapper.mapSearchTvShowResponsesToEntities(data)
+                localDataSource.insertTvShow(tvShowList)
             }
         }.asFlow()
 }

@@ -36,4 +36,5 @@ class LocalDataSource(private val catalogueDao: CatalogueDao) {
 
     fun getSearchMovie(title: String) = catalogueDao.getSearchMovieByTitle(title)
 
+    fun getSearchTvShow(name: String) = catalogueDao.getSearchTvShowByName(name)
 }

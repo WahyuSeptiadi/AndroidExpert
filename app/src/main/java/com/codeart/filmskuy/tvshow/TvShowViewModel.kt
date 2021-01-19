@@ -9,6 +9,10 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class TvShowViewModel(catalogueUsecase: CatalogueUsecase) : ViewModel() {
-    val tvShow = catalogueUsecase.getAllTvShowCatalogue().asLiveData()
+class TvShowViewModel(private val catalogueUseCase: CatalogueUsecase) : ViewModel() {
+    private val percent = "%"
+    val tvShow = catalogueUseCase.getAllTvShowCatalogue().asLiveData()
+
+    fun getAllTvShowByName(name: String) =
+        catalogueUseCase.getSearchTvShowByName(percent + name + percent).asLiveData()
 }

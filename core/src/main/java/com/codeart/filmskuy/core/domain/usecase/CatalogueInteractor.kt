@@ -20,4 +20,6 @@ class CatalogueInteractor(private val iCatalogueRepository: ICatalogueRepository
     override fun getFavoriteTvShow() = iCatalogueRepository.getFavoriteTvShow()
     override fun getSearchMovieByTitle(title: String) =
         iCatalogueRepository.getSearchMovieByTitle(title)
+    override fun getSearchTvShowByName(name: String) =
+        iCatalogueRepository.getSearchTvShowByName(name)
 }

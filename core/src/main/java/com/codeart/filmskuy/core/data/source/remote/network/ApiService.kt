@@ -23,4 +23,9 @@ interface ApiService {
     suspend fun searchMovie(
         @Query("query") title: String
     ): MovieListResponse
+
+    @GET("3/search/tv$API_SEARCH_LAST")
+    suspend fun searchTvShow(
+        @Query("query") name: String
+    ): TvShowListResponse
 }

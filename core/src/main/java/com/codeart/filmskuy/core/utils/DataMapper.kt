@@ -115,4 +115,22 @@ object DataMapper {
         }
         return movieList
     }
+
+    fun mapSearchTvShowResponsesToEntities(input: List<TvShowResultResponse>): List<TvShowEntity> {
+        val tvShowList = ArrayList<TvShowEntity>()
+        input.map {
+            val tvShow = TvShowEntity(
+                popular = false,
+                isFavorite = false,
+                id = it.id,
+                overview = it.overview,
+                posterPath = it.posterPath,
+                firstAirDate = it.firstAirDate,
+                name = it.name,
+                voteAverage = it.voteAverage
+            )
+            tvShowList.add(tvShow)
+        }
+        return tvShowList
+    }
 }
