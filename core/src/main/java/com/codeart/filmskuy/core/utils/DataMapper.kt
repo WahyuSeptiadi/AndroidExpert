@@ -97,4 +97,22 @@ object DataMapper {
         name = input.entry.toString(),
         voteAverage = input.voteAverage
     )
+
+    fun mapSearchMovieResponsesToEntities(input: List<MovieResultResponse>): List<MovieEntity> {
+        val movieList = ArrayList<MovieEntity>()
+        input.map {
+            val movie = MovieEntity(
+                popular = false,
+                isFavorite = false,
+                id = it.id,
+                overview = it.overview,
+                posterPath = it.posterPath,
+                releaseDate = it.releaseDate,
+                title = it.title,
+                voteAverage = it.voteAverage
+            )
+            movieList.add(movie)
+        }
+        return movieList
+    }
 }

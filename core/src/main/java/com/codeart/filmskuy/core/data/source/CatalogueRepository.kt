@@ -79,4 +79,23 @@ class CatalogueRepository(
     override fun getFavoriteTvShow(): Flow<List<CatalogueModel>> {
         return localDataSource.getFavoriteTvShow().map { DataMapper.mapTvShowEntitiesToDomain(it) }
     }
+
+    override fun getSearchMovieByTitle(title: String): Flow<Resource<List<CatalogueModel>>> =
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
+            override fun loadFromDB(): Flow<List<CatalogueModel>> {
+                return localDataSource.getSearchMovie(title).map { DataMapper.mapMovieEntitiesToDomain(it) }
+            }
+
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
+                data == null || data.isEmpty()
+
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResultResponse>>> =
+                remoteDataSource.getSearchMovie(title)
+
+            override suspend fun saveCallResult(data: List<MovieResultResponse>) {
+                val movieList = DataMapper.mapSearchMovieResponsesToEntities(data)
+                localDataSource.insertMovie(movieList)
+            }
+        }.asFlow()
 }

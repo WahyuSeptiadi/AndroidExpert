@@ -33,4 +33,7 @@ class LocalDataSource(private val catalogueDao: CatalogueDao) {
     fun getFavoriteMovie(): Flow<List<MovieEntity>> = catalogueDao.getFavoriteMovie()
 
     fun getFavoriteTvShow(): Flow<List<TvShowEntity>> = catalogueDao.getFavoriteTvShow()
+
+    fun getSearchMovie(title: String) = catalogueDao.getSearchMovieByTitle(title)
+
 }

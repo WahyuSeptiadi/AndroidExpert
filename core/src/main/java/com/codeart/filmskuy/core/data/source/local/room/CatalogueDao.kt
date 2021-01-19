@@ -18,6 +18,9 @@ interface CatalogueDao {
     @Query("SELECT * FROM movie_favorite WHERE isFavorite = 1")
     fun getFavoriteMovie(): Flow<List<MovieEntity>>
 
+    @Query("SELECT * FROM movie_favorite WHERE title LIKE :title")
+    fun getSearchMovieByTitle(title: String): Flow<List<MovieEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movie: List<MovieEntity>)
 

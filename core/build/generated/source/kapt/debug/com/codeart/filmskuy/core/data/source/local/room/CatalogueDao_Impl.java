@@ -364,6 +364,68 @@ public final class CatalogueDao_Impl implements CatalogueDao {
   }
 
   @Override
+  public Flow<List<MovieEntity>> getSearchMovieByTitle(final String title) {
+    final String _sql = "SELECT * FROM movie_favorite WHERE title LIKE ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (title == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, title);
+    }
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"movie_favorite"}, new Callable<List<MovieEntity>>() {
+      @Override
+      public List<MovieEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
+          final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
+          final int _cursorIndexOfReleaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "release_date");
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfVoteAverage = CursorUtil.getColumnIndexOrThrow(_cursor, "vote_average");
+          final List<MovieEntity> _result = new ArrayList<MovieEntity>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final MovieEntity _item;
+            final boolean _tmpPopular;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfPopular);
+            _tmpPopular = _tmp != 0;
+            final boolean _tmpIsFavorite;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
+            _tmpIsFavorite = _tmp_1 != 0;
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            final String _tmpOverview;
+            _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpPosterPath;
+            _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
+            final String _tmpReleaseDate;
+            _tmpReleaseDate = _cursor.getString(_cursorIndexOfReleaseDate);
+            final String _tmpTitle;
+            _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            final double _tmpVoteAverage;
+            _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
+            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
   public Flow<List<TvShowEntity>> getAllTvShowPopular() {
     final String _sql = "SELECT * FROM tv_show_favorite WHERE popular = 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);

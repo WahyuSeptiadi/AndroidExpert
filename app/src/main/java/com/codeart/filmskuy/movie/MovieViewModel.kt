@@ -9,6 +9,10 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class MovieViewModel(catalogueUseCase: CatalogueUsecase) : ViewModel() {
+class MovieViewModel(private val catalogueUseCase: CatalogueUsecase) : ViewModel() {
+    private val percent = "%"
     val movie = catalogueUseCase.getAllMovieCatalogue().asLiveData()
+
+    fun getAllMovieByTitle(title: String) =
+        catalogueUseCase.getSearchMovieByTitle(percent + title + percent).asLiveData()
 }
