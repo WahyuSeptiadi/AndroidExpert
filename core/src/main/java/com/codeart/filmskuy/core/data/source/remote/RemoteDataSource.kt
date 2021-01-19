@@ -21,9 +21,9 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getMovies()
-                val dataArray = response.movieResultRespons
+                val dataArray = response.movieResultResponse
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.movieResultRespons))
+                    emit(ApiResponse.Success(response.movieResultResponse))
                 } else {
                     emit(ApiResponse.Empty)
                 }
@@ -38,9 +38,9 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getTvShows()
-                val dataArray = response.tvShowResultRespons
+                val dataArray = response.tvShowResultResponse
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.tvShowResultRespons))
+                    emit(ApiResponse.Success(response.tvShowResultResponse))
                 } else {
                     emit(ApiResponse.Empty)
                 }
@@ -55,9 +55,9 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.searchMovie(title)
-                val dataArray = response.movieResultRespons
+                val dataArray = response.movieResultResponse
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.movieResultRespons))
+                    emit(ApiResponse.Success(response.movieResultResponse))
                 } else {
                     emit(ApiResponse.Empty)
                 }
@@ -72,9 +72,9 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.searchTvShow(name)
-                val dataArray = response.tvShowResultRespons
+                val dataArray = response.tvShowResultResponse
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.tvShowResultRespons))
+                    emit(ApiResponse.Success(response.tvShowResultResponse))
                 } else {
                     emit(ApiResponse.Empty)
                 }
