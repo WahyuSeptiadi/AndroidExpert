@@ -19,6 +19,7 @@ id ratingFilm
 id titleFilm
 id yearFilm
 layout item_list_catalogue
+layout top_bar_primary
 string app_name
 string dot
 string hello_blank_fragment

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7234b0f152df6b18bd13a45c80f358e4\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\7e8ff6e03fac3b93c2b0bf38c8666dd9\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\32ea2dd8d5ab30841bd21098dc8b5569\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -14,61 +14,65 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\US
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\8d1987beef5e01e3a0a5abc85f6361be\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\fa896f12ed7cf4536bd5d5880aa662e0\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\1a0f803fcda82c135932fe0b00cab5d2\print-1.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
 	package
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:4:5-44
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:5:5-44
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:4:5-51
 	xmlns:dist
 		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:3:5-61
 	android:versionCode
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:2:11-69
 dist:module
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:6:5-14:19
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:7:5-15:19
 	dist:instant
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:7:9-29
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:8:9-29
 	dist:title
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:8:9-44
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-44
 dist:delivery
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-11:25
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:10:9-12:25
 dist:install-time
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:10:13-34
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:11:13-34
 dist:fusing
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:13:9-44
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:14:9-44
 	dist:include
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:13:22-41
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:14:22-41
 application
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:16:5-26:19
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:5-27:19
+	tools:ignore
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:18-44
 activity#com.codeart.filmskuy.favorite.FavoriteActivity
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:9-25:20
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:18:9-26:20
 	android:name
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:17:19-51
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:18:19-51
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:host:favorite+data:scheme:filmskuy
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:18:13-24:29
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:19:13-25:29
 action#android.intent.action.VIEW
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:19:17-69
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:19:25-66
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:17-76
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:21:17-76
 	android:name
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:20:27-73
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:21:27-73
 data
-ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:21:17-23:49
+ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:22:17-24:49
 	android:host
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:22:21-44
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:23:21-44
 	android:scheme
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:23:21-46
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:24:21-46
 uses-sdk
 INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml

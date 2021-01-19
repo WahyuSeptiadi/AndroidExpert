@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/topBarFavorite"
-        layout="@layout/topbar_primary" />
+        layout="@layout/top_bar_primary" />
 
     <RelativeLayout
         android:layout_width="match_parent"

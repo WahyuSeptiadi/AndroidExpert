@@ -2,6 +2,7 @@ package com.codeart.filmskuy.favorite.tvshow
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ class TvShowFavoriteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.tvShowFragment.setBackgroundColor(Color.parseColor("#00294A"))
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {

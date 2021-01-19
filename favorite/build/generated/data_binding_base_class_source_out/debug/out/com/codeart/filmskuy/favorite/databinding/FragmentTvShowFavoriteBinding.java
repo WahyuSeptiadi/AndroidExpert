@@ -29,13 +29,17 @@ public final class FragmentTvShowFavoriteBinding implements ViewBinding {
   @NonNull
   public final TextView tvShowFavoriteNotFound;
 
+  @NonNull
+  public final RelativeLayout tvShowFragment;
+
   private FragmentTvShowFavoriteBinding(@NonNull RelativeLayout rootView,
       @NonNull ProgressBar progressTvShowFavorite, @NonNull RecyclerView rvFavTvShow,
-      @NonNull TextView tvShowFavoriteNotFound) {
+      @NonNull TextView tvShowFavoriteNotFound, @NonNull RelativeLayout tvShowFragment) {
     this.rootView = rootView;
     this.progressTvShowFavorite = progressTvShowFavorite;
     this.rvFavTvShow = rvFavTvShow;
     this.tvShowFavoriteNotFound = tvShowFavoriteNotFound;
+    this.tvShowFragment = tvShowFragment;
   }
 
   @Override
@@ -83,8 +87,10 @@ public final class FragmentTvShowFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
+      RelativeLayout tvShowFragment = (RelativeLayout) rootView;
+
       return new FragmentTvShowFavoriteBinding((RelativeLayout) rootView, progressTvShowFavorite,
-          rvFavTvShow, tvShowFavoriteNotFound);
+          rvFavTvShow, tvShowFavoriteNotFound, tvShowFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_dark"
+    android:id="@+id/tv_show_fragment"
     tools:context=".tvshow.TvShowFavoriteFragment">
 
     <androidx.recyclerview.widget.RecyclerView

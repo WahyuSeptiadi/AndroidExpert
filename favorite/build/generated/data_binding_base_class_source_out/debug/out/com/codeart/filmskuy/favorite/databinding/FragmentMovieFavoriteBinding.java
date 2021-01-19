@@ -24,16 +24,20 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
   public final TextView movieFavoriteNotFound;
 
   @NonNull
+  public final RelativeLayout movieFragment;
+
+  @NonNull
   public final ProgressBar progressMovieFavorite;
 
   @NonNull
   public final RecyclerView rvFavMovie;
 
   private FragmentMovieFavoriteBinding(@NonNull RelativeLayout rootView,
-      @NonNull TextView movieFavoriteNotFound, @NonNull ProgressBar progressMovieFavorite,
-      @NonNull RecyclerView rvFavMovie) {
+      @NonNull TextView movieFavoriteNotFound, @NonNull RelativeLayout movieFragment,
+      @NonNull ProgressBar progressMovieFavorite, @NonNull RecyclerView rvFavMovie) {
     this.rootView = rootView;
     this.movieFavoriteNotFound = movieFavoriteNotFound;
+    this.movieFragment = movieFragment;
     this.progressMovieFavorite = progressMovieFavorite;
     this.rvFavMovie = rvFavMovie;
   }
@@ -71,6 +75,8 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
+      RelativeLayout movieFragment = (RelativeLayout) rootView;
+
       id = R.id.progressMovieFavorite;
       ProgressBar progressMovieFavorite = rootView.findViewById(id);
       if (progressMovieFavorite == null) {
@@ -84,7 +90,7 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
       }
 
       return new FragmentMovieFavoriteBinding((RelativeLayout) rootView, movieFavoriteNotFound,
-          progressMovieFavorite, rvFavMovie);
+          movieFragment, progressMovieFavorite, rvFavMovie);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

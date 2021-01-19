@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
+import com.codeart.filmskuy.core.databinding.TopBarPrimaryBinding;
 import com.codeart.filmskuy.favorite.R;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.NullPointerException;
@@ -27,14 +28,14 @@ public final class ActivityFavoriteBinding implements ViewBinding {
   public final TabLayout tabsFavorite;
 
   @NonNull
-  public final View topBarFavorite;
+  public final TopBarPrimaryBinding topBarFavorite;
 
   @NonNull
   public final ViewPager viewpagerFavorite;
 
   private ActivityFavoriteBinding(@NonNull RelativeLayout rootView,
       @NonNull ImageView btnBackFavorite, @NonNull TabLayout tabsFavorite,
-      @NonNull View topBarFavorite, @NonNull ViewPager viewpagerFavorite) {
+      @NonNull TopBarPrimaryBinding topBarFavorite, @NonNull ViewPager viewpagerFavorite) {
     this.rootView = rootView;
     this.btnBackFavorite = btnBackFavorite;
     this.tabsFavorite = tabsFavorite;
@@ -86,6 +87,7 @@ public final class ActivityFavoriteBinding implements ViewBinding {
       if (topBarFavorite == null) {
         break missingId;
       }
+      TopBarPrimaryBinding binding_topBarFavorite = TopBarPrimaryBinding.bind(topBarFavorite);
 
       id = R.id.viewpagerFavorite;
       ViewPager viewpagerFavorite = rootView.findViewById(id);
@@ -94,7 +96,7 @@ public final class ActivityFavoriteBinding implements ViewBinding {
       }
 
       return new ActivityFavoriteBinding((RelativeLayout) rootView, btnBackFavorite, tabsFavorite,
-          topBarFavorite, viewpagerFavorite);
+          binding_topBarFavorite, viewpagerFavorite);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
