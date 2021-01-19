@@ -252,8 +252,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
   }
 
   @Override
-  public Flow<List<MovieEntity>> getAllMovie() {
-    final String _sql = "SELECT * FROM movie_favorite";
+  public Flow<List<MovieEntity>> getAllMoviePopular() {
+    final String _sql = "SELECT * FROM movie_favorite WHERE popular = 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"movie_favorite"}, new Callable<List<MovieEntity>>() {
       @Override
@@ -309,7 +309,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
 
   @Override
   public Flow<List<MovieEntity>> getFavoriteMovie() {
-    final String _sql = "SELECT * FROM movie_favorite where isFavorite = 1";
+    final String _sql = "SELECT * FROM movie_favorite WHERE isFavorite = 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"movie_favorite"}, new Callable<List<MovieEntity>>() {
       @Override
@@ -364,8 +364,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
   }
 
   @Override
-  public Flow<List<TvShowEntity>> getAllTvShow() {
-    final String _sql = "SELECT * FROM tv_show_favorite";
+  public Flow<List<TvShowEntity>> getAllTvShowPopular() {
+    final String _sql = "SELECT * FROM tv_show_favorite WHERE popular = 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"tv_show_favorite"}, new Callable<List<TvShowEntity>>() {
       @Override
@@ -421,7 +421,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
 
   @Override
   public Flow<List<TvShowEntity>> getFavoriteTvShow() {
-    final String _sql = "SELECT * FROM tv_show_favorite where isFavorite = 1";
+    final String _sql = "SELECT * FROM tv_show_favorite WHERE isFavorite = 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"tv_show_favorite"}, new Callable<List<TvShowEntity>>() {
       @Override

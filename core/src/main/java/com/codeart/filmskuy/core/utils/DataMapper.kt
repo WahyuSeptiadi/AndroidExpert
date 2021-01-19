@@ -16,7 +16,7 @@ object DataMapper {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                popular = false,
+                popular = true,
                 isFavorite = false,
                 id = it.id,
                 overview = it.overview,
@@ -48,7 +48,7 @@ object DataMapper {
         val tvShowList = ArrayList<TvShowEntity>()
         input.map {
             val tvShow = TvShowEntity(
-                popular = false,
+                popular = true,
                 isFavorite = false,
                 id = it.id,
                 overview = it.overview,

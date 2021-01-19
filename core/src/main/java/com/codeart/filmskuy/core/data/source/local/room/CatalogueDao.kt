@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CatalogueDao {
-    @Query("SELECT * FROM movie_favorite")
-    fun getAllMovie(): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM movie_favorite WHERE popular = 1")
+    fun getAllMoviePopular(): Flow<List<MovieEntity>>
 
-    @Query("SELECT * FROM movie_favorite where isFavorite = 1")
+    @Query("SELECT * FROM movie_favorite WHERE isFavorite = 1")
     fun getFavoriteMovie(): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -24,10 +24,10 @@ interface CatalogueDao {
     @Update
     fun updateFavoriteMovie(movie: MovieEntity)
 
-    @Query("SELECT * FROM tv_show_favorite")
-    fun getAllTvShow(): Flow<List<TvShowEntity>>
+    @Query("SELECT * FROM tv_show_favorite WHERE popular = 1")
+    fun getAllTvShowPopular(): Flow<List<TvShowEntity>>
 
-    @Query("SELECT * FROM tv_show_favorite where isFavorite = 1")
+    @Query("SELECT * FROM tv_show_favorite WHERE isFavorite = 1")
     fun getFavoriteTvShow(): Flow<List<TvShowEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

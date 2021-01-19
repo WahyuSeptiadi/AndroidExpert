@@ -12,11 +12,11 @@ import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource(private val catalogueDao: CatalogueDao) {
 
-    fun getAllMovie(): Flow<List<MovieEntity>> = catalogueDao.getAllMovie()
+    fun getAllMovie(): Flow<List<MovieEntity>> = catalogueDao.getAllMoviePopular()
 
     suspend fun insertMovie(movieList: List<MovieEntity>) = catalogueDao.insertMovie(movieList)
 
-    fun getAllTvShow(): Flow<List<TvShowEntity>> = catalogueDao.getAllTvShow()
+    fun getAllTvShow(): Flow<List<TvShowEntity>> = catalogueDao.getAllTvShowPopular()
 
     suspend fun insertTvShow(tvShowList: List<TvShowEntity>) = catalogueDao.insertTvShow(tvShowList)
 
