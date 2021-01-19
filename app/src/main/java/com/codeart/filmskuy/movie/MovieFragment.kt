@@ -23,8 +23,8 @@ class MovieFragment : Fragment() {
 
     private val movieViewModel: MovieViewModel by viewModel()
 
-    private var _binding: FragmentMovieBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var _binding: FragmentMovieBinding
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,10 +108,5 @@ class MovieFragment : Fragment() {
                 adapter = catalogueListAdapter
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

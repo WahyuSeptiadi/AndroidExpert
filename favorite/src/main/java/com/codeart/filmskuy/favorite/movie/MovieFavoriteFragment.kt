@@ -20,8 +20,8 @@ class MovieFavoriteFragment : Fragment() {
 
     private val movieFavoriteViewModel: MovieFavoriteViewModel by viewModel()
 
-    private var _binding: FragmentMovieFavoriteBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var _binding: FragmentMovieFavoriteBinding
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,10 +66,5 @@ class MovieFavoriteFragment : Fragment() {
                 adapter = catalogueListAdapter
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

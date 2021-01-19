@@ -23,8 +23,8 @@ class TvShowFragment : Fragment() {
 
     private val tvShowViewModel: TvShowViewModel by viewModel()
 
-    private var _binding: FragmentTvShowBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var _binding: FragmentTvShowBinding
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -107,10 +107,5 @@ class TvShowFragment : Fragment() {
                 adapter = catalogueListAdapter
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

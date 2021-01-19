@@ -20,8 +20,8 @@ class TvShowFavoriteFragment : Fragment() {
 
     private val tvShowFavoriteViewModel: TvShowFavoriteViewModel by viewModel()
 
-    private var _binding: FragmentTvShowFavoriteBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var _binding: FragmentTvShowFavoriteBinding
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,10 +67,5 @@ class TvShowFavoriteFragment : Fragment() {
                 adapter = catalogueListAdapter
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }
