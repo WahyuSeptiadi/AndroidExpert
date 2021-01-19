@@ -15,4 +15,5 @@
     <string name="your_movie_not_found">Sorry, Movie Not Found</string>
     <string name="search_tv_show">search tv show</string>
     <string name="your_tv_show_not_found">Sorry, Tv Show Not Found</string>
+    <string name="copyright_2020">Copyright 2021</string>
 </resources>

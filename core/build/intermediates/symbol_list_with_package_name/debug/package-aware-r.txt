@@ -568,6 +568,20 @@ attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
 attr logo
 attr logoDescription
+attr lottie_autoPlay
+attr lottie_colorFilter
+attr lottie_enableMergePathsForKitKatAndAbove
+attr lottie_fileName
+attr lottie_imageAssetsFolder
+attr lottie_loop
+attr lottie_progress
+attr lottie_rawRes
+attr lottie_renderMode
+attr lottie_repeatCount
+attr lottie_repeatMode
+attr lottie_scale
+attr lottie_speed
+attr lottie_url
 attr materialAlertDialogBodyTextStyle
 attr materialAlertDialogTheme
 attr materialAlertDialogTitleIconStyle
@@ -1692,6 +1706,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id automatic
 id baseline
 id before_logo_tv
 id beginning
@@ -1765,6 +1780,7 @@ id ghost_view_holder
 id glide_custom_view_target_tag
 id gone
 id group_divider
+id hardware
 id header_tv
 id home
 id homeAsUp
@@ -1792,6 +1808,7 @@ id linear
 id listMode
 id list_item
 id logo
+id lottie_layer_name
 id masked
 id media_actions
 id message
@@ -1854,6 +1871,8 @@ id progress_horizontal
 id radio
 id ratingFilm
 id rectangles
+id restart
+id reverse
 id reverseSawtooth
 id right
 id right_icon
@@ -1890,6 +1909,7 @@ id slide
 id smallLabel
 id snackbar_action
 id snackbar_text
+id software
 id spacer
 id splash_wrapper_rl
 id spline
@@ -2980,6 +3000,7 @@ styleable Layout android_layout_height android_layout_marginBottom android_layou
 styleable LinearLayoutCompat android_baselineAligned android_baselineAlignedChildIndex android_gravity android_orientation android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_height android_layout_weight android_layout_width
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
+styleable LottieAnimationView lottie_autoPlay lottie_colorFilter lottie_enableMergePathsForKitKatAndAbove lottie_fileName lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_renderMode lottie_repeatCount lottie_repeatMode lottie_scale lottie_speed lottie_url
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType
