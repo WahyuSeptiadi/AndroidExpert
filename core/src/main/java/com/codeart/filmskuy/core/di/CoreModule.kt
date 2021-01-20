@@ -9,6 +9,8 @@ import com.codeart.filmskuy.core.data.source.remote.network.ApiService
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
 import com.codeart.filmskuy.core.utils.API_BASE
 import com.codeart.filmskuy.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -25,10 +27,14 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<CatalogueDatabase>().catalogueDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("codeart".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             CatalogueDatabase::class.java, "Catalogue.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
