@@ -7,7 +7,7 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 def STRING = 'String'
-def API_KEY = '"99eba79685cf74de1c83d8e4c8885cd1"' ?: '"Define your TheMovieDB API KEY!"'
+def API_KEY = '"' + key + '"' ?: '"Define your TheMovieDB API KEY!"'
 
 android {
     compileSdkVersion 30
