@@ -71,9 +71,13 @@ class TvShowFragment : Fragment() {
                         tvShowViewModel.getAllTvShowByName(nameKey.toString())
                             .observe(viewLifecycleOwner, { tvShow ->
                                 if (tvShow != null) {
+                                    binding.tvNotFound.gone()
                                     when (tvShow) {
                                         is Resource.Loading -> binding.progressTvShow.visible()
                                         is Resource.Success -> {
+                                            if (tvShow.data?.isEmpty() == true) {
+                                                binding.tvNotFound.visible()
+                                            }
                                             binding.progressTvShow.gone()
                                             catalogueListAdapter.setData(tvShow.data)
                                         }

@@ -72,9 +72,13 @@ class MovieFragment : Fragment() {
                         movieViewModel.getAllMovieByTitle(titleKey.toString())
                             .observe(viewLifecycleOwner, { movie ->
                                 if (movie != null) {
+                                    binding.movieNotFound.gone()
                                     when (movie) {
                                         is Resource.Loading -> binding.progressMovie.visible()
                                         is Resource.Success -> {
+                                            if (movie.data?.isEmpty() == true) {
+                                                binding.movieNotFound.visible()
+                                            }
                                             binding.progressMovie.gone()
                                             catalogueListAdapter.setData(movie.data)
                                         }

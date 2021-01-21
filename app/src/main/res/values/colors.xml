@@ -9,6 +9,6 @@
     <color name="primary_dark">#00294A</color>
     <color name="primary">#003E70</color>
     <color name="white_op70">#B3FFFFFF</color>
-    <color name="accent">#01D17F</color>
-    <color name="gray">#3E3E3E</color>
+    <color name="accent">#3490DC</color>
+    <color name="gray_light">#B3B3B3</color>
 </resources>

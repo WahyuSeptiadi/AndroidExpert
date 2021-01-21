@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import com.airbnb.lottie.LottieAnimationView;
 import com.codeart.filmskuy.favorite.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -27,18 +27,18 @@ public final class FragmentTvShowFavoriteBinding implements ViewBinding {
   public final RecyclerView rvFavTvShow;
 
   @NonNull
-  public final TextView tvShowFavoriteNotFound;
+  public final LottieAnimationView tvFavoriteEmpty;
 
   @NonNull
   public final RelativeLayout tvShowFragment;
 
   private FragmentTvShowFavoriteBinding(@NonNull RelativeLayout rootView,
       @NonNull ProgressBar progressTvShowFavorite, @NonNull RecyclerView rvFavTvShow,
-      @NonNull TextView tvShowFavoriteNotFound, @NonNull RelativeLayout tvShowFragment) {
+      @NonNull LottieAnimationView tvFavoriteEmpty, @NonNull RelativeLayout tvShowFragment) {
     this.rootView = rootView;
     this.progressTvShowFavorite = progressTvShowFavorite;
     this.rvFavTvShow = rvFavTvShow;
-    this.tvShowFavoriteNotFound = tvShowFavoriteNotFound;
+    this.tvFavoriteEmpty = tvFavoriteEmpty;
     this.tvShowFragment = tvShowFragment;
   }
 
@@ -81,16 +81,16 @@ public final class FragmentTvShowFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvShowFavoriteNotFound;
-      TextView tvShowFavoriteNotFound = rootView.findViewById(id);
-      if (tvShowFavoriteNotFound == null) {
+      id = R.id.tvFavoriteEmpty;
+      LottieAnimationView tvFavoriteEmpty = rootView.findViewById(id);
+      if (tvFavoriteEmpty == null) {
         break missingId;
       }
 
       RelativeLayout tvShowFragment = (RelativeLayout) rootView;
 
       return new FragmentTvShowFavoriteBinding((RelativeLayout) rootView, progressTvShowFavorite,
-          rvFavTvShow, tvShowFavoriteNotFound, tvShowFragment);
+          rvFavTvShow, tvFavoriteEmpty, tvShowFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

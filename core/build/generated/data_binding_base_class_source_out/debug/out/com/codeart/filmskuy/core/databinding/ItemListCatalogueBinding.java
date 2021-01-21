@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import com.codeart.filmskuy.core.R;
 import java.lang.NullPointerException;
@@ -18,7 +18,7 @@ import java.lang.String;
 
 public final class ItemListCatalogueBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final CardView rootView;
 
   @NonNull
   public final FrameLayout frameFilm;
@@ -35,7 +35,7 @@ public final class ItemListCatalogueBinding implements ViewBinding {
   @NonNull
   public final TextView yearFilm;
 
-  private ItemListCatalogueBinding(@NonNull RelativeLayout rootView, @NonNull FrameLayout frameFilm,
+  private ItemListCatalogueBinding(@NonNull CardView rootView, @NonNull FrameLayout frameFilm,
       @NonNull ImageView imageFilm, @NonNull TextView ratingFilm, @NonNull TextView titleFilm,
       @NonNull TextView yearFilm) {
     this.rootView = rootView;
@@ -48,7 +48,7 @@ public final class ItemListCatalogueBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public CardView getRoot() {
     return rootView;
   }
 
@@ -103,8 +103,8 @@ public final class ItemListCatalogueBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemListCatalogueBinding((RelativeLayout) rootView, frameFilm, imageFilm,
-          ratingFilm, titleFilm, yearFilm);
+      return new ItemListCatalogueBinding((CardView) rootView, frameFilm, imageFilm, ratingFilm,
+          titleFilm, yearFilm);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

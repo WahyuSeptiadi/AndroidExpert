@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import com.airbnb.lottie.LottieAnimationView;
 import com.codeart.filmskuy.favorite.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,7 +21,7 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final TextView movieFavoriteNotFound;
+  public final LottieAnimationView movieFavoriteEmpty;
 
   @NonNull
   public final RelativeLayout movieFragment;
@@ -33,10 +33,10 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
   public final RecyclerView rvFavMovie;
 
   private FragmentMovieFavoriteBinding(@NonNull RelativeLayout rootView,
-      @NonNull TextView movieFavoriteNotFound, @NonNull RelativeLayout movieFragment,
+      @NonNull LottieAnimationView movieFavoriteEmpty, @NonNull RelativeLayout movieFragment,
       @NonNull ProgressBar progressMovieFavorite, @NonNull RecyclerView rvFavMovie) {
     this.rootView = rootView;
-    this.movieFavoriteNotFound = movieFavoriteNotFound;
+    this.movieFavoriteEmpty = movieFavoriteEmpty;
     this.movieFragment = movieFragment;
     this.progressMovieFavorite = progressMovieFavorite;
     this.rvFavMovie = rvFavMovie;
@@ -69,9 +69,9 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.movieFavoriteNotFound;
-      TextView movieFavoriteNotFound = rootView.findViewById(id);
-      if (movieFavoriteNotFound == null) {
+      id = R.id.movieFavoriteEmpty;
+      LottieAnimationView movieFavoriteEmpty = rootView.findViewById(id);
+      if (movieFavoriteEmpty == null) {
         break missingId;
       }
 
@@ -89,7 +89,7 @@ public final class FragmentMovieFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMovieFavoriteBinding((RelativeLayout) rootView, movieFavoriteNotFound,
+      return new FragmentMovieFavoriteBinding((RelativeLayout) rootView, movieFavoriteEmpty,
           movieFragment, progressMovieFavorite, rvFavMovie);
     }
     String missingId = rootView.getResources().getResourceName(id);

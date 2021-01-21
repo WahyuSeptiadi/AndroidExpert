@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
+import com.codeart.filmskuy.core.utils.gone
 import com.codeart.filmskuy.detail.DetailTvShowActivity
 import com.codeart.filmskuy.favorite.databinding.FragmentTvShowFavoriteBinding
 import com.codeart.filmskuy.favorite.di.favoriteModule
@@ -48,9 +49,9 @@ class TvShowFavoriteFragment : Fragment() {
 
             tvShowFavoriteViewModel.tvShowFavorite.observe(viewLifecycleOwner, { tvShowFav ->
                 if (tvShowFav != null) {
-                    binding.progressTvShowFavorite.visibility = View.GONE
+                    binding.progressTvShowFavorite.gone()
                     catalogueListAdapter.setData(tvShowFav)
-                    binding.tvShowFavoriteNotFound.visibility =
+                    binding.tvFavoriteEmpty.visibility =
                         if (tvShowFav.isNotEmpty()) View.INVISIBLE else View.VISIBLE
                 }
             })

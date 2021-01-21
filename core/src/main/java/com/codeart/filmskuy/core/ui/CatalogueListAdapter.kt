@@ -37,12 +37,12 @@ class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewH
                     val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
                     Glide.with(itemView.context)
                         .load(urlImage)
-                        .placeholder(R.drawable.loading)
+                        .placeholder(R.drawable.loadings)
                         .into(imageFilm)
                 } else {
                     Glide.with(itemView.context)
                         .load(R.drawable.img_notfound)
-                        .placeholder(R.drawable.loading)
+                        .placeholder(R.drawable.loadings)
                         .into(imageFilm)
                 }
 

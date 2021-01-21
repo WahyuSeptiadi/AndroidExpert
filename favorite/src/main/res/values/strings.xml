@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="not_yet_movie_favorite">Movie Favorite Not Found</string>
-    <string name="not_yet_tv_show_favorite">TvShow Favorite Not Found</string>
+    <string name="my_favorite">My Favorite</string>
+    <string name="favorite">Favorite</string>
 </resources>

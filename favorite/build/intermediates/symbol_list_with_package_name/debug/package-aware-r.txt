@@ -17,7 +17,7 @@ id info
 id line1
 id line3
 id media_actions
-id movieFavoriteNotFound
+id movieFavoriteEmpty
 id movie_fragment
 id notification_main_column
 id notification_main_column_container
@@ -33,7 +33,7 @@ id text2
 id time
 id title
 id topBarFavorite
-id tvShowFavoriteNotFound
+id tvFavoriteEmpty
 id tv_show_fragment
 id viewpagerFavorite
 integer cancel_button_image_alpha
@@ -49,8 +49,8 @@ layout notification_template_big_media_narrow_custom
 layout notification_template_lines_media
 layout notification_template_media
 layout notification_template_media_custom
-string not_yet_movie_favorite
-string not_yet_tv_show_favorite
+string favorite
+string my_favorite
 style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2_Media
 style TextAppearance_Compat_Notification_Media

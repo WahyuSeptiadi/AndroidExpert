@@ -1,17 +1,13 @@
 <resources>
     <string name="app_name">FilmSkuy</string>
     <string name="todo">todo</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="movie">movie</string>
     <string name="tv_show">tv show</string>
     <string name="sample_rate">0.0</string>
     <string name="dot">. . .</string>
     <string name="size_url_image_list">/w780</string>
     <string name="overview">Overview</string>
-    <string name="title_favorite">Favorite</string>
     <string name="search_movie">search movie</string>
-    <string name="your_movie_not_found">Sorry, Movie Not Found</string>
     <string name="search_tv_show">search tv show</string>
-    <string name="your_tv_show_not_found">Sorry, Tv Show Not Found</string>
     <string name="copyright_2020">Copyright 2021</string>
 </resources>

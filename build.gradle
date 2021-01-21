@@ -6,6 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
+        //noinspection GradleDependency
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
@@ -34,4 +35,5 @@ ext {
     ext.lifecycle_version = "2.2.0"
     ext.koin_version = "2.1.6"
     ext.lottie_version = "3.0.0"
+    ext.shimmer_version = "0.5.0"
 }

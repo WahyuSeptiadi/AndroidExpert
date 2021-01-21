@@ -952,7 +952,6 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
-color accent
 color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
@@ -1148,7 +1147,6 @@ color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
 color primary
-color primary_dark
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1157,9 +1155,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color purple_200
-color purple_500
-color purple_700
 color radiobutton_themeable_attribute_color
 color ripple_material_dark
 color ripple_material_light
@@ -1173,8 +1168,6 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
-color teal_200
-color teal_700
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
@@ -1666,7 +1659,7 @@ drawable leak_canary_tab_background
 drawable leak_canary_tab_selector_ripple
 drawable leak_canary_toast_background
 drawable leak_canary_tv_icon
-drawable loading
+drawable loadings
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -2271,7 +2264,6 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
-string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string character_counter_content_description
@@ -2284,7 +2276,6 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
-string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -2364,7 +2355,6 @@ string library_android_database_sqlcipher_licenseLink
 string library_android_database_sqlcipher_repositoryLink
 string material_slider_range_end
 string material_slider_range_start
-string movie
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -2400,8 +2390,6 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
-string my_favorite
-string overview
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -2412,7 +2400,6 @@ string search_menu_title
 string size_url_image_list
 string status_bar_notification_info_overflow
 string todo
-string tv_show
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

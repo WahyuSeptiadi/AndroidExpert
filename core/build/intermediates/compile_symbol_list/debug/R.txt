@@ -951,7 +951,6 @@ int color abc_tint_edittext 0x0
 int color abc_tint_seek_thumb 0x0
 int color abc_tint_spinner 0x0
 int color abc_tint_switch_track 0x0
-int color accent 0x0
 int color accent_material_dark 0x0
 int color accent_material_light 0x0
 int color androidx_core_ripple_material_light 0x0
@@ -1147,7 +1146,6 @@ int color notification_action_color_filter 0x0
 int color notification_icon_bg_color 0x0
 int color notification_material_background_media_default_color 0x0
 int color primary 0x0
-int color primary_dark 0x0
 int color primary_dark_material_dark 0x0
 int color primary_dark_material_light 0x0
 int color primary_material_dark 0x0
@@ -1156,9 +1154,6 @@ int color primary_text_default_material_dark 0x0
 int color primary_text_default_material_light 0x0
 int color primary_text_disabled_material_dark 0x0
 int color primary_text_disabled_material_light 0x0
-int color purple_200 0x0
-int color purple_500 0x0
-int color purple_700 0x0
 int color radiobutton_themeable_attribute_color 0x0
 int color ripple_material_dark 0x0
 int color ripple_material_light 0x0
@@ -1172,8 +1167,6 @@ int color switch_thumb_material_dark 0x0
 int color switch_thumb_material_light 0x0
 int color switch_thumb_normal_material_dark 0x0
 int color switch_thumb_normal_material_light 0x0
-int color teal_200 0x0
-int color teal_700 0x0
 int color test_mtrl_calendar_day 0x0
 int color test_mtrl_calendar_day_selected 0x0
 int color tooltip_background_dark 0x0
@@ -1665,7 +1658,7 @@ int drawable leak_canary_tab_background 0x0
 int drawable leak_canary_tab_selector_ripple 0x0
 int drawable leak_canary_toast_background 0x0
 int drawable leak_canary_tv_icon 0x0
-int drawable loading 0x0
+int drawable loadings 0x0
 int drawable material_ic_calendar_black_24dp 0x0
 int drawable material_ic_clear_black_24dp 0x0
 int drawable material_ic_edit_black_24dp 0x0
@@ -2270,7 +2263,6 @@ int string abc_searchview_description_voice 0x0
 int string abc_shareactionprovider_share_with 0x0
 int string abc_shareactionprovider_share_with_application 0x0
 int string abc_toolbar_collapse_description 0x0
-int string app_name 0x0
 int string appbar_scrolling_view_behavior 0x0
 int string bottom_sheet_behavior 0x0
 int string character_counter_content_description 0x0
@@ -2283,7 +2275,6 @@ int string error_icon_content_description 0x0
 int string exposed_dropdown_menu_content_description 0x0
 int string fab_transformation_scrim_behavior 0x0
 int string fab_transformation_sheet_behavior 0x0
-int string hello_blank_fragment 0x0
 int string hide_bottom_view_on_scroll_behavior 0x0
 int string icon_content_description 0x0
 int string item_view_role_description 0x0
@@ -2363,7 +2354,6 @@ int string library_android_database_sqlcipher_licenseLink 0x0
 int string library_android_database_sqlcipher_repositoryLink 0x0
 int string material_slider_range_end 0x0
 int string material_slider_range_start 0x0
-int string movie 0x0
 int string mtrl_badge_numberless_content_description 0x0
 int string mtrl_chip_close_icon_content_description 0x0
 int string mtrl_exceed_max_badge_number_content_description 0x0
@@ -2399,8 +2389,6 @@ int string mtrl_picker_toggle_to_calendar_input_mode 0x0
 int string mtrl_picker_toggle_to_day_selection 0x0
 int string mtrl_picker_toggle_to_text_input_mode 0x0
 int string mtrl_picker_toggle_to_year_selection 0x0
-int string my_favorite 0x0
-int string overview 0x0
 int string password_toggle_content_description 0x0
 int string path_password_eye 0x0
 int string path_password_eye_mask_strike_through 0x0
@@ -2411,7 +2399,6 @@ int string search_menu_title 0x0
 int string size_url_image_list 0x0
 int string status_bar_notification_info_overflow 0x0
 int string todo 0x0
-int string tv_show 0x0
 int style AlertDialog_AppCompat 0x0
 int style AlertDialog_AppCompat_Light 0x0
 int style AndroidThemeColorAccentYellow 0x0

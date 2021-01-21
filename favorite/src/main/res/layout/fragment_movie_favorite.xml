@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/movie_fragment"
     tools:context=".movie.MovieFavoriteFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -19,13 +20,13 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
-    <TextView
-        android:id="@+id/movieFavoriteNotFound"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/movieFavoriteEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/not_yet_movie_favorite"
-        android:textColor="@color/accent"
-        android:textSize="20sp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="empty.json"
+        app:lottie_loop="true" />
 </RelativeLayout>

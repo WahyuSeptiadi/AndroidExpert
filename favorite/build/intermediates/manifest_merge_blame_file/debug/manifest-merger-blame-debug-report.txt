@@ -16,8 +16,8 @@
 13-->C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:7:5-15:19
 14        dist:instant="false"
 14-->C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:8:9-29
-15        dist:title="@string/title_favorite" >
-15-->C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-44
+15        dist:title="@string/favorite" >
+15-->C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-38
 16        <dist:delivery>
 16-->C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:10:9-12:25
 17            <dist:install-time />

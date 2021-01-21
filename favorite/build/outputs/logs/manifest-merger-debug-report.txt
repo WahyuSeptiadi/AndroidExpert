@@ -40,7 +40,7 @@ ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\A
 	dist:instant
 		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:8:9-29
 	dist:title
-		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-44
+		ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:9:9-38
 dist:delivery
 ADDED from C:\Users\USER\AndroidStudioProjects\AndroidExpert\favorite\src\main\AndroidManifest.xml:10:9-12:25
 dist:install-time

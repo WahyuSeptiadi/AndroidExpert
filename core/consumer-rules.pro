@@ -89,7 +89,7 @@ public *;
 
 
 ##---------------Begin: proguard configuration for Conscrypt ----------
-#-dontwarn org.conscrypt.ConscryptHostnameVerifier
+-dontwarn org.conscrypt.ConscryptHostnameVerifier
 
 
 ##---------------Begin: proguard configuration for Additional ----------

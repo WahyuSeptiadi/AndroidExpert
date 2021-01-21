@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
+import com.codeart.filmskuy.core.utils.gone
 import com.codeart.filmskuy.detail.DetailMovieActivity
 import com.codeart.filmskuy.favorite.databinding.FragmentMovieFavoriteBinding
 import com.codeart.filmskuy.favorite.di.favoriteModule
@@ -48,9 +49,9 @@ class MovieFavoriteFragment : Fragment() {
 
             movieFavoriteViewModel.movieFavorite.observe(viewLifecycleOwner, { movieFav ->
                 if (movieFav != null) {
-                    binding.progressMovieFavorite.visibility = View.GONE
+                    binding.progressMovieFavorite.gone()
                     catalogueListAdapter.setData(movieFav)
-                    binding.movieFavoriteNotFound.visibility =
+                    binding.movieFavoriteEmpty.visibility =
                         if (movieFav.isNotEmpty()) View.INVISIBLE else View.VISIBLE
                 }
             })
