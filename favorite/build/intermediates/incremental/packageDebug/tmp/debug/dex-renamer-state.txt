@@ -1,7 +1,4 @@
-#Wed Jan 20 19:56:09 ICT 2021
-base.0=C\:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
+#Thu Jan 21 10:43:58 ICT 2021
+base.0=C\:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\app\\build\\intermediates\\feature_dex\\debug\\feature-favorite\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
