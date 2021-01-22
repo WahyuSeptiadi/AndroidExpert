@@ -17,7 +17,7 @@ layout item_list_similar
 layout top_bar_primary
 string dot
 string sample_rate
-string size_url_image_list
 string size_url_poster_detail
+string size_url_poster_main
 string size_url_poster_similar
 string todo

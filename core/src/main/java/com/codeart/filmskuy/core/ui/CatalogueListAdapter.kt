@@ -33,7 +33,7 @@ class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewH
         fun bind(data: CatalogueModel) {
             with(binding) {
                 if (data.posterPath != null) {
-                    val imageSize = itemView.context.getString(R.string.size_url_image_list)
+                    val imageSize = itemView.context.getString(R.string.size_url_poster_main)
                     val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
                     Glide.with(itemView.context)
                         .load(urlImage)

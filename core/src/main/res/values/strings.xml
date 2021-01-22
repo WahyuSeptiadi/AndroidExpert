@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="todo">todo</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="sample_rate">0.0</string>
     <string name="dot">. . .</string>
-    <string name="size_url_image_list">/w780</string>
+    <string name="size_url_poster_main">/w780</string>
     <string name="size_url_poster_similar">/w154</string>
     <string name="size_url_poster_detail">/w300</string>
 </resources>

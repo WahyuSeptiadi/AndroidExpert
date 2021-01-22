@@ -101,4 +101,21 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    fun getSimilarTvShow(id: String): Flow<ApiResponse<List<TvShowResultResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getSimilarTvShow(id)
+                val dataArray = response.tvShowResultResponse
+
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(dataArray))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }

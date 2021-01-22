@@ -24,4 +24,6 @@ class CatalogueInteractor(private val iCatalogueRepository: ICatalogueRepository
         iCatalogueRepository.getSearchTvShowByName(name)
     override fun getSimilarMovieList(id: String) =
         iCatalogueRepository.getSimilarMovieById(id)
+    override fun getSimilarTvShowList(id: String) =
+        iCatalogueRepository.getSimilarTvShowById(id)
 }

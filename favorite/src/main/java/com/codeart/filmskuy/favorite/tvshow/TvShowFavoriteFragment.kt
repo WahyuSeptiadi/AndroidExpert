@@ -44,6 +44,7 @@ class TvShowFavoriteFragment : Fragment() {
             catalogueListAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailTvShowActivity::class.java)
                 intent.putExtra(DetailTvShowActivity.EXTRA_DATA, selectedData)
+                intent.putExtra(DetailTvShowActivity.FAVORITE_TYPE, 1)
                 startActivity(intent)
             }
 

@@ -161,7 +161,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/overviewDetailFilm" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_similar_movie"
+                android:id="@+id/rv_similar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

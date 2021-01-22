@@ -66,9 +66,9 @@ class DetailMovieActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         with(binding) {
-            rvSimilarMovie.layoutManager = layoutManager
-            rvSimilarMovie.hasFixedSize()
-            rvSimilarMovie.adapter = similarListAdapter
+            rvSimilar.layoutManager = layoutManager
+            rvSimilar.hasFixedSize()
+            rvSimilar.adapter = similarListAdapter
         }
     }
 

@@ -138,4 +138,24 @@ class CatalogueRepository(
 
         }.asFlow()
     }
+
+    override fun getSimilarTvShowById(id: String): Flow<Resource<List<CatalogueModel>>> {
+        return object : RemoteResource<List<CatalogueModel>, List<TvShowResultResponse>>() {
+            override fun createCall(): Flow<ApiResponse<List<TvShowResultResponse>>> {
+                return remoteDataSource.getSimilarTvShow(id)
+            }
+
+            override fun convertCallResult(data: List<TvShowResultResponse>): Flow<List<CatalogueModel>> {
+                val result = data.map {
+                    DataMapper.mapTvShowResponseToDomain(it)
+                }
+                return flow { emit(result) }
+            }
+
+            override fun emptyResult(): Flow<List<CatalogueModel>> {
+                return flow { emit(emptyList<CatalogueModel>()) }
+            }
+
+        }.asFlow()
+    }
 }

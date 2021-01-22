@@ -19,4 +19,5 @@ interface CatalogueUsecase {
     fun getSearchMovieByTitle(title: String): Flow<Resource<List<CatalogueModel>>>
     fun getSearchTvShowByName(name: String): Flow<Resource<List<CatalogueModel>>>
     fun getSimilarMovieList(id: String): Flow<Resource<List<CatalogueModel>>>
+    fun getSimilarTvShowList(id: String): Flow<Resource<List<CatalogueModel>>>
 }

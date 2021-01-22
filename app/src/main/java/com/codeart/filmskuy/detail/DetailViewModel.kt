@@ -13,9 +13,8 @@ import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 class DetailViewModel(private val catalogueUsecase: CatalogueUsecase) : ViewModel() {
     fun setFavoriteMovie(catalogue: CatalogueModel, newStatus: Boolean) =
         catalogueUsecase.setFavoriteMovieCatalogue(catalogue, newStatus)
-
     fun setFavoriteTvShow(catalogue: CatalogueModel, newStatus: Boolean) =
         catalogueUsecase.setFavoriteTvShowCatalogue(catalogue, newStatus)
-
     fun getSimilarMovie(id: String) = catalogueUsecase.getSimilarMovieList(id).asLiveData()
+    fun getSimilarTvShow(id: String) = catalogueUsecase.getSimilarTvShowList(id).asLiveData()
 }

@@ -2398,8 +2398,8 @@ int string path_password_eye_mask_visible 0x0
 int string path_password_strike_through 0x0
 int string sample_rate 0x0
 int string search_menu_title 0x0
-int string size_url_image_list 0x0
 int string size_url_poster_detail 0x0
+int string size_url_poster_main 0x0
 int string size_url_poster_similar 0x0
 int string status_bar_notification_info_overflow 0x0
 int string todo 0x0

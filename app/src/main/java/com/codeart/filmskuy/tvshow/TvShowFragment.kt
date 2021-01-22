@@ -43,6 +43,7 @@ class TvShowFragment : Fragment() {
 
                 catalogueListAdapter.onItemClick = { selectedData ->
                     val intent = Intent(activity, DetailTvShowActivity::class.java)
+                    intent.putExtra(DetailTvShowActivity.EXTRA_ID, selectedData.id.toString())
                     intent.putExtra(DetailTvShowActivity.EXTRA_DATA, selectedData)
                     startActivity(intent)
                 }

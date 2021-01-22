@@ -153,4 +153,16 @@ object DataMapper {
         entry = input.title,
         voteAverage = input.voteAverage,
     )
+
+    fun mapTvShowResponseToDomain(input: TvShowResultResponse) = CatalogueModel(
+        popular = false,
+        isFavorite = false,
+        id = input.id,
+        overview = input.overview,
+        backdropPath = input.backdropPath,
+        date = input.firstAirDate,
+        posterPath = input.posterPath,
+        entry = input.name,
+        voteAverage = input.voteAverage,
+    )
 }

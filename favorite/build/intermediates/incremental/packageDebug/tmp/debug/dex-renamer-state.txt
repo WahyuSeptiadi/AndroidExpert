@@ -1,4 +1,4 @@
-#Fri Jan 22 20:49:14 ICT 2021
+#Fri Jan 22 21:47:11 ICT 2021
 base.0=C\:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\app\\build\\intermediates\\feature_dex\\debug\\feature-favorite\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

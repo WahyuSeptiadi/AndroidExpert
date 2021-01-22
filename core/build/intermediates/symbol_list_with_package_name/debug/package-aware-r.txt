@@ -2399,8 +2399,8 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string sample_rate
 string search_menu_title
-string size_url_image_list
 string size_url_poster_detail
+string size_url_poster_main
 string size_url_poster_similar
 string status_bar_notification_info_overflow
 string todo
