@@ -141,4 +141,16 @@ object DataMapper {
         }
         return tvShowList
     }
+
+    fun mapMovieResponseToDomain(input: MovieResultResponse) = CatalogueModel(
+        popular = false,
+        isFavorite = false,
+        id = input.id,
+        overview = input.overview,
+        backdropPath = input.backdropPath,
+        date = input.releaseDate,
+        posterPath = input.posterPath,
+        entry = input.title,
+        voteAverage = input.voteAverage,
+    )
 }

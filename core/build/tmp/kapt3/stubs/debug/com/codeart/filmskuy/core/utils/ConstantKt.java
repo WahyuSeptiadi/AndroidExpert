@@ -10,7 +10,7 @@ public final class ConstantKt {
      * Visit My GitHub --> https://github.com/WahyuSeptiadi
      */
     @org.jetbrains.annotations.NotNull()
-    public static final java.lang.String API_BASE = "https://api.themoviedb.org/";
+    public static final java.lang.String API_BASE = "https://api.themoviedb.org/3/";
     @org.jetbrains.annotations.NotNull()
     public static final java.lang.String API_URL_LAST = "?api_key=99eba79685cf74de1c83d8e4c8885cd1&language=en-US/";
     @org.jetbrains.annotations.NotNull()

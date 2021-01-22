@@ -5,6 +5,7 @@ import com.codeart.filmskuy.core.data.source.remote.response.TvShowListResponse
 import com.codeart.filmskuy.core.utils.API_SEARCH_LAST
 import com.codeart.filmskuy.core.utils.API_URL_LAST
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -13,19 +14,29 @@ import retrofit2.http.Query
  */
 
 interface ApiService {
-    @GET("3/discover/movie/$API_URL_LAST")
+    @GET("discover/movie/$API_URL_LAST")
     suspend fun getMovies(): MovieListResponse
 
-    @GET("3/discover/tv/$API_URL_LAST")
+    @GET("discover/tv/$API_URL_LAST")
     suspend fun getTvShows(): TvShowListResponse
 
-    @GET("3/search/movie$API_SEARCH_LAST")
+    @GET("search/movie$API_SEARCH_LAST")
     suspend fun searchMovie(
         @Query("query") title: String
     ): MovieListResponse
 
-    @GET("3/search/tv$API_SEARCH_LAST")
+    @GET("search/tv$API_SEARCH_LAST")
     suspend fun searchTvShow(
         @Query("query") name: String
+    ): TvShowListResponse
+
+    @GET("movie/{movie_id}/similar$API_URL_LAST")
+    suspend fun getSimilarMovie(
+        @Path("movie_id") movieId: String
+    ): MovieListResponse
+
+    @GET("tv/{tv_id}/similar$API_URL_LAST")
+    suspend fun getSimilarTvShow(
+        @Path("tv_id") tvId: String
     ): TvShowListResponse
 }

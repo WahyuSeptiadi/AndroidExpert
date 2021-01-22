@@ -7,5 +7,7 @@
     <string name="dot">. . .</string>
     <string name="sample_rate">0.0</string>
     <string name="size_url_image_list">/w780</string>
+    <string name="size_url_poster_detail">/w300</string>
+    <string name="size_url_poster_similar">/w154</string>
     <string name="todo">todo</string>
 </resources>

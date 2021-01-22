@@ -1,6 +1,7 @@
 package com.codeart.filmskuy.detail
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
 
@@ -15,4 +16,6 @@ class DetailViewModel(private val catalogueUsecase: CatalogueUsecase) : ViewMode
 
     fun setFavoriteTvShow(catalogue: CatalogueModel, newStatus: Boolean) =
         catalogueUsecase.setFavoriteTvShowCatalogue(catalogue, newStatus)
+
+    fun getSimilarMovie(id: String) = catalogueUsecase.getSimilarMovieList(id).asLiveData()
 }

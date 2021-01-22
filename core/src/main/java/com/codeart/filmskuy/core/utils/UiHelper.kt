@@ -20,6 +20,10 @@ fun View.gone() {
     this.visibility = View.GONE
 }
 
+fun Activity.toast(msg: String) {
+    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+}
+
 fun Fragment.toast(msg: String) {
     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }

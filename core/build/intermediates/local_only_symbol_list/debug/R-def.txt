@@ -8,12 +8,16 @@ drawable img_notfound
 drawable loadings
 id frameFilm
 id imageFilm
+id poster_similar
 id ratingFilm
 id titleFilm
 id yearFilm
 layout item_list_catalogue
+layout item_list_similar
 layout top_bar_primary
 string dot
 string sample_rate
 string size_url_image_list
+string size_url_poster_detail
+string size_url_poster_similar
 string todo

@@ -1955,6 +1955,7 @@ id percent
 id pin
 id position
 id postLayout
+id poster_similar
 id progress_circular
 id progress_horizontal
 id radio
@@ -2144,6 +2145,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout item_list_catalogue
+layout item_list_similar
 layout leak_canary_about_screen
 layout leak_canary_heap_analysis_failure_screen
 layout leak_canary_heap_dump_leak_title
@@ -2398,6 +2400,8 @@ string path_password_strike_through
 string sample_rate
 string search_menu_title
 string size_url_image_list
+string size_url_poster_detail
+string size_url_poster_similar
 string status_bar_notification_info_overflow
 string todo
 style AlertDialog_AppCompat

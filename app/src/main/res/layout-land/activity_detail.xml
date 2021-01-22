@@ -15,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="50dp">
+            android:paddingBottom="15dp">
 
             <ImageView
                 android:id="@+id/backgroundDetailFilm"
@@ -30,33 +30,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginBottom="10dp"
-                android:src="@color/white_op70"
-                app:civ_border_color="@color/primary_dark"
-                app:civ_border_width="1dp"
+            <ImageView
+                android:id="@+id/star_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:background="@drawable/ic_round_star_gold"
+                android:contentDescription="@string/todo"
                 app:layout_constraintBottom_toBottomOf="@+id/backgroundDetailFilm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/cardImageDetailFilm"
-                app:layout_constraintTop_toTopOf="@+id/backgroundDetailFilm"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintStart_toEndOf="@+id/cardImageDetailFilm" />
 
             <TextView
                 android:id="@+id/ratingDetailFilm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/sample_rate"
-                android:textColor="@color/black"
+                android:textColor="@color/gold"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-                app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-                app:layout_constraintStart_toStartOf="@+id/circleImageView"
-                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/backgroundDetailFilm"
+                app:layout_constraintStart_toEndOf="@+id/star_rate" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardImageDetailFilm"
@@ -151,6 +145,36 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/backgroundDetailFilm" />
+
+
+            <TextView
+                android:id="@+id/similar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/similar_title"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.008"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/overviewDetailFilm" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_similar_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/similar_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -158,8 +182,8 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/ic_round_back_white" />
 </RelativeLayout>

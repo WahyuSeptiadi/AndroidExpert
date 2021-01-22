@@ -9,8 +9,7 @@ import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
 import com.codeart.filmskuy.core.utils.AppExecutors
 import com.codeart.filmskuy.core.utils.DataMapper
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 
 /**
  * Created by wahyu_septiadi on 17, January 2021.
@@ -119,4 +118,24 @@ class CatalogueRepository(
                 localDataSource.insertTvShow(tvShowList)
             }
         }.asFlow()
+
+    override fun getSimilarMovieById(id: String): Flow<Resource<List<CatalogueModel>>> {
+        return object : RemoteResource<List<CatalogueModel>, List<MovieResultResponse>>() {
+            override fun createCall(): Flow<ApiResponse<List<MovieResultResponse>>> {
+                return remoteDataSource.getSimilarMovie(id)
+            }
+
+            override fun convertCallResult(data: List<MovieResultResponse>): Flow<List<CatalogueModel>> {
+                val result = data.map {
+                    DataMapper.mapMovieResponseToDomain(it)
+                }
+                return flow { emit(result) }
+            }
+
+            override fun emptyResult(): Flow<List<CatalogueModel>> {
+                return flow { emit(emptyList<CatalogueModel>()) }
+            }
+
+        }.asFlow()
+    }
 }

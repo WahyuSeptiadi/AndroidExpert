@@ -43,6 +43,7 @@ class MovieFragment : Fragment() {
 
                 catalogueListAdapter.onItemClick = { selectedData ->
                     val intent = Intent(activity, DetailMovieActivity::class.java)
+                    intent.putExtra(DetailMovieActivity.EXTRA_ID, selectedData.id.toString())
                     intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
                     startActivity(intent)
                 }
@@ -70,7 +71,7 @@ class MovieFragment : Fragment() {
                                         when (movie) {
                                             is Resource.Loading -> binding.progressMovie.visible()
                                             is Resource.Success -> {
-                                                if (movie.data?.isEmpty() == true) {
+                                                if (movie.data.isNullOrEmpty()) {
                                                     movieNotFound.visible()
                                                     refreshMovie.visible()
                                                 }

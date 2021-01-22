@@ -1,25 +1,39 @@
 package com.codeart.filmskuy.detail
 
+import android.content.Intent
 import android.graphics.text.LineBreaker
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.codeart.filmskuy.R
+import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.domain.model.CatalogueModel
+import com.codeart.filmskuy.core.ui.SimilarListAdapter
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
+import com.codeart.filmskuy.core.utils.gone
+import com.codeart.filmskuy.core.utils.toast
+import com.codeart.filmskuy.core.utils.visible
 import com.codeart.filmskuy.databinding.ActivityDetailBinding
+import com.codeart.filmskuy.movie.MovieViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailMovieActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DATA = "extra_data"
+        const val EXTRA_ID = "extra_id"
+        const val FAVORITE_TYPE = "favorite_type"
     }
 
     private val detailViewModel: DetailViewModel by viewModel()
     private lateinit var binding: ActivityDetailBinding
+
+    private val movieViewModel: MovieViewModel by viewModel()
+
+    private val similarListAdapter = SimilarListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +41,13 @@ class DetailMovieActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val detailCatalogue = intent.getParcelableExtra<CatalogueModel>(EXTRA_DATA)
-        showDetailTourism(detailCatalogue)
+        showDetailMovie(detailCatalogue)
+
+        val id: String = intent.getStringExtra(EXTRA_ID).toString()
+        val fav: Int = intent.getIntExtra(FAVORITE_TYPE, 0)
+        getSimilarMovie(id, fav)
+
+        setRecyclerViewSimilarMovie()
 
         binding.btnBack.setOnClickListener {
             onBackPressed()
@@ -35,17 +55,76 @@ class DetailMovieActivity : AppCompatActivity() {
         }
     }
 
-    private fun showDetailTourism(catalogueModel: CatalogueModel?) {
+    private fun setRecyclerViewSimilarMovie() {
+        similarListAdapter.onItemClick = { selected ->
+            val intent = Intent(this, DetailMovieActivity::class.java)
+            intent.putExtra(EXTRA_ID, selected.id.toString())
+            intent.putExtra(EXTRA_DATA, selected)
+            startActivity(intent)
+            finish()
+        }
+
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        with(binding) {
+            rvSimilarMovie.layoutManager = layoutManager
+            rvSimilarMovie.hasFixedSize()
+            rvSimilarMovie.adapter = similarListAdapter
+        }
+    }
+
+    private fun getSimilarMovie(id: String, type: Int) {
+        if (type != 1) {
+            binding.similarTitle.visible()
+            detailViewModel.getSimilarMovie(id).observe(this, { movie ->
+                when (movie) {
+                    is Resource.Loading -> toast("Wait a minute...")
+                    is Resource.Success -> {
+                        if (movie.data.isNullOrEmpty()) {
+                            getMoviePopular()
+                        } else {
+                            similarListAdapter.setData(movie.data)
+                        }
+                    }
+                    is Resource.Error -> {
+                        binding.similarTitle.gone()
+                        toast("Check Your Connection!")
+                    }
+                }
+            })
+        } else {
+            binding.similarTitle.gone()
+        }
+    }
+
+    private fun getMoviePopular() {
+        movieViewModel.movie.observe(this, { movie ->
+            if (movie != null) {
+                when (movie) {
+                    is Resource.Loading -> toast("Wait a minute...")
+                    is Resource.Success -> similarListAdapter.setData(movie.data)
+                    is Resource.Error -> {
+                        binding.similarTitle.gone()
+                        toast("Check Your Connection!")
+                    }
+                }
+            }
+        })
+    }
+
+    private fun showDetailMovie(catalogueModel: CatalogueModel?) {
         catalogueModel?.let {
+            binding.fab.visible()
             binding.titleDetailFilm.text = catalogueModel.entry
             binding.overviewDetailFilm.text = catalogueModel.overview
             binding.releaseDetailFilm.text = catalogueModel.date
             binding.ratingDetailFilm.text = catalogueModel.voteAverage.toString()
 
-            val imageSizePoster = getString(R.string.size_url_image_poster)
+            val imageSizePoster = getString(R.string.size_url_poster_detail)
             val imageSizeBackdrop = getString(R.string.size_url_image_backdrop)
-            val urlPoster = "$IMAGE_URL_BASE_PATH$imageSizePoster${catalogueModel.posterPath}"
-            val urlBackdrop = "$IMAGE_URL_BASE_PATH$imageSizeBackdrop${catalogueModel.backdropPath}"
+            val urlPoster =
+                "$IMAGE_URL_BASE_PATH$imageSizePoster${catalogueModel.posterPath}"
+            val urlBackdrop =
+                "$IMAGE_URL_BASE_PATH$imageSizeBackdrop${catalogueModel.backdropPath}"
 
             if (catalogueModel.posterPath != null) {
                 Glide.with(this@DetailMovieActivity)
@@ -86,9 +165,19 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
-            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
+            binding.fab.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_white
+                )
+            )
         } else {
-            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_not_favorite_white))
+            binding.fab.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_not_favorite_white
+                )
+            )
         }
     }
 }

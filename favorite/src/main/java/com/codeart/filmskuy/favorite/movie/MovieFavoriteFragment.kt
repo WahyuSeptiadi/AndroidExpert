@@ -44,6 +44,7 @@ class MovieFavoriteFragment : Fragment() {
             catalogueListAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailMovieActivity::class.java)
                 intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
+                intent.putExtra(DetailMovieActivity.FAVORITE_TYPE, 1)
                 startActivity(intent)
             }
 

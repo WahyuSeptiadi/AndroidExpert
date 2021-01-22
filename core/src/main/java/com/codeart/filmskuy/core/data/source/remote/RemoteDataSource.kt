@@ -84,4 +84,21 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    fun getSimilarMovie(id: String): Flow<ApiResponse<List<MovieResultResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getSimilarMovie(id)
+                val dataArray = response.movieResultResponse
+
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(dataArray))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }

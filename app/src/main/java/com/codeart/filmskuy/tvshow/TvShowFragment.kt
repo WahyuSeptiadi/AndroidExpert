@@ -70,7 +70,7 @@ class TvShowFragment : Fragment() {
                                         when (tvShow) {
                                             is Resource.Loading -> progressTvShow.visible()
                                             is Resource.Success -> {
-                                                if (tvShow.data?.isEmpty() == true) {
+                                                if (tvShow.data.isNullOrEmpty()) {
                                                     tvNotFound.visible()
                                                     refreshTv.visible()
                                                 }

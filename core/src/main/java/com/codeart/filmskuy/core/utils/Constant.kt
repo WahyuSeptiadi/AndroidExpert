@@ -7,7 +7,7 @@ import com.codeart.filmskuy.core.BuildConfig.key
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-const val API_BASE = "https://api.themoviedb.org/"
+const val API_BASE = "https://api.themoviedb.org/3/"
 const val API_URL_LAST = "?api_key=$key&language=en-US/"
 const val API_SEARCH_LAST = "?api_key=$key&language=en-US&"
 const val IMAGE_URL_BASE_PATH = "https://image.tmdb.org/t/p"
