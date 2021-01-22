@@ -42,25 +42,28 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.releaseDetailFilm.text = catalogueModel.date
             binding.ratingDetailFilm.text = catalogueModel.voteAverage.toString()
 
+            val imageSizePoster = getString(R.string.size_url_image_poster)
+            val imageSizeBackdrop = getString(R.string.size_url_image_backdrop)
+            val urlPoster = "$IMAGE_URL_BASE_PATH$imageSizePoster${catalogueModel.posterPath}"
+            val urlBackdrop = "$IMAGE_URL_BASE_PATH$imageSizeBackdrop${catalogueModel.backdropPath}"
+
             if (catalogueModel.posterPath != null) {
-                val imageSize = getString(R.string.size_url_image_list)
-                val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${catalogueModel.posterPath}"
                 Glide.with(this@DetailMovieActivity)
-                    .load(urlImage)
-                    .placeholder(R.drawable.loading)
+                    .load(urlPoster)
+                    .placeholder(R.drawable.loadings)
                     .into(binding.imageDetailFilm)
                 Glide.with(this@DetailMovieActivity)
-                    .load(urlImage)
-                    .placeholder(R.drawable.loading)
+                    .load(urlBackdrop)
+                    .placeholder(R.drawable.loadings)
                     .into(binding.backgroundDetailFilm)
             } else {
                 Glide.with(this@DetailMovieActivity)
                     .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loading)
+                    .placeholder(R.drawable.loadings)
                     .into(binding.imageDetailFilm)
                 Glide.with(this@DetailMovieActivity)
                     .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loading)
+                    .placeholder(R.drawable.loadings)
                     .into(binding.backgroundDetailFilm)
             }
 

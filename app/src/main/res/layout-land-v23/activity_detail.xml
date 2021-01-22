@@ -22,10 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="270dp"
                 android:adjustViewBounds="true"
-                android:alpha="0.6"
+                android:foreground="@drawable/backdrop_gradient"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@color/white_op70"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

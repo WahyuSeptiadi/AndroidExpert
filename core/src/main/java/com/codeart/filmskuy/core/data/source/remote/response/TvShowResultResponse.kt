@@ -14,6 +14,8 @@ data class TvShowResultResponse(
     val name: String,
     @SerializedName("overview")
     val overview: String,
+    @SerializedName("backdrop_path")
+    val backdropPath: String? = null,
     @SerializedName("poster_path")
     val posterPath: String? = null,
     @SerializedName("first_air_date")

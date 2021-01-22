@@ -6,9 +6,11 @@
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\91da1a5181021f91a56a1222ac27e2a4\\media-1.0.0\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,144,215,288,341,394,447,500,560,626,748,809,875",
+                        "endColumns": "88,70,72,52,52,52,52,59,65,121,60,65,66",
+                        "endOffsets": "139,210,283,336,389,442,495,555,621,743,804,870,937"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,12,13,14,15,16",
@@ -21,11 +23,11 @@
                 {
                     "source": "C:\\Users\\USER\\AndroidStudioProjects\\AndroidExpert\\favorite\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "2,-1",
-                        "startColumns": "4,-1",
-                        "startOffsets": "70,-1",
-                        "endColumns": "45,-1",
-                        "endOffsets": "111,-1"
+                        "startLines": "2,1",
+                        "startColumns": "4,4",
+                        "startOffsets": "70,17",
+                        "endColumns": "45,51",
+                        "endOffsets": "111,64"
                     },
                     "to": {
                         "startLines": "10,11",

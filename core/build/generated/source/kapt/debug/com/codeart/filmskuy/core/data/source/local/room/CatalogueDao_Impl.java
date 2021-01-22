@@ -40,7 +40,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     this.__insertionAdapterOfMovieEntity = new EntityInsertionAdapter<MovieEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `movie_favorite` (`popular`,`isFavorite`,`id`,`overview`,`poster_path`,`release_date`,`title`,`vote_average`) VALUES (?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `movie_favorite` (`popular`,`isFavorite`,`id`,`overview`,`backdrop_path`,`poster_path`,`release_date`,`title`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -57,28 +57,33 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         } else {
           stmt.bindString(4, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getPosterPath());
+          stmt.bindString(5, value.getBackdropPath());
         }
-        if (value.getReleaseDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getReleaseDate());
+          stmt.bindString(6, value.getPosterPath());
         }
-        if (value.getTitle() == null) {
+        if (value.getReleaseDate() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getTitle());
+          stmt.bindString(7, value.getReleaseDate());
         }
-        stmt.bindDouble(8, value.getVoteAverage());
+        if (value.getTitle() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getTitle());
+        }
+        stmt.bindDouble(9, value.getVoteAverage());
       }
     };
     this.__insertionAdapterOfTvShowEntity = new EntityInsertionAdapter<TvShowEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `tv_show_favorite` (`popular`,`isFavorite`,`id`,`overview`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `tv_show_favorite` (`popular`,`isFavorite`,`id`,`overview`,`backdrop_path`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -95,28 +100,33 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         } else {
           stmt.bindString(4, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getPosterPath());
+          stmt.bindString(5, value.getBackdropPath());
         }
-        if (value.getFirstAirDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getFirstAirDate());
+          stmt.bindString(6, value.getPosterPath());
         }
-        if (value.getName() == null) {
+        if (value.getFirstAirDate() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getName());
+          stmt.bindString(7, value.getFirstAirDate());
         }
-        stmt.bindDouble(8, value.getVoteAverage());
+        if (value.getName() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getName());
+        }
+        stmt.bindDouble(9, value.getVoteAverage());
       }
     };
     this.__updateAdapterOfMovieEntity = new EntityDeletionOrUpdateAdapter<MovieEntity>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `movie_favorite` SET `popular` = ?,`isFavorite` = ?,`id` = ?,`overview` = ?,`poster_path` = ?,`release_date` = ?,`title` = ?,`vote_average` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `movie_favorite` SET `popular` = ?,`isFavorite` = ?,`id` = ?,`overview` = ?,`backdrop_path` = ?,`poster_path` = ?,`release_date` = ?,`title` = ?,`vote_average` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -133,29 +143,34 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         } else {
           stmt.bindString(4, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getPosterPath());
+          stmt.bindString(5, value.getBackdropPath());
         }
-        if (value.getReleaseDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getReleaseDate());
+          stmt.bindString(6, value.getPosterPath());
         }
-        if (value.getTitle() == null) {
+        if (value.getReleaseDate() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getTitle());
+          stmt.bindString(7, value.getReleaseDate());
         }
-        stmt.bindDouble(8, value.getVoteAverage());
-        stmt.bindLong(9, value.getId());
+        if (value.getTitle() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getTitle());
+        }
+        stmt.bindDouble(9, value.getVoteAverage());
+        stmt.bindLong(10, value.getId());
       }
     };
     this.__updateAdapterOfTvShowEntity = new EntityDeletionOrUpdateAdapter<TvShowEntity>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `tv_show_favorite` SET `popular` = ?,`isFavorite` = ?,`id` = ?,`overview` = ?,`poster_path` = ?,`first_air_date` = ?,`name` = ?,`vote_average` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `tv_show_favorite` SET `popular` = ?,`isFavorite` = ?,`id` = ?,`overview` = ?,`backdrop_path` = ?,`poster_path` = ?,`first_air_date` = ?,`name` = ?,`vote_average` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -172,23 +187,28 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         } else {
           stmt.bindString(4, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getPosterPath());
+          stmt.bindString(5, value.getBackdropPath());
         }
-        if (value.getFirstAirDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getFirstAirDate());
+          stmt.bindString(6, value.getPosterPath());
         }
-        if (value.getName() == null) {
+        if (value.getFirstAirDate() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getName());
+          stmt.bindString(7, value.getFirstAirDate());
         }
-        stmt.bindDouble(8, value.getVoteAverage());
-        stmt.bindLong(9, value.getId());
+        if (value.getName() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getName());
+        }
+        stmt.bindDouble(9, value.getVoteAverage());
+        stmt.bindLong(10, value.getId());
       }
     };
   }
@@ -264,6 +284,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfReleaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "release_date");
           final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
@@ -283,6 +304,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpReleaseDate;
@@ -291,7 +314,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
+            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -320,6 +343,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfReleaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "release_date");
           final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
@@ -339,6 +363,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpReleaseDate;
@@ -347,7 +373,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
+            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -382,6 +408,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfReleaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "release_date");
           final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
@@ -401,6 +428,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpReleaseDate;
@@ -409,7 +438,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
+            _item = new MovieEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpReleaseDate,_tmpTitle,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -438,6 +467,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfFirstAirDate = CursorUtil.getColumnIndexOrThrow(_cursor, "first_air_date");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
@@ -457,6 +487,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpFirstAirDate;
@@ -465,7 +497,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -494,6 +526,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfFirstAirDate = CursorUtil.getColumnIndexOrThrow(_cursor, "first_air_date");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
@@ -513,6 +546,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpFirstAirDate;
@@ -521,7 +556,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -556,6 +591,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
           final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
           final int _cursorIndexOfFirstAirDate = CursorUtil.getColumnIndexOrThrow(_cursor, "first_air_date");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
@@ -575,6 +611,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
             _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
             final String _tmpPosterPath;
             _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
             final String _tmpFirstAirDate;
@@ -583,7 +621,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;

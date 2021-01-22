@@ -30,10 +30,10 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `movie_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `poster_path` TEXT, `release_date` TEXT, `title` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `tv_show_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `poster_path` TEXT, `first_air_date` TEXT, `name` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `movie_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `backdrop_path` TEXT, `poster_path` TEXT, `release_date` TEXT, `title` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `tv_show_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `backdrop_path` TEXT, `poster_path` TEXT, `first_air_date` TEXT, `name` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '299546dcdd22c5a06e3b8d7ff0a15bdf')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2c5a801bfa4a58ba278e1564d0594b5c')");
       }
 
       @Override
@@ -78,11 +78,12 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsMovieFavorite = new HashMap<String, TableInfo.Column>(8);
+        final HashMap<String, TableInfo.Column> _columnsMovieFavorite = new HashMap<String, TableInfo.Column>(9);
         _columnsMovieFavorite.put("popular", new TableInfo.Column("popular", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("isFavorite", new TableInfo.Column("isFavorite", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("overview", new TableInfo.Column("overview", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMovieFavorite.put("backdrop_path", new TableInfo.Column("backdrop_path", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("poster_path", new TableInfo.Column("poster_path", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("release_date", new TableInfo.Column("release_date", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -96,11 +97,12 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
                   + " Expected:\n" + _infoMovieFavorite + "\n"
                   + " Found:\n" + _existingMovieFavorite);
         }
-        final HashMap<String, TableInfo.Column> _columnsTvShowFavorite = new HashMap<String, TableInfo.Column>(8);
+        final HashMap<String, TableInfo.Column> _columnsTvShowFavorite = new HashMap<String, TableInfo.Column>(9);
         _columnsTvShowFavorite.put("popular", new TableInfo.Column("popular", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("isFavorite", new TableInfo.Column("isFavorite", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("overview", new TableInfo.Column("overview", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsTvShowFavorite.put("backdrop_path", new TableInfo.Column("backdrop_path", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("poster_path", new TableInfo.Column("poster_path", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("first_air_date", new TableInfo.Column("first_air_date", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTvShowFavorite.put("name", new TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -116,7 +118,7 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "299546dcdd22c5a06e3b8d7ff0a15bdf", "63837466f689f45e549d6e437588210e");
+    }, "2c5a801bfa4a58ba278e1564d0594b5c", "84d2409406ecbc914cf7b3c22c60b69f");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

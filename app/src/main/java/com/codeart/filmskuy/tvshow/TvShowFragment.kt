@@ -38,78 +38,94 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val catalogueListAdapter = CatalogueListAdapter()
-            catalogueListAdapter.onItemClick = { selectedData ->
-                val intent = Intent(activity, DetailTvShowActivity::class.java)
-                intent.putExtra(DetailTvShowActivity.EXTRA_DATA, selectedData)
-                startActivity(intent)
-            }
+            with(binding) {
+                val catalogueListAdapter = CatalogueListAdapter()
 
-            tvShowViewModel.tvShow.observe(viewLifecycleOwner, { tvShow ->
-                if (tvShow != null) {
-                    when (tvShow) {
-                        is Resource.Loading -> binding.progressTvShow.visible()
-                        is Resource.Success -> {
-                            binding.progressTvShow.gone()
-                            catalogueListAdapter.setData(tvShow.data)
-                        }
-                        is Resource.Error -> {
-                            binding.progressTvShow.gone()
-                            toast("Check Your Connection!")
-                        }
-                    }
+                catalogueListAdapter.onItemClick = { selectedData ->
+                    val intent = Intent(activity, DetailTvShowActivity::class.java)
+                    intent.putExtra(DetailTvShowActivity.EXTRA_DATA, selectedData)
+                    startActivity(intent)
                 }
-            })
 
-            binding.etSearchTvShow.setOnEditorActionListener { _, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    val nameKey = binding.etSearchTvShow.text
+                getAllTvShow(catalogueListAdapter)
 
-                    binding.progressTvShow.visible()
+                refreshTv.setOnClickListener {
+                    tvNotFound.gone()
+                    refreshTv.gone()
+                    getAllTvShow(catalogueListAdapter)
+                }
 
-                    if (nameKey.isNotEmpty()) {
-                        tvShowViewModel.getAllTvShowByName(nameKey.toString())
-                            .observe(viewLifecycleOwner, { tvShow ->
-                                if (tvShow != null) {
-                                    binding.tvNotFound.gone()
-                                    when (tvShow) {
-                                        is Resource.Loading -> binding.progressTvShow.visible()
-                                        is Resource.Success -> {
-                                            if (tvShow.data?.isEmpty() == true) {
-                                                binding.tvNotFound.visible()
+                etSearchTvShow.setOnEditorActionListener { _, actionId, _ ->
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        val nameKey = etSearchTvShow.text
+
+                        progressTvShow.visible()
+
+                        if (nameKey.isNotEmpty()) {
+                            tvShowViewModel.getAllTvShowByName(nameKey.toString())
+                                .observe(viewLifecycleOwner, { tvShow ->
+                                    if (tvShow != null) {
+                                        tvNotFound.gone()
+                                        refreshTv.gone()
+                                        when (tvShow) {
+                                            is Resource.Loading -> progressTvShow.visible()
+                                            is Resource.Success -> {
+                                                if (tvShow.data?.isEmpty() == true) {
+                                                    tvNotFound.visible()
+                                                    refreshTv.visible()
+                                                }
+                                                progressTvShow.gone()
+                                                catalogueListAdapter.setData(tvShow.data)
                                             }
-                                            binding.progressTvShow.gone()
-                                            catalogueListAdapter.setData(tvShow.data)
-                                        }
-                                        is Resource.Error -> {
-                                            binding.progressTvShow.gone()
-                                            toast("Check Your Connection!")
+                                            is Resource.Error -> {
+                                                progressTvShow.gone()
+                                                refreshTv.visible()
+                                                toast("Check Your Connection!")
+                                            }
                                         }
                                     }
-                                }
-                            })
-                    } else {
-                        binding.progressTvShow.gone()
-                        toast("Please, Enter Keyword!")
+                                })
+                        } else {
+                            progressTvShow.gone()
+                            toast("Please, Enter Keyword!")
+                        }
+
+                        nameKey.clear()
+                        hideKeyboard()
+                        return@setOnEditorActionListener true
                     }
-
-                    nameKey.clear()
-                    hideKeyboard()
-                    return@setOnEditorActionListener true
+                    false
                 }
-                false
-            }
 
-            with(binding.rvTvShow) {
-                val orientation = resources.configuration.orientation
-                layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    GridLayoutManager(context, 4)
-                } else {
-                    GridLayoutManager(context, 2)
+                with(rvTvShow) {
+                    val orientation = resources.configuration.orientation
+                    layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        GridLayoutManager(context, 4)
+                    } else {
+                        GridLayoutManager(context, 2)
+                    }
+                    setHasFixedSize(true)
+                    adapter = catalogueListAdapter
                 }
-                setHasFixedSize(true)
-                adapter = catalogueListAdapter
             }
         }
+    }
+
+    private fun getAllTvShow(adapter: CatalogueListAdapter) {
+        tvShowViewModel.tvShow.observe(viewLifecycleOwner, { tvShow ->
+            if (tvShow != null) {
+                when (tvShow) {
+                    is Resource.Loading -> binding.progressTvShow.gone()
+                    is Resource.Success -> {
+                        binding.progressTvShow.gone()
+                        adapter.setData(tvShow.data)
+                    }
+                    is Resource.Error -> {
+                        binding.progressTvShow.gone()
+                        toast("Check Your Connection!")
+                    }
+                }
+            }
+        })
     }
 }

@@ -15,6 +15,7 @@ class CatalogueModel(
     val isFavorite: Boolean,
     val id: Int,
     val overview: String? = null,
+    val backdropPath: String? = null,
     val posterPath: String? = null,
     val date: String? = null,
     val entry: String? = null,

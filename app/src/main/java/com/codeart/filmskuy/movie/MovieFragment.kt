@@ -38,79 +38,93 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val catalogueListAdapter = CatalogueListAdapter()
+            with(binding) {
+                val catalogueListAdapter = CatalogueListAdapter()
 
-            catalogueListAdapter.onItemClick = { selectedData ->
-                val intent = Intent(activity, DetailMovieActivity::class.java)
-                intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
-                startActivity(intent)
-            }
-
-            movieViewModel.movie.observe(viewLifecycleOwner, { movie ->
-                if (movie != null) {
-                    when (movie) {
-                        is Resource.Loading -> binding.progressMovie.gone()
-                        is Resource.Success -> {
-                            binding.progressMovie.gone()
-                            catalogueListAdapter.setData(movie.data)
-                        }
-                        is Resource.Error -> {
-                            binding.progressMovie.gone()
-                            toast("Check Your Connection!")
-                        }
-                    }
+                catalogueListAdapter.onItemClick = { selectedData ->
+                    val intent = Intent(activity, DetailMovieActivity::class.java)
+                    intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
+                    startActivity(intent)
                 }
-            })
 
-            binding.etSearchMovie.setOnEditorActionListener { _, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    val titleKey = binding.etSearchMovie.text
+                getAllMovie(catalogueListAdapter)
 
-                    binding.progressMovie.visible()
+                refreshMovie.setOnClickListener {
+                    movieNotFound.gone()
+                    refreshMovie.gone()
+                    getAllMovie(catalogueListAdapter)
+                }
 
-                    if (titleKey.isNotEmpty()) {
-                        movieViewModel.getAllMovieByTitle(titleKey.toString())
-                            .observe(viewLifecycleOwner, { movie ->
-                                if (movie != null) {
-                                    binding.movieNotFound.gone()
-                                    when (movie) {
-                                        is Resource.Loading -> binding.progressMovie.visible()
-                                        is Resource.Success -> {
-                                            if (movie.data?.isEmpty() == true) {
-                                                binding.movieNotFound.visible()
+                etSearchMovie.setOnEditorActionListener { _, actionId, _ ->
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        val titleKey = etSearchMovie.text
+
+                        progressMovie.visible()
+
+                        if (titleKey.isNotEmpty()) {
+                            movieViewModel.getAllMovieByTitle(titleKey.toString())
+                                .observe(viewLifecycleOwner, { movie ->
+                                    if (movie != null) {
+                                        movieNotFound.gone()
+                                        refreshMovie.gone()
+                                        when (movie) {
+                                            is Resource.Loading -> binding.progressMovie.visible()
+                                            is Resource.Success -> {
+                                                if (movie.data?.isEmpty() == true) {
+                                                    movieNotFound.visible()
+                                                    refreshMovie.visible()
+                                                }
+                                                progressMovie.gone()
+                                                catalogueListAdapter.setData(movie.data)
                                             }
-                                            binding.progressMovie.gone()
-                                            catalogueListAdapter.setData(movie.data)
-                                        }
-                                        is Resource.Error -> {
-                                            binding.progressMovie.gone()
-                                            toast("Check Your Connection!")
+                                            is Resource.Error -> {
+                                                progressMovie.gone()
+                                                refreshMovie.visible()
+                                                toast("Check Your Connection!")
+                                            }
                                         }
                                     }
-                                }
-                            })
-                    } else {
-                        binding.progressMovie.gone()
-                        toast("Please, Enter Keyword!")
+                                })
+                        } else {
+                            progressMovie.gone()
+                            toast("Please, Enter Keyword!")
+                        }
+                        titleKey.clear()
+                        hideKeyboard()
+                        return@setOnEditorActionListener true
                     }
-
-                    titleKey.clear()
-                    hideKeyboard()
-                    return@setOnEditorActionListener true
+                    false
                 }
-                false
-            }
 
-            with(binding.rvMovie) {
-                val orientation = resources.configuration.orientation
-                layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    GridLayoutManager(context, 4)
-                } else {
-                    GridLayoutManager(context, 2)
+                with(rvMovie) {
+                    val orientation = resources.configuration.orientation
+                    layoutManager = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        GridLayoutManager(context, 4)
+                    } else {
+                        GridLayoutManager(context, 2)
+                    }
+                    setHasFixedSize(true)
+                    adapter = catalogueListAdapter
                 }
-                setHasFixedSize(true)
-                adapter = catalogueListAdapter
             }
         }
+    }
+
+    private fun getAllMovie(adapter: CatalogueListAdapter) {
+        movieViewModel.movie.observe(viewLifecycleOwner, { movie ->
+            if (movie != null) {
+                when (movie) {
+                    is Resource.Loading -> binding.progressMovie.gone()
+                    is Resource.Success -> {
+                        binding.progressMovie.gone()
+                        adapter.setData(movie.data)
+                    }
+                    is Resource.Error -> {
+                        binding.progressMovie.gone()
+                        toast("Check Your Connection!")
+                    }
+                }
+            }
+        })
     }
 }

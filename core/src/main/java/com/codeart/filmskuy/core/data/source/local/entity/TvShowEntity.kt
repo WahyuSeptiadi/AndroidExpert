@@ -16,6 +16,8 @@ data class TvShowEntity (
     @PrimaryKey
     val id: Int,
     val overview: String,
+    @ColumnInfo(name = "backdrop_path")
+    val backdropPath: String? = null,
     @ColumnInfo(name = "poster_path")
     val posterPath: String? = null,
     @ColumnInfo(name = "first_air_date")
