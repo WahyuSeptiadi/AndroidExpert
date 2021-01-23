@@ -11,4 +11,6 @@
     <string name="search_tv_show">search tv show</string>
     <string name="copyright_2020">Copyright 2021</string>
     <string name="similar_title">Maybe you are interested</string>
+    <string name="similar_movie_searching">Searching similar this movie…</string>
+    <string name="similar_tv_show_searching">Searching similar this tv show…</string>
 </resources>

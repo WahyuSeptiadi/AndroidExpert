@@ -81,11 +81,13 @@ class DetailTvShowActivity : AppCompatActivity() {
             binding.similarTitle.visible()
             detailViewModel.getSimilarTvShow(id).observe(this, { tv ->
                 when (tv) {
-                    is Resource.Loading -> toast("Wait a minute...")
+                    is Resource.Loading -> binding.similarTitle.text =
+                        resources.getString(R.string.similar_tv_show_searching)
                     is Resource.Success -> {
                         if (tv.data.isNullOrEmpty()) {
                             getTvShowPopular()
                         } else {
+                            binding.similarTitle.text = resources.getString(R.string.similar_title)
                             similarListAdapter.setData(tv.data)
                         }
                     }
@@ -104,8 +106,12 @@ class DetailTvShowActivity : AppCompatActivity() {
         tvShowViewModel.tvShow.observe(this, { tvShow ->
             if (tvShow != null) {
                 when (tvShow) {
-                    is Resource.Loading -> toast("Wait a minute...")
-                    is Resource.Success -> similarListAdapter.setData(tvShow.data)
+                    is Resource.Loading -> binding.similarTitle.text =
+                        resources.getString(R.string.similar_tv_show_searching)
+                    is Resource.Success -> {
+                        binding.similarTitle.text = resources.getString(R.string.similar_title)
+                        similarListAdapter.setData(tvShow.data)
+                    }
                     is Resource.Error -> {
                         binding.similarTitle.gone()
                         toast("Check Your Connection!")
@@ -166,9 +172,19 @@ class DetailTvShowActivity : AppCompatActivity() {
 
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
-            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
+            binding.fab.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_white
+                )
+            )
         } else {
-            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_not_favorite_white))
+            binding.fab.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_not_favorite_white
+                )
+            )
         }
     }
 }

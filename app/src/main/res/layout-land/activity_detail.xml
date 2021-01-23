@@ -153,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="50dp"
-                android:text="@string/similar_title"
+                android:text="@string/dot"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"

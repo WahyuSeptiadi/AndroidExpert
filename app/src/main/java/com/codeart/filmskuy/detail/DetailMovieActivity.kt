@@ -77,11 +77,13 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.similarTitle.visible()
             detailViewModel.getSimilarMovie(id).observe(this, { movie ->
                 when (movie) {
-                    is Resource.Loading -> toast("Wait a minute...")
+                    is Resource.Loading -> binding.similarTitle.text =
+                        resources.getString(R.string.similar_movie_searching)
                     is Resource.Success -> {
                         if (movie.data.isNullOrEmpty()) {
                             getMoviePopular()
                         } else {
+                            binding.similarTitle.text = resources.getString(R.string.similar_title)
                             similarListAdapter.setData(movie.data)
                         }
                     }
@@ -100,8 +102,12 @@ class DetailMovieActivity : AppCompatActivity() {
         movieViewModel.movie.observe(this, { movie ->
             if (movie != null) {
                 when (movie) {
-                    is Resource.Loading -> toast("Wait a minute...")
-                    is Resource.Success -> similarListAdapter.setData(movie.data)
+                    is Resource.Loading -> binding.similarTitle.text =
+                        resources.getString(R.string.similar_movie_searching)
+                    is Resource.Success -> {
+                        binding.similarTitle.text = resources.getString(R.string.similar_title)
+                        similarListAdapter.setData(movie.data)
+                    }
                     is Resource.Error -> {
                         binding.similarTitle.gone()
                         toast("Check Your Connection!")
