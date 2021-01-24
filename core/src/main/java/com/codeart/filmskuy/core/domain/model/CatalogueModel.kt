@@ -13,7 +13,7 @@ import kotlinx.parcelize.Parcelize
 class CatalogueModel(
     val popular: Boolean,
     val isFavorite: Boolean,
-    val idSimilar: String? = "null",
+    val idSimilar: String? = null,
     val id: Int,
     val overview: String? = null,
     val backdropPath: String? = null,

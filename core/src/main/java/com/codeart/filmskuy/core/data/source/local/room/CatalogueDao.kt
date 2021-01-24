@@ -24,7 +24,7 @@ interface CatalogueDao {
     @Query("SELECT * FROM movie_favorite WHERE title LIKE :title")
     fun getSearchMovieByTitle(title: String): Flow<List<MovieEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMovie(movie: List<MovieEntity>)
 
     @Update
@@ -42,7 +42,7 @@ interface CatalogueDao {
     @Query("SELECT * FROM tv_show_favorite WHERE name LIKE :name")
     fun getSearchTvShowByName(name: String): Flow<List<TvShowEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTvShow(tvShow: List<TvShowEntity>)
 
     @Update

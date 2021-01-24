@@ -18,7 +18,7 @@ object DataMapper {
             val movie = MovieEntity(
                 popular = true,
                 isFavorite = false,
-                idSimilar = "null",
+                idSimilar = null,
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -54,7 +54,7 @@ object DataMapper {
             val tvShow = TvShowEntity(
                 popular = true,
                 isFavorite = false,
-                idSimilar = "null",
+                idSimilar = null,
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -116,7 +116,7 @@ object DataMapper {
             val movie = MovieEntity(
                 popular = false,
                 isFavorite = false,
-                idSimilar = "null",
+                idSimilar = null,
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -136,7 +136,7 @@ object DataMapper {
             val tvShow = TvShowEntity(
                 popular = false,
                 isFavorite = false,
-                idSimilar = "null",
+                idSimilar = null,
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,

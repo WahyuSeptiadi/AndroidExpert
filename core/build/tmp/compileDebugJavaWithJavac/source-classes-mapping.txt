@@ -4,11 +4,11 @@ com/codeart/filmskuy/core/databinding/ItemListCatalogueBinding.java
  com.codeart.filmskuy.core.databinding.ItemListCatalogueBinding
 com/codeart/filmskuy/core/databinding/ItemListSimilarBinding.java
  com.codeart.filmskuy.core.databinding.ItemListSimilarBinding
+com/codeart/filmskuy/core/BuildConfig.java
+ com.codeart.filmskuy.core.BuildConfig
 com/codeart/filmskuy/core/data/source/local/room/CatalogueDatabase_Impl.java
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDatabase_Impl
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDatabase_Impl$1
-com/codeart/filmskuy/core/BuildConfig.java
- com.codeart.filmskuy.core.BuildConfig
 com/codeart/filmskuy/core/data/source/local/room/CatalogueDao_Impl.java
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$1

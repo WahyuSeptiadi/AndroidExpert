@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        onDestroy()
+        finish()
+    }
 }
 
 class MyPagerAdapter(private val context: Context, fm: FragmentManager) :

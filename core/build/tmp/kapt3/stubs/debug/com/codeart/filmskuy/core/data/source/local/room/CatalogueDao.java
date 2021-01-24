@@ -29,7 +29,7 @@ public abstract interface CatalogueDao {
     java.lang.String title);
     
     @org.jetbrains.annotations.Nullable()
-    @androidx.room.Insert(onConflict = androidx.room.OnConflictStrategy.REPLACE)
+    @androidx.room.Insert(onConflict = androidx.room.OnConflictStrategy.IGNORE)
     public abstract java.lang.Object insertMovie(@org.jetbrains.annotations.NotNull()
     java.util.List<com.codeart.filmskuy.core.data.source.local.entity.MovieEntity> movie, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super kotlin.Unit> p1);
@@ -57,7 +57,7 @@ public abstract interface CatalogueDao {
     java.lang.String name);
     
     @org.jetbrains.annotations.Nullable()
-    @androidx.room.Insert(onConflict = androidx.room.OnConflictStrategy.REPLACE)
+    @androidx.room.Insert(onConflict = androidx.room.OnConflictStrategy.IGNORE)
     public abstract java.lang.Object insertTvShow(@org.jetbrains.annotations.NotNull()
     java.util.List<com.codeart.filmskuy.core.data.source.local.entity.TvShowEntity> tvShow, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super kotlin.Unit> p1);

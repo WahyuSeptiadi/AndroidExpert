@@ -40,7 +40,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     this.__insertionAdapterOfMovieEntity = new EntityInsertionAdapter<MovieEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `movie_favorite` (`popular`,`isFavorite`,`idSimilar`,`id`,`overview`,`backdrop_path`,`poster_path`,`release_date`,`title`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR IGNORE INTO `movie_favorite` (`popular`,`isFavorite`,`idSimilar`,`id`,`overview`,`backdrop_path`,`poster_path`,`release_date`,`title`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -88,7 +88,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     this.__insertionAdapterOfTvShowEntity = new EntityInsertionAdapter<TvShowEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `tv_show_favorite` (`popular`,`isFavorite`,`idSimilar`,`id`,`overview`,`backdrop_path`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR IGNORE INTO `tv_show_favorite` (`popular`,`isFavorite`,`idSimilar`,`id`,`overview`,`backdrop_path`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override

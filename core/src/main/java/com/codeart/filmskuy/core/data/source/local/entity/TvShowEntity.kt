@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
 data class TvShowEntity (
     val popular: Boolean,
     var isFavorite: Boolean,
-    val idSimilar: String? = "null",
+    val idSimilar: String? = null,
     @PrimaryKey
     val id: Int,
     val overview: String,
