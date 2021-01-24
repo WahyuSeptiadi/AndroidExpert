@@ -18,6 +18,7 @@ object DataMapper {
             val movie = MovieEntity(
                 popular = true,
                 isFavorite = false,
+                idSimilar = "null",
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -36,6 +37,7 @@ object DataMapper {
             CatalogueModel(
                 popular = it.popular,
                 isFavorite = it.isFavorite,
+                idSimilar = it.idSimilar,
                 id = it.id,
                 backdropPath = it.backdropPath,
                 posterPath = it.posterPath,
@@ -83,6 +85,7 @@ object DataMapper {
     fun mapMovieDomainToEntity(input: CatalogueModel) = MovieEntity(
         popular = input.popular,
         isFavorite = input.isFavorite,
+        idSimilar = input.idSimilar,
         id = input.id,
         overview = input.overview.toString(),
         backdropPath = input.backdropPath,
@@ -110,6 +113,7 @@ object DataMapper {
             val movie = MovieEntity(
                 popular = false,
                 isFavorite = false,
+                idSimilar = "null",
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -142,17 +146,28 @@ object DataMapper {
         return tvShowList
     }
 
-    fun mapMovieResponseToDomain(input: MovieResultResponse) = CatalogueModel(
-        popular = false,
-        isFavorite = false,
-        id = input.id,
-        overview = input.overview,
-        backdropPath = input.backdropPath,
-        date = input.releaseDate,
-        posterPath = input.posterPath,
-        entry = input.title,
-        voteAverage = input.voteAverage,
-    )
+    fun mapSimilarMovieResponsesToEntities(
+        idSelected: String,
+        input: List<MovieResultResponse>
+    ): List<MovieEntity> {
+        val movieList = ArrayList<MovieEntity>()
+        input.map {
+            val movie = MovieEntity(
+                popular = false,
+                isFavorite = false,
+                idSimilar = idSelected,
+                id = it.id,
+                overview = it.overview,
+                backdropPath = it.backdropPath,
+                posterPath = it.posterPath,
+                releaseDate = it.releaseDate,
+                title = it.title,
+                voteAverage = it.voteAverage
+            )
+            movieList.add(movie)
+        }
+        return movieList
+    }
 
     fun mapTvShowResponseToDomain(input: TvShowResultResponse) = CatalogueModel(
         popular = false,

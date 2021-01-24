@@ -132,25 +132,17 @@ class DetailMovieActivity : AppCompatActivity() {
             val urlBackdrop =
                 "$IMAGE_URL_BASE_PATH$imageSizeBackdrop${catalogueModel.backdropPath}"
 
-            if (catalogueModel.posterPath != null) {
-                Glide.with(this@DetailMovieActivity)
-                    .load(urlPoster)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.imageDetailFilm)
-                Glide.with(this@DetailMovieActivity)
-                    .load(urlBackdrop)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.backgroundDetailFilm)
-            } else {
-                Glide.with(this@DetailMovieActivity)
-                    .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.imageDetailFilm)
-                Glide.with(this@DetailMovieActivity)
-                    .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.backgroundDetailFilm)
-            }
+            Glide.with(this@DetailMovieActivity)
+                .load(urlPoster)
+                .placeholder(R.drawable.loadings)
+                .error(R.drawable.img_notfound)
+                .into(binding.imageDetailFilm)
+
+            Glide.with(this@DetailMovieActivity)
+                .load(urlBackdrop)
+                .placeholder(R.drawable.loadings)
+                .error(R.drawable.img_notfound)
+                .into(binding.backgroundDetailFilm)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {

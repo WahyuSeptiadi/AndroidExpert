@@ -18,6 +18,9 @@ interface CatalogueDao {
     @Query("SELECT * FROM movie_favorite WHERE isFavorite = 1")
     fun getFavoriteMovie(): Flow<List<MovieEntity>>
 
+    @Query("SELECT * FROM movie_favorite WHERE popular = 0 AND idSimilar = :id")
+    fun getMovieSimilar(id: String): Flow<List<MovieEntity>>
+
     @Query("SELECT * FROM movie_favorite WHERE title LIKE :title")
     fun getSearchMovieByTitle(title: String): Flow<List<MovieEntity>>
 
@@ -41,4 +44,6 @@ interface CatalogueDao {
 
     @Update
     fun updateFavoriteTvShow(tvShow: TvShowEntity)
+
+
 }

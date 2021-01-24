@@ -30,10 +30,10 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `movie_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `backdrop_path` TEXT, `poster_path` TEXT, `release_date` TEXT, `title` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `movie_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `idSimilar` TEXT, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `backdrop_path` TEXT, `poster_path` TEXT, `release_date` TEXT, `title` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tv_show_favorite` (`popular` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `id` INTEGER NOT NULL, `overview` TEXT NOT NULL, `backdrop_path` TEXT, `poster_path` TEXT, `first_air_date` TEXT, `name` TEXT NOT NULL, `vote_average` REAL NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2c5a801bfa4a58ba278e1564d0594b5c')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '122e113fdaf3f6daa58bd6e7bdf63dea')");
       }
 
       @Override
@@ -78,9 +78,10 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsMovieFavorite = new HashMap<String, TableInfo.Column>(9);
+        final HashMap<String, TableInfo.Column> _columnsMovieFavorite = new HashMap<String, TableInfo.Column>(10);
         _columnsMovieFavorite.put("popular", new TableInfo.Column("popular", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("isFavorite", new TableInfo.Column("isFavorite", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMovieFavorite.put("idSimilar", new TableInfo.Column("idSimilar", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("overview", new TableInfo.Column("overview", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMovieFavorite.put("backdrop_path", new TableInfo.Column("backdrop_path", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -118,7 +119,7 @@ public final class CatalogueDatabase_Impl extends CatalogueDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "2c5a801bfa4a58ba278e1564d0594b5c", "84d2409406ecbc914cf7b3c22c60b69f");
+    }, "122e113fdaf3f6daa58bd6e7bdf63dea", "cec584edf722b81fb64c8f294adc31a3");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

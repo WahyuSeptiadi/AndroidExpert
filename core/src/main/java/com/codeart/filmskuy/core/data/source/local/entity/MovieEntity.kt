@@ -13,6 +13,7 @@ import androidx.room.PrimaryKey
 data class MovieEntity(
     val popular: Boolean,
     var isFavorite: Boolean,
+    val idSimilar: String? = "null",
     @PrimaryKey
     val id: Int,
     val overview: String,

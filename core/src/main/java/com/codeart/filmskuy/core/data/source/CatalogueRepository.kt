@@ -119,25 +119,25 @@ class CatalogueRepository(
             }
         }.asFlow()
 
-    override fun getSimilarMovieById(id: String): Flow<Resource<List<CatalogueModel>>> {
-        return object : RemoteResource<List<CatalogueModel>, List<MovieResultResponse>>() {
-            override fun createCall(): Flow<ApiResponse<List<MovieResultResponse>>> {
-                return remoteDataSource.getSimilarMovie(id)
+    override fun getSimilarMovieById(id: String): Flow<Resource<List<CatalogueModel>>> =
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<MovieResultResponse>>(appExecutors) {
+            override fun loadFromDB(): Flow<List<CatalogueModel>> {
+                return localDataSource.getMovieSimilar(id)
+                    .map { DataMapper.mapMovieEntitiesToDomain(it) }
             }
 
-            override fun convertCallResult(data: List<MovieResultResponse>): Flow<List<CatalogueModel>> {
-                val result = data.map {
-                    DataMapper.mapMovieResponseToDomain(it)
-                }
-                return flow { emit(result) }
-            }
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
+                true
 
-            override fun emptyResult(): Flow<List<CatalogueModel>> {
-                return flow { emit(emptyList<CatalogueModel>()) }
-            }
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResultResponse>>> =
+                remoteDataSource.getSimilarMovie(id)
 
+            override suspend fun saveCallResult(data: List<MovieResultResponse>) {
+                val movieList = DataMapper.mapSimilarMovieResponsesToEntities(id, data)
+                localDataSource.insertMovie(movieList)
+            }
         }.asFlow()
-    }
 
     override fun getSimilarTvShowById(id: String): Flow<Resource<List<CatalogueModel>>> {
         return object : RemoteResource<List<CatalogueModel>, List<TvShowResultResponse>>() {

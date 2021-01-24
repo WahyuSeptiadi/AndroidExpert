@@ -32,21 +32,21 @@ class CatalogueListAdapter : RecyclerView.Adapter<CatalogueListAdapter.ListViewH
         private val binding = ItemListCatalogueBinding.bind(itemView)
         fun bind(data: CatalogueModel) {
             with(binding) {
-                if (data.posterPath != null) {
-                    val imageSize = itemView.context.getString(R.string.size_url_poster_main)
-                    val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
-                    Glide.with(itemView.context)
-                        .load(urlImage)
-                        .placeholder(R.drawable.loadings)
-                        .into(imageFilm)
+                val imageSize = itemView.context.getString(R.string.size_url_poster_main)
+                val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
+
+                Glide.with(itemView.context)
+                    .load(urlImage)
+                    .placeholder(R.drawable.loadings)
+                    .error(R.drawable.img_notfound)
+                    .into(imageFilm)
+
+                if (data.voteAverage.toString().length > 3) {
+                    ratingFilm.text = data.voteAverage.toString().substring(0, 2)
                 } else {
-                    Glide.with(itemView.context)
-                        .load(R.drawable.img_notfound)
-                        .placeholder(R.drawable.loadings)
-                        .into(imageFilm)
+                    ratingFilm.text = data.voteAverage.toString()
                 }
 
-                ratingFilm.text = data.voteAverage.toString()
                 titleFilm.text = data.entry
 
                 if (data.date != "") {
