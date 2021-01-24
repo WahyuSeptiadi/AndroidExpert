@@ -8,22 +8,29 @@ import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-class CatalogueInteractor(private val iCatalogueRepository: ICatalogueRepository) :
-    CatalogueUsecase {
+class CatalogueInteract(private val iCatalogueRepository: ICatalogueRepository) :
+    CatalogueUseCase {
     override fun getAllMovieCatalogue() = iCatalogueRepository.getAllMovieCatalogue()
     override fun getAllTvShowCatalogue() = iCatalogueRepository.getAllTvShowCatalogue()
+
     override fun setFavoriteMovieCatalogue(catalogueModel: CatalogueModel, state: Boolean) =
         iCatalogueRepository.setFavoriteMovieCatalogue(catalogueModel, state)
+
     override fun setFavoriteTvShowCatalogue(catalogueModel: CatalogueModel, state: Boolean) =
         iCatalogueRepository.setFavoriteTvShowCatalogue(catalogueModel, state)
+
     override fun getFavoriteMovie() = iCatalogueRepository.getFavoriteMovie()
     override fun getFavoriteTvShow() = iCatalogueRepository.getFavoriteTvShow()
+
     override fun getSearchMovieByTitle(title: String) =
         iCatalogueRepository.getSearchMovieByTitle(title)
+
     override fun getSearchTvShowByName(name: String) =
         iCatalogueRepository.getSearchTvShowByName(name)
+
     override fun getSimilarMovieList(id: String) =
         iCatalogueRepository.getSimilarMovieById(id)
+
     override fun getSimilarTvShowList(id: String) =
         iCatalogueRepository.getSimilarTvShowById(id)
 }

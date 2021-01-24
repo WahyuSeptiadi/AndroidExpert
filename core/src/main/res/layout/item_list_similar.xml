@@ -15,6 +15,7 @@
         android:layout_height="150dp"
         android:adjustViewBounds="true"
         android:background="@drawable/loadings"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop" />
 
 </androidx.cardview.widget.CardView>

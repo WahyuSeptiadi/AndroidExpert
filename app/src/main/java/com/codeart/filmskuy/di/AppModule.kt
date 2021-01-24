@@ -1,7 +1,7 @@
 package com.codeart.filmskuy.di
 
-import com.codeart.filmskuy.core.domain.usecase.CatalogueInteractor
-import com.codeart.filmskuy.core.domain.usecase.CatalogueUsecase
+import com.codeart.filmskuy.core.domain.usecase.CatalogueInteract
+import com.codeart.filmskuy.core.domain.usecase.CatalogueUseCase
 import com.codeart.filmskuy.detail.DetailViewModel
 import com.codeart.filmskuy.movie.MovieViewModel
 import com.codeart.filmskuy.tvshow.TvShowViewModel
@@ -14,7 +14,7 @@ import org.koin.dsl.module
  */
 
 val useCaseModule = module {
-    factory<CatalogueUsecase> { CatalogueInteractor(get()) }
+    factory<CatalogueUseCase> { CatalogueInteract(get()) }
 }
 
 val viewModelModule = module {

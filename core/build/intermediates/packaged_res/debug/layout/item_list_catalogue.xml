@@ -23,7 +23,8 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:background="@drawable/loadings"
-                android:contentDescription="@string/todo" />
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="30dp"

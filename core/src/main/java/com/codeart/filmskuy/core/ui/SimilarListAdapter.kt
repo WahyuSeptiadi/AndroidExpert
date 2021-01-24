@@ -32,19 +32,14 @@ class SimilarListAdapter : RecyclerView.Adapter<SimilarListAdapter.ListViewHolde
         private val binding = ItemListSimilarBinding.bind(itemView)
         fun bind(data: CatalogueModel) {
             with(binding) {
-                if (data.posterPath != null) {
-                    val imageSize = itemView.context.getString(R.string.size_url_poster_similar)
-                    val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
-                    Glide.with(itemView.context)
-                        .load(urlImage)
-                        .placeholder(R.drawable.loadings)
-                        .into(posterSimilar)
-                } else {
-                    Glide.with(itemView.context)
-                        .load(R.drawable.img_notfound)
-                        .placeholder(R.drawable.loadings)
-                        .into(posterSimilar)
-                }
+                val imageSize = itemView.context.getString(R.string.size_url_poster_similar)
+                val urlImage = "$IMAGE_URL_BASE_PATH$imageSize${data.posterPath}"
+
+                Glide.with(itemView.context)
+                    .load(urlImage)
+                    .placeholder(R.drawable.loadings)
+                    .error(R.drawable.img_notfound)
+                    .into(posterSimilar)
             }
         }
 

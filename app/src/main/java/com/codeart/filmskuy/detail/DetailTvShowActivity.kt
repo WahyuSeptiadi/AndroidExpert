@@ -47,8 +47,8 @@ class DetailTvShowActivity : AppCompatActivity() {
         val detailCatalogue = intent.getParcelableExtra<CatalogueModel>(EXTRA_DATA)
         showDetailTvShow(detailCatalogue)
 
-        val id: String = intent.getStringExtra(DetailMovieActivity.EXTRA_ID).toString()
-        val fav: Int = intent.getIntExtra(DetailMovieActivity.FAVORITE_TYPE, 0)
+        val id: String = intent.getStringExtra(EXTRA_ID).toString()
+        val fav: Int = intent.getIntExtra(FAVORITE_TYPE, 0)
         getSimilarTvShow(id, fav)
 
         setRecyclerViewSimilarTvShow()
@@ -133,25 +133,17 @@ class DetailTvShowActivity : AppCompatActivity() {
             val urlPoster = "$IMAGE_URL_BASE_PATH$imageSizePoster${catalogueModel.posterPath}"
             val urlBackdrop = "$IMAGE_URL_BASE_PATH$imageSizeBackdrop${catalogueModel.backdropPath}"
 
-            if (catalogueModel.posterPath != null) {
-                Glide.with(this@DetailTvShowActivity)
-                    .load(urlPoster)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.imageDetailFilm)
-                Glide.with(this@DetailTvShowActivity)
-                    .load(urlBackdrop)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.backgroundDetailFilm)
-            } else {
-                Glide.with(this@DetailTvShowActivity)
-                    .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.imageDetailFilm)
-                Glide.with(this@DetailTvShowActivity)
-                    .load(R.drawable.img_notfound)
-                    .placeholder(R.drawable.loadings)
-                    .into(binding.backgroundDetailFilm)
-            }
+            Glide.with(this@DetailTvShowActivity)
+                .load(urlPoster)
+                .placeholder(R.drawable.loadings)
+                .error(R.drawable.img_notfound)
+                .into(binding.imageDetailFilm)
+
+            Glide.with(this@DetailTvShowActivity)
+                .load(urlBackdrop)
+                .placeholder(R.drawable.loadings)
+                .error(R.drawable.img_notfound)
+                .into(binding.backgroundDetailFilm)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {

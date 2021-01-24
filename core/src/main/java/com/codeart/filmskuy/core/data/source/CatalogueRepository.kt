@@ -127,8 +127,7 @@ class CatalogueRepository(
                     .map { DataMapper.mapMovieEntitiesToDomain(it) }
             }
 
-            override fun shouldFetch(data: List<CatalogueModel>?): Boolean =
-                true
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResultResponse>>> =
                 remoteDataSource.getSimilarMovie(id)
@@ -139,23 +138,22 @@ class CatalogueRepository(
             }
         }.asFlow()
 
-    override fun getSimilarTvShowById(id: String): Flow<Resource<List<CatalogueModel>>> {
-        return object : RemoteResource<List<CatalogueModel>, List<TvShowResultResponse>>() {
-            override fun createCall(): Flow<ApiResponse<List<TvShowResultResponse>>> {
-                return remoteDataSource.getSimilarTvShow(id)
+    override fun getSimilarTvShowById(id: String): Flow<Resource<List<CatalogueModel>>> =
+        object :
+            NetworkBoundResource<List<CatalogueModel>, List<TvShowResultResponse>>(appExecutors) {
+            override fun loadFromDB(): Flow<List<CatalogueModel>> {
+                return localDataSource.getTvShowSimilar(id)
+                    .map { DataMapper.mapTvShowEntitiesToDomain(it) }
             }
 
-            override fun convertCallResult(data: List<TvShowResultResponse>): Flow<List<CatalogueModel>> {
-                val result = data.map {
-                    DataMapper.mapTvShowResponseToDomain(it)
-                }
-                return flow { emit(result) }
-            }
+            override fun shouldFetch(data: List<CatalogueModel>?): Boolean = true
 
-            override fun emptyResult(): Flow<List<CatalogueModel>> {
-                return flow { emit(emptyList<CatalogueModel>()) }
-            }
+            override suspend fun createCall(): Flow<ApiResponse<List<TvShowResultResponse>>> =
+                remoteDataSource.getSimilarTvShow(id)
 
+            override suspend fun saveCallResult(data: List<TvShowResultResponse>) {
+                val tvShowList = DataMapper.mapSimilarTvShowResponsesToEntities(id, data)
+                localDataSource.insertTvShow(tvShowList)
+            }
         }.asFlow()
-    }
 }

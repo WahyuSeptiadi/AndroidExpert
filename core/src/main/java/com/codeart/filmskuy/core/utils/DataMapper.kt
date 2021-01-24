@@ -54,6 +54,7 @@ object DataMapper {
             val tvShow = TvShowEntity(
                 popular = true,
                 isFavorite = false,
+                idSimilar = "null",
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -72,6 +73,7 @@ object DataMapper {
             CatalogueModel(
                 popular = it.popular,
                 isFavorite = it.isFavorite,
+                idSimilar = it.idSimilar,
                 id = it.id,
                 backdropPath = it.backdropPath,
                 posterPath = it.posterPath,
@@ -98,6 +100,7 @@ object DataMapper {
     fun mapTvShowDomainToEntity(input: CatalogueModel) = TvShowEntity(
         popular = input.popular,
         isFavorite = input.isFavorite,
+        idSimilar = input.idSimilar,
         id = input.id,
         overview = input.overview.toString(),
         backdropPath = input.backdropPath,
@@ -133,6 +136,7 @@ object DataMapper {
             val tvShow = TvShowEntity(
                 popular = false,
                 isFavorite = false,
+                idSimilar = "null",
                 id = it.id,
                 overview = it.overview,
                 backdropPath = it.backdropPath,
@@ -169,15 +173,26 @@ object DataMapper {
         return movieList
     }
 
-    fun mapTvShowResponseToDomain(input: TvShowResultResponse) = CatalogueModel(
-        popular = false,
-        isFavorite = false,
-        id = input.id,
-        overview = input.overview,
-        backdropPath = input.backdropPath,
-        date = input.firstAirDate,
-        posterPath = input.posterPath,
-        entry = input.name,
-        voteAverage = input.voteAverage,
-    )
+    fun mapSimilarTvShowResponsesToEntities(
+        idSelected: String,
+        input: List<TvShowResultResponse>
+    ): List<TvShowEntity> {
+        val tvList = ArrayList<TvShowEntity>()
+        input.map {
+            val movie = TvShowEntity(
+                popular = false,
+                isFavorite = false,
+                idSimilar = idSelected,
+                id = it.id,
+                overview = it.overview,
+                backdropPath = it.backdropPath,
+                posterPath = it.posterPath,
+                firstAirDate = it.firstAirDate,
+                name = it.name,
+                voteAverage = it.voteAverage
+            )
+            tvList.add(movie)
+        }
+        return tvList
+    }
 }

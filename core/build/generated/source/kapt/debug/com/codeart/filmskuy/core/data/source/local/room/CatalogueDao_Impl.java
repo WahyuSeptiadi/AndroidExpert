@@ -88,7 +88,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     this.__insertionAdapterOfTvShowEntity = new EntityInsertionAdapter<TvShowEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `tv_show_favorite` (`popular`,`isFavorite`,`id`,`overview`,`backdrop_path`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `tv_show_favorite` (`popular`,`isFavorite`,`idSimilar`,`id`,`overview`,`backdrop_path`,`poster_path`,`first_air_date`,`name`,`vote_average`) VALUES (?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -99,33 +99,38 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         final int _tmp_1;
         _tmp_1 = value.isFavorite() ? 1 : 0;
         stmt.bindLong(2, _tmp_1);
-        stmt.bindLong(3, value.getId());
-        if (value.getOverview() == null) {
-          stmt.bindNull(4);
+        if (value.getIdSimilar() == null) {
+          stmt.bindNull(3);
         } else {
-          stmt.bindString(4, value.getOverview());
+          stmt.bindString(3, value.getIdSimilar());
         }
-        if (value.getBackdropPath() == null) {
+        stmt.bindLong(4, value.getId());
+        if (value.getOverview() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getBackdropPath());
+          stmt.bindString(5, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getPosterPath());
+          stmt.bindString(6, value.getBackdropPath());
         }
-        if (value.getFirstAirDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getFirstAirDate());
+          stmt.bindString(7, value.getPosterPath());
         }
-        if (value.getName() == null) {
+        if (value.getFirstAirDate() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindString(8, value.getName());
+          stmt.bindString(8, value.getFirstAirDate());
         }
-        stmt.bindDouble(9, value.getVoteAverage());
+        if (value.getName() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindString(9, value.getName());
+        }
+        stmt.bindDouble(10, value.getVoteAverage());
       }
     };
     this.__updateAdapterOfMovieEntity = new EntityDeletionOrUpdateAdapter<MovieEntity>(__db) {
@@ -180,7 +185,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     this.__updateAdapterOfTvShowEntity = new EntityDeletionOrUpdateAdapter<TvShowEntity>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `tv_show_favorite` SET `popular` = ?,`isFavorite` = ?,`id` = ?,`overview` = ?,`backdrop_path` = ?,`poster_path` = ?,`first_air_date` = ?,`name` = ?,`vote_average` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `tv_show_favorite` SET `popular` = ?,`isFavorite` = ?,`idSimilar` = ?,`id` = ?,`overview` = ?,`backdrop_path` = ?,`poster_path` = ?,`first_air_date` = ?,`name` = ?,`vote_average` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -191,34 +196,39 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         final int _tmp_1;
         _tmp_1 = value.isFavorite() ? 1 : 0;
         stmt.bindLong(2, _tmp_1);
-        stmt.bindLong(3, value.getId());
-        if (value.getOverview() == null) {
-          stmt.bindNull(4);
+        if (value.getIdSimilar() == null) {
+          stmt.bindNull(3);
         } else {
-          stmt.bindString(4, value.getOverview());
+          stmt.bindString(3, value.getIdSimilar());
         }
-        if (value.getBackdropPath() == null) {
+        stmt.bindLong(4, value.getId());
+        if (value.getOverview() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getBackdropPath());
+          stmt.bindString(5, value.getOverview());
         }
-        if (value.getPosterPath() == null) {
+        if (value.getBackdropPath() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getPosterPath());
+          stmt.bindString(6, value.getBackdropPath());
         }
-        if (value.getFirstAirDate() == null) {
+        if (value.getPosterPath() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getFirstAirDate());
+          stmt.bindString(7, value.getPosterPath());
         }
-        if (value.getName() == null) {
+        if (value.getFirstAirDate() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindString(8, value.getName());
+          stmt.bindString(8, value.getFirstAirDate());
         }
-        stmt.bindDouble(9, value.getVoteAverage());
-        stmt.bindLong(10, value.getId());
+        if (value.getName() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindString(9, value.getName());
+        }
+        stmt.bindDouble(10, value.getVoteAverage());
+        stmt.bindLong(11, value.getId());
       }
     };
   }
@@ -552,6 +562,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         try {
           final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfIdSimilar = CursorUtil.getColumnIndexOrThrow(_cursor, "idSimilar");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
           final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
@@ -570,6 +581,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             final int _tmp_1;
             _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
             _tmpIsFavorite = _tmp_1 != 0;
+            final String _tmpIdSimilar;
+            _tmpIdSimilar = _cursor.getString(_cursorIndexOfIdSimilar);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
@@ -584,7 +597,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpIdSimilar,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -611,6 +624,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         try {
           final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfIdSimilar = CursorUtil.getColumnIndexOrThrow(_cursor, "idSimilar");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
           final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
@@ -629,6 +643,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             final int _tmp_1;
             _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
             _tmpIsFavorite = _tmp_1 != 0;
+            final String _tmpIdSimilar;
+            _tmpIdSimilar = _cursor.getString(_cursorIndexOfIdSimilar);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
@@ -643,7 +659,75 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpIdSimilar,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public Flow<List<TvShowEntity>> getTvShowSimilar(final String id) {
+    final String _sql = "SELECT * FROM tv_show_favorite WHERE popular = 0 AND idSimilar = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (id == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, id);
+    }
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"tv_show_favorite"}, new Callable<List<TvShowEntity>>() {
+      @Override
+      public List<TvShowEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
+          final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfIdSimilar = CursorUtil.getColumnIndexOrThrow(_cursor, "idSimilar");
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
+          final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
+          final int _cursorIndexOfPosterPath = CursorUtil.getColumnIndexOrThrow(_cursor, "poster_path");
+          final int _cursorIndexOfFirstAirDate = CursorUtil.getColumnIndexOrThrow(_cursor, "first_air_date");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfVoteAverage = CursorUtil.getColumnIndexOrThrow(_cursor, "vote_average");
+          final List<TvShowEntity> _result = new ArrayList<TvShowEntity>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final TvShowEntity _item;
+            final boolean _tmpPopular;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfPopular);
+            _tmpPopular = _tmp != 0;
+            final boolean _tmpIsFavorite;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
+            _tmpIsFavorite = _tmp_1 != 0;
+            final String _tmpIdSimilar;
+            _tmpIdSimilar = _cursor.getString(_cursorIndexOfIdSimilar);
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            final String _tmpOverview;
+            _tmpOverview = _cursor.getString(_cursorIndexOfOverview);
+            final String _tmpBackdropPath;
+            _tmpBackdropPath = _cursor.getString(_cursorIndexOfBackdropPath);
+            final String _tmpPosterPath;
+            _tmpPosterPath = _cursor.getString(_cursorIndexOfPosterPath);
+            final String _tmpFirstAirDate;
+            _tmpFirstAirDate = _cursor.getString(_cursorIndexOfFirstAirDate);
+            final String _tmpName;
+            _tmpName = _cursor.getString(_cursorIndexOfName);
+            final double _tmpVoteAverage;
+            _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpIdSimilar,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;
@@ -676,6 +760,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         try {
           final int _cursorIndexOfPopular = CursorUtil.getColumnIndexOrThrow(_cursor, "popular");
           final int _cursorIndexOfIsFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "isFavorite");
+          final int _cursorIndexOfIdSimilar = CursorUtil.getColumnIndexOrThrow(_cursor, "idSimilar");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfOverview = CursorUtil.getColumnIndexOrThrow(_cursor, "overview");
           final int _cursorIndexOfBackdropPath = CursorUtil.getColumnIndexOrThrow(_cursor, "backdrop_path");
@@ -694,6 +779,8 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             final int _tmp_1;
             _tmp_1 = _cursor.getInt(_cursorIndexOfIsFavorite);
             _tmpIsFavorite = _tmp_1 != 0;
+            final String _tmpIdSimilar;
+            _tmpIdSimilar = _cursor.getString(_cursorIndexOfIdSimilar);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final String _tmpOverview;
@@ -708,7 +795,7 @@ public final class CatalogueDao_Impl implements CatalogueDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final double _tmpVoteAverage;
             _tmpVoteAverage = _cursor.getDouble(_cursorIndexOfVoteAverage);
-            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
+            _item = new TvShowEntity(_tmpPopular,_tmpIsFavorite,_tmpIdSimilar,_tmpId,_tmpOverview,_tmpBackdropPath,_tmpPosterPath,_tmpFirstAirDate,_tmpName,_tmpVoteAverage);
             _result.add(_item);
           }
           return _result;

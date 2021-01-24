@@ -73,7 +73,9 @@
             android:id="@+id/imageDetailFilm"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
             android:src="@color/white_op70" />
     </androidx.cardview.widget.CardView>
 

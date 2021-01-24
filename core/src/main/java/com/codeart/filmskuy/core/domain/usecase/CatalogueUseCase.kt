@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
  * Visit My GitHub --> https://github.com/WahyuSeptiadi
  */
 
-interface CatalogueUsecase {
+interface CatalogueUseCase {
     fun getAllMovieCatalogue(): Flow<Resource<List<CatalogueModel>>>
     fun getAllTvShowCatalogue(): Flow<Resource<List<CatalogueModel>>>
     fun setFavoriteMovieCatalogue(catalogueModel: CatalogueModel, state: Boolean)

@@ -16,6 +16,7 @@ com/codeart/filmskuy/core/data/source/local/room/CatalogueDao_Impl.java
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$11
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$12
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$13
+ com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$14
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$2
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$3
  com.codeart.filmskuy.core.data.source.local.room.CatalogueDao_Impl$4
