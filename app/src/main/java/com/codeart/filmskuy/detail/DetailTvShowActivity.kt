@@ -59,6 +59,28 @@ class DetailTvShowActivity : AppCompatActivity() {
         }
     }
 
+    private fun startSkeletonShimmer() {
+        with(binding) {
+            imageDetailFilm.startLoading()
+            backgroundDetailFilm.startLoading()
+            ratingDetailFilm.startLoading()
+            releaseDetailFilm.startLoading()
+            titleDetailFilm.startLoading()
+            overviewDetailFilm.startLoading()
+        }
+    }
+
+    private fun stopSkeletonShimmer() {
+        with(binding) {
+            imageDetailFilm.stopLoading()
+            backgroundDetailFilm.stopLoading()
+            ratingDetailFilm.stopLoading()
+            releaseDetailFilm.stopLoading()
+            titleDetailFilm.stopLoading()
+            overviewDetailFilm.stopLoading()
+        }
+    }
+
     private fun setRecyclerViewSimilarTvShow() {
         similarListAdapter.onItemClick = { selected ->
             val intent = Intent(this, DetailTvShowActivity::class.java)
@@ -77,6 +99,7 @@ class DetailTvShowActivity : AppCompatActivity() {
     }
 
     private fun getSimilarTvShow(id: String, type: Int) {
+        startSkeletonShimmer()
         if (type != 1) {
             binding.similarTitle.visible()
             detailViewModel.getSimilarTvShow(id).observe(this, { tv ->
@@ -91,15 +114,18 @@ class DetailTvShowActivity : AppCompatActivity() {
                             binding.similarTitle.text = resources.getString(R.string.similar_title)
                             similarListAdapter.setData(tv.data)
                         }
+                        stopSkeletonShimmer()
+                        binding.shimmer.gone()
                     }
                     is Resource.Error -> {
-                        binding.similarTitle.gone()
                         toast("Check Your Connection!")
                     }
                 }
             })
         } else {
             binding.similarTitle.gone()
+            binding.shimmer.gone()
+            stopSkeletonShimmer()
         }
     }
 

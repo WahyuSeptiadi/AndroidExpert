@@ -14,6 +14,7 @@ id titleFilm
 id yearFilm
 layout item_list_catalogue
 layout item_list_similar
+layout shimmer_placeholder
 layout top_bar_primary
 string dot
 string sample_rate

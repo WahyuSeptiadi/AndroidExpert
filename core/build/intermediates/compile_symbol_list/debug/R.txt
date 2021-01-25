@@ -57,6 +57,7 @@ int animator mtrl_fab_hide_motion_spec 0x0
 int animator mtrl_fab_show_motion_spec 0x0
 int animator mtrl_fab_transformation_sheet_collapse_spec 0x0
 int animator mtrl_fab_transformation_sheet_expand_spec 0x0
+int attr SkeletonView 0x0
 int attr actionBarDivider 0x0
 int attr actionBarItemBackground 0x0
 int attr actionBarPopupTheme 0x0
@@ -114,6 +115,7 @@ int attr autoSizeMinTextSize 0x0
 int attr autoSizePresetSizes 0x0
 int attr autoSizeStepGranularity 0x0
 int attr autoSizeTextType 0x0
+int attr autoStart 0x0
 int attr autoTransition 0x0
 int attr background 0x0
 int attr backgroundColor 0x0
@@ -218,6 +220,7 @@ int attr civ_border_overlay 0x0
 int attr civ_border_width 0x0
 int attr civ_circle_background_color 0x0
 int attr clickAction 0x0
+int attr clipToText 0x0
 int attr closeIcon 0x0
 int attr closeIconEnabled 0x0
 int attr closeIconEndPadding 0x0
@@ -300,6 +303,7 @@ int attr customBoolean 0x0
 int attr customColorDrawableValue 0x0
 int attr customColorValue 0x0
 int attr customDimension 0x0
+int attr customDuration 0x0
 int attr customFloatValue 0x0
 int attr customIntegerValue 0x0
 int attr customNavigationLayout 0x0
@@ -346,6 +350,7 @@ int attr editTextStyle 0x0
 int attr elevation 0x0
 int attr elevationOverlayColor 0x0
 int attr elevationOverlayEnabled 0x0
+int attr enableDevelopPreview 0x0
 int attr endIconCheckable 0x0
 int attr endIconContentDescription 0x0
 int attr endIconDrawable 0x0
@@ -723,6 +728,29 @@ int attr shapeAppearanceLargeComponent 0x0
 int attr shapeAppearanceMediumComponent 0x0
 int attr shapeAppearanceOverlay 0x0
 int attr shapeAppearanceSmallComponent 0x0
+int attr shimmerBlurWidth 0x0
+int attr shimmerLightenFactor 0x0
+int attr shimmerStrokeWidth 0x0
+int attr shimmer_auto_start 0x0
+int attr shimmer_base_alpha 0x0
+int attr shimmer_base_color 0x0
+int attr shimmer_clip_to_children 0x0
+int attr shimmer_colored 0x0
+int attr shimmer_direction 0x0
+int attr shimmer_dropoff 0x0
+int attr shimmer_duration 0x0
+int attr shimmer_fixed_height 0x0
+int attr shimmer_fixed_width 0x0
+int attr shimmer_height_ratio 0x0
+int attr shimmer_highlight_alpha 0x0
+int attr shimmer_highlight_color 0x0
+int attr shimmer_intensity 0x0
+int attr shimmer_repeat_count 0x0
+int attr shimmer_repeat_delay 0x0
+int attr shimmer_repeat_mode 0x0
+int attr shimmer_shape 0x0
+int attr shimmer_tilt 0x0
+int attr shimmer_width_ratio 0x0
 int attr showAsAction 0x0
 int attr showDividers 0x0
 int attr showMotionSpec 0x0
@@ -734,6 +762,12 @@ int attr singleChoiceItemLayout 0x0
 int attr singleLine 0x0
 int attr singleSelection 0x0
 int attr sizePercent 0x0
+int attr skeletonAnimationDuration 0x0
+int attr skeletonColor 0x0
+int attr skeletonCornerRadius 0x0
+int attr skeletonViewHolderAmount 0x0
+int attr skeletonViewHolderItem 0x0
+int attr skeletonViewHolderTruncate 0x0
 int attr sliderStyle 0x0
 int attr snackbarButtonStyle 0x0
 int attr snackbarStyle 0x0
@@ -742,6 +776,7 @@ int attr spanCount 0x0
 int attr spinBars 0x0
 int attr spinnerDropDownItemStyle 0x0
 int attr spinnerStyle 0x0
+int attr splitSkeletonTextByLines 0x0
 int attr splitTrack 0x0
 int attr srcCompat 0x0
 int attr stackFromEnd 0x0
@@ -973,6 +1008,7 @@ int color cardview_light_background 0x0
 int color cardview_shadow_end_color 0x0
 int color cardview_shadow_start_color 0x0
 int color checkbox_themeable_attribute_color 0x0
+int color defaultSkeletonColor 0x0
 int color design_bottom_navigation_shadow_color 0x0
 int color design_box_stroke_color 0x0
 int color design_dark_default_color_background 0x0
@@ -1263,6 +1299,9 @@ int dimen compat_button_padding_vertical_material 0x0
 int dimen compat_control_corner_material 0x0
 int dimen compat_notification_large_icon_max_height 0x0
 int dimen compat_notification_large_icon_max_width 0x0
+int dimen defaultSkeletonBlurWidth 0x0
+int dimen defaultSkeletonCornerRadius 0x0
+int dimen defaultSkeletonStrokeWidth 0x0
 int dimen default_dimension 0x0
 int dimen design_appbar_elevation 0x0
 int dimen design_bottom_navigation_active_item_max_width 0x0
@@ -1639,6 +1678,7 @@ int drawable design_ic_visibility 0x0
 int drawable design_ic_visibility_off 0x0
 int drawable design_password_eye 0x0
 int drawable design_snackbar_background 0x0
+int drawable ic_email 0x0
 int drawable ic_mtrl_checked_circle 0x0
 int drawable ic_mtrl_chip_checked_black 0x0
 int drawable ic_mtrl_chip_checked_circle 0x0
@@ -1768,6 +1808,7 @@ int id automatic 0x0
 int id baseline 0x0
 int id blocking 0x0
 int id bottom 0x0
+int id bottom_to_top 0x0
 int id bounce 0x0
 int id buttonPanel 0x0
 int id cancel_action 0x0
@@ -1892,14 +1933,17 @@ int id leak_canary_stacktrace 0x0
 int id leak_canary_time_text 0x0
 int id leak_canary_toast_icon 0x0
 int id left 0x0
+int id left_to_right 0x0
 int id line1 0x0
 int id line3 0x0
 int id linear 0x0
 int id listMode 0x0
 int id list_item 0x0
+int id longCycle 0x0
 int id lottie_layer_name 0x0
 int id masked 0x0
 int id media_actions 0x0
+int id mediumCycle 0x0
 int id message 0x0
 int id middle 0x0
 int id mini 0x0
@@ -1957,6 +2001,7 @@ int id postLayout 0x0
 int id poster_similar 0x0
 int id progress_circular 0x0
 int id progress_horizontal 0x0
+int id radial 0x0
 int id radio 0x0
 int id ratingFilm 0x0
 int id rectangles 0x0
@@ -1966,6 +2011,7 @@ int id reverseSawtooth 0x0
 int id right 0x0
 int id right_icon 0x0
 int id right_side 0x0
+int id right_to_left 0x0
 int id rounded 0x0
 int id row_index_key 0x0
 int id save_non_transition_alpha 0x0
@@ -1989,6 +2035,7 @@ int id search_src_text 0x0
 int id search_voice_btn 0x0
 int id select_dialog_listview 0x0
 int id selected 0x0
+int id shortCycle 0x0
 int id shortcut 0x0
 int id sin 0x0
 int id slide 0x0
@@ -2048,6 +2095,7 @@ int id titleFilm 0x0
 int id title_template 0x0
 int id top 0x0
 int id topPanel 0x0
+int id top_to_bottom 0x0
 int id touch_outside 0x0
 int id transition_current_scene 0x0
 int id transition_layout_save 0x0
@@ -2206,6 +2254,7 @@ int layout notification_template_part_time 0x0
 int layout select_dialog_item_material 0x0
 int layout select_dialog_multichoice_material 0x0
 int layout select_dialog_singlechoice_material 0x0
+int layout shimmer_placeholder 0x0
 int layout support_simple_spinner_dropdown_item 0x0
 int layout test_action_chip 0x0
 int layout test_chip_zero_corner_radius 0x0
@@ -2630,6 +2679,7 @@ int style Base_Widget_MaterialComponents_TextView 0x0
 int style CardView 0x0
 int style CardView_Dark 0x0
 int style CardView_Light 0x0
+int style DefaultSkeletonView 0x0
 int style EmptyTheme 0x0
 int style MaterialAlertDialog_MaterialComponents 0x0
 int style MaterialAlertDialog_MaterialComponents_Body_Text 0x0
@@ -4395,6 +4445,42 @@ int styleable ShapeableImageView_shapeAppearance 0
 int styleable ShapeableImageView_shapeAppearanceOverlay 1
 int styleable ShapeableImageView_strokeColor 2
 int styleable ShapeableImageView_strokeWidth 3
+int[] styleable ShimmerFrameLayout { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable ShimmerFrameLayout_shimmer_auto_start 0
+int styleable ShimmerFrameLayout_shimmer_base_alpha 1
+int styleable ShimmerFrameLayout_shimmer_base_color 2
+int styleable ShimmerFrameLayout_shimmer_clip_to_children 3
+int styleable ShimmerFrameLayout_shimmer_colored 4
+int styleable ShimmerFrameLayout_shimmer_direction 5
+int styleable ShimmerFrameLayout_shimmer_dropoff 6
+int styleable ShimmerFrameLayout_shimmer_duration 7
+int styleable ShimmerFrameLayout_shimmer_fixed_height 8
+int styleable ShimmerFrameLayout_shimmer_fixed_width 9
+int styleable ShimmerFrameLayout_shimmer_height_ratio 10
+int styleable ShimmerFrameLayout_shimmer_highlight_alpha 11
+int styleable ShimmerFrameLayout_shimmer_highlight_color 12
+int styleable ShimmerFrameLayout_shimmer_intensity 13
+int styleable ShimmerFrameLayout_shimmer_repeat_count 14
+int styleable ShimmerFrameLayout_shimmer_repeat_delay 15
+int styleable ShimmerFrameLayout_shimmer_repeat_mode 16
+int styleable ShimmerFrameLayout_shimmer_shape 17
+int styleable ShimmerFrameLayout_shimmer_tilt 18
+int styleable ShimmerFrameLayout_shimmer_width_ratio 19
+int[] styleable SkeletonView { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable SkeletonView_autoStart 0
+int styleable SkeletonView_clipToText 1
+int styleable SkeletonView_customDuration 2
+int styleable SkeletonView_enableDevelopPreview 3
+int styleable SkeletonView_shimmerBlurWidth 4
+int styleable SkeletonView_shimmerLightenFactor 5
+int styleable SkeletonView_shimmerStrokeWidth 6
+int styleable SkeletonView_skeletonAnimationDuration 7
+int styleable SkeletonView_skeletonColor 8
+int styleable SkeletonView_skeletonCornerRadius 9
+int styleable SkeletonView_skeletonViewHolderAmount 10
+int styleable SkeletonView_skeletonViewHolderItem 11
+int styleable SkeletonView_skeletonViewHolderTruncate 12
+int styleable SkeletonView_splitSkeletonTextByLines 13
 int[] styleable Slider { 0x101000e, 0x1010146, 0x1010024, 0x10102de, 0x10102df, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
 int styleable Slider_android_enabled 0
 int styleable Slider_android_stepSize 1

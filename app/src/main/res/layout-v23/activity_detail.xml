@@ -7,7 +7,7 @@
     android:background="@color/primary_dark"
     tools:context=".detail.DetailMovieActivity">
 
-    <ImageView
+    <aglibs.loading.skeleton.view.SkeletonImageView
         android:id="@+id/backgroundDetailFilm"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:skeletonColor="@color/accent" />
 
     <ImageView
         android:id="@+id/btnBack"
@@ -43,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/backgroundDetailFilm"
         app:layout_constraintStart_toEndOf="@+id/cardImageDetailFilm" />
 
-    <TextView
+    <aglibs.loading.skeleton.view.SkeletonTextView
         android:id="@+id/ratingDetailFilm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +54,8 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/backgroundDetailFilm"
-        app:layout_constraintStart_toEndOf="@+id/star_rate" />
+        app:layout_constraintStart_toEndOf="@+id/star_rate"
+        app:skeletonColor="@color/shimmer_text" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardImageDetailFilm"
@@ -69,23 +71,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <ImageView
+        <aglibs.loading.skeleton.view.SkeletonImageView
             android:id="@+id/imageDetailFilm"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/todo"
             android:scaleType="centerCrop"
-            android:src="@color/white_op70" />
+            app:skeletonColor="@color/accent" />
     </androidx.cardview.widget.CardView>
 
-    <TextView
+    <aglibs.loading.skeleton.view.SkeletonTextView
         android:id="@+id/titleDetailFilm"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="10dp"
+        android:lineSpacingExtra="2dp"
         android:text="@string/dot"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -93,9 +96,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cardImageDetailFilm"
-        app:layout_constraintTop_toBottomOf="@+id/backgroundDetailFilm" />
+        app:layout_constraintTop_toBottomOf="@+id/backgroundDetailFilm"
+        app:skeletonColor="@color/shimmer_text"
+        app:splitSkeletonTextByLines="true" />
 
-    <TextView
+    <aglibs.loading.skeleton.view.SkeletonTextView
         android:id="@+id/releaseDetailFilm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,7 +110,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/cardImageDetailFilm"
-        app:layout_constraintTop_toBottomOf="@+id/titleDetailFilm" />
+        app:layout_constraintTop_toBottomOf="@+id/titleDetailFilm"
+        app:skeletonColor="@color/shimmer_text" />
 
     <TextView
         android:id="@+id/overview"
@@ -120,20 +126,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/releaseDetailFilm" />
 
-    <TextView
+    <aglibs.loading.skeleton.view.SkeletonTextView
         android:id="@+id/overviewDetailFilm"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="30dp"
         android:ellipsize="end"
+        android:lineSpacingExtra="2dp"
         android:maxLines="10"
         android:text="@string/dot"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overview" />
+        app:layout_constraintTop_toBottomOf="@+id/overview"
+        app:skeletonColor="@color/shimmer_text"
+        app:skeletonCornerRadius="0dp"
+        app:splitSkeletonTextByLines="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -177,4 +187,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_similar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shimmer_auto_start="true"
+        app:shimmer_base_color="@color/white_op70">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="0dp">
+
+            <include layout="@layout/shimmer_placeholder" />
+
+            <include layout="@layout/shimmer_placeholder" />
+
+            <include layout="@layout/shimmer_placeholder" />
+
+            <include layout="@layout/shimmer_placeholder" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

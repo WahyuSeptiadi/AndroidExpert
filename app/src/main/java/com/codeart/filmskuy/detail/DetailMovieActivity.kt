@@ -55,6 +55,28 @@ class DetailMovieActivity : AppCompatActivity() {
         }
     }
 
+    private fun startSkeletonShimmer() {
+        with(binding) {
+            imageDetailFilm.startLoading()
+            backgroundDetailFilm.startLoading()
+            ratingDetailFilm.startLoading()
+            releaseDetailFilm.startLoading()
+            titleDetailFilm.startLoading()
+            overviewDetailFilm.startLoading()
+        }
+    }
+
+    private fun stopSkeletonShimmer() {
+        with(binding) {
+            imageDetailFilm.stopLoading()
+            backgroundDetailFilm.stopLoading()
+            ratingDetailFilm.stopLoading()
+            releaseDetailFilm.stopLoading()
+            titleDetailFilm.stopLoading()
+            overviewDetailFilm.stopLoading()
+        }
+    }
+
     private fun setRecyclerViewSimilarMovie() {
         similarListAdapter.onItemClick = { selected ->
             val intent = Intent(this, DetailMovieActivity::class.java)
@@ -73,6 +95,7 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun getSimilarMovie(id: String, type: Int) {
+        startSkeletonShimmer()
         if (type != 1) {
             binding.similarTitle.visible()
             detailViewModel.getSimilarMovie(id).observe(this, { movie ->
@@ -87,15 +110,18 @@ class DetailMovieActivity : AppCompatActivity() {
                             binding.similarTitle.text = resources.getString(R.string.similar_title)
                             similarListAdapter.setData(movie.data)
                         }
+                        stopSkeletonShimmer()
+                        binding.shimmer.gone()
                     }
                     is Resource.Error -> {
-                        binding.similarTitle.gone()
                         toast("Check Your Connection!")
                     }
                 }
             })
         } else {
             binding.similarTitle.gone()
+            binding.shimmer.gone()
+            stopSkeletonShimmer()
         }
     }
 

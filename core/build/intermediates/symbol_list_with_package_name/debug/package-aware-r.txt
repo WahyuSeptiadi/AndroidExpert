@@ -58,6 +58,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+attr SkeletonView
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -115,6 +116,7 @@ attr autoSizeMinTextSize
 attr autoSizePresetSizes
 attr autoSizeStepGranularity
 attr autoSizeTextType
+attr autoStart
 attr autoTransition
 attr background
 attr backgroundColor
@@ -219,6 +221,7 @@ attr civ_border_overlay
 attr civ_border_width
 attr civ_circle_background_color
 attr clickAction
+attr clipToText
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -301,6 +304,7 @@ attr customBoolean
 attr customColorDrawableValue
 attr customColorValue
 attr customDimension
+attr customDuration
 attr customFloatValue
 attr customIntegerValue
 attr customNavigationLayout
@@ -347,6 +351,7 @@ attr editTextStyle
 attr elevation
 attr elevationOverlayColor
 attr elevationOverlayEnabled
+attr enableDevelopPreview
 attr endIconCheckable
 attr endIconContentDescription
 attr endIconDrawable
@@ -724,6 +729,29 @@ attr shapeAppearanceLargeComponent
 attr shapeAppearanceMediumComponent
 attr shapeAppearanceOverlay
 attr shapeAppearanceSmallComponent
+attr shimmerBlurWidth
+attr shimmerLightenFactor
+attr shimmerStrokeWidth
+attr shimmer_auto_start
+attr shimmer_base_alpha
+attr shimmer_base_color
+attr shimmer_clip_to_children
+attr shimmer_colored
+attr shimmer_direction
+attr shimmer_dropoff
+attr shimmer_duration
+attr shimmer_fixed_height
+attr shimmer_fixed_width
+attr shimmer_height_ratio
+attr shimmer_highlight_alpha
+attr shimmer_highlight_color
+attr shimmer_intensity
+attr shimmer_repeat_count
+attr shimmer_repeat_delay
+attr shimmer_repeat_mode
+attr shimmer_shape
+attr shimmer_tilt
+attr shimmer_width_ratio
 attr showAsAction
 attr showDividers
 attr showMotionSpec
@@ -735,6 +763,12 @@ attr singleChoiceItemLayout
 attr singleLine
 attr singleSelection
 attr sizePercent
+attr skeletonAnimationDuration
+attr skeletonColor
+attr skeletonCornerRadius
+attr skeletonViewHolderAmount
+attr skeletonViewHolderItem
+attr skeletonViewHolderTruncate
 attr sliderStyle
 attr snackbarButtonStyle
 attr snackbarStyle
@@ -743,6 +777,7 @@ attr spanCount
 attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
+attr splitSkeletonTextByLines
 attr splitTrack
 attr srcCompat
 attr stackFromEnd
@@ -974,6 +1009,7 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+color defaultSkeletonColor
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1264,6 +1300,9 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen defaultSkeletonBlurWidth
+dimen defaultSkeletonCornerRadius
+dimen defaultSkeletonStrokeWidth
 dimen default_dimension
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
@@ -1640,6 +1679,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_email
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1769,6 +1809,7 @@ id automatic
 id baseline
 id blocking
 id bottom
+id bottom_to_top
 id bounce
 id buttonPanel
 id cancel_action
@@ -1893,14 +1934,17 @@ id leak_canary_stacktrace
 id leak_canary_time_text
 id leak_canary_toast_icon
 id left
+id left_to_right
 id line1
 id line3
 id linear
 id listMode
 id list_item
+id longCycle
 id lottie_layer_name
 id masked
 id media_actions
+id mediumCycle
 id message
 id middle
 id mini
@@ -1958,6 +2002,7 @@ id postLayout
 id poster_similar
 id progress_circular
 id progress_horizontal
+id radial
 id radio
 id ratingFilm
 id rectangles
@@ -1967,6 +2012,7 @@ id reverseSawtooth
 id right
 id right_icon
 id right_side
+id right_to_left
 id rounded
 id row_index_key
 id save_non_transition_alpha
@@ -1990,6 +2036,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id shortCycle
 id shortcut
 id sin
 id slide
@@ -2049,6 +2096,7 @@ id titleFilm
 id title_template
 id top
 id topPanel
+id top_to_bottom
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -2207,6 +2255,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout shimmer_placeholder
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius
@@ -2631,6 +2680,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DefaultSkeletonView
 style EmptyTheme
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text
@@ -3203,6 +3253,8 @@ styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_imeOptions android_inputType android_maxWidth closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottomRight cornerFamilyTopLeft cornerFamilyTopRight cornerSize cornerSizeBottomLeft cornerSizeBottomRight cornerSizeTopLeft cornerSizeTopRight
 styleable ShapeableImageView shapeAppearance shapeAppearanceOverlay strokeColor strokeWidth
+styleable ShimmerFrameLayout shimmer_auto_start shimmer_base_alpha shimmer_base_color shimmer_clip_to_children shimmer_colored shimmer_direction shimmer_dropoff shimmer_duration shimmer_fixed_height shimmer_fixed_width shimmer_height_ratio shimmer_highlight_alpha shimmer_highlight_color shimmer_intensity shimmer_repeat_count shimmer_repeat_delay shimmer_repeat_mode shimmer_shape shimmer_tilt shimmer_width_ratio
+styleable SkeletonView autoStart clipToText customDuration enableDevelopPreview shimmerBlurWidth shimmerLightenFactor shimmerStrokeWidth skeletonAnimationDuration skeletonColor skeletonCornerRadius skeletonViewHolderAmount skeletonViewHolderItem skeletonViewHolderTruncate splitSkeletonTextByLines
 styleable Slider android_enabled android_stepSize android_value android_valueFrom android_valueTo haloColor haloRadius labelBehavior labelStyle thumbColor thumbElevation thumbRadius tickColor tickColorActive tickColorInactive trackColor trackColorActive trackColorInactive trackHeight
 styleable Snackbar snackbarButtonStyle snackbarStyle snackbarTextViewStyle
 styleable SnackbarLayout actionTextColorAlpha android_maxWidth animationMode backgroundOverlayColorAlpha backgroundTint backgroundTintMode elevation maxActionInlineWidth

@@ -49,4 +49,8 @@ dependencies {
 
     // LEAK CANARY
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
+    // SHIMMER
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+    api 'com.github.AgnaldoNP:AGSkeletonLoading:1.2'
 }
