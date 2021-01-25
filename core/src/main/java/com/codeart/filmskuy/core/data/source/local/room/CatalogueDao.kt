@@ -48,4 +48,15 @@ interface CatalogueDao {
     @Update
     fun updateFavoriteTvShow(tvShow: TvShowEntity)
 
+    @Query("DELETE FROM movie_favorite WHERE popular = 0 AND isFavorite = 0 AND idSimilar != :id")
+    suspend fun deleteAllUnFavoriteMovie(id: String)
+
+    @Query("DELETE FROM tv_show_favorite WHERE popular = 0 AND isFavorite = 0 AND idSimilar != :id")
+    suspend fun deleteAllUnFavoriteTvShow(id: String)
+
+    @Query("SELECT COUNT(id) FROM movie_favorite")
+    suspend fun getCountMovie(): Int
+
+    @Query("SELECT COUNT(id) FROM tv_show_favorite")
+    suspend fun getCountTvShow(): Int
 }

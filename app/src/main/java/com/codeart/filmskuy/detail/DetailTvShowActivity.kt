@@ -85,6 +85,7 @@ class DetailTvShowActivity : AppCompatActivity() {
                         resources.getString(R.string.similar_tv_show_searching)
                     is Resource.Success -> {
                         if (tv.data.isNullOrEmpty()) {
+                            toast(resources.getString(R.string.similar_not_found))
                             getTvShowPopular()
                         } else {
                             binding.similarTitle.text = resources.getString(R.string.similar_title)

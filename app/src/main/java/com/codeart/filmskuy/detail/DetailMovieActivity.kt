@@ -81,6 +81,7 @@ class DetailMovieActivity : AppCompatActivity() {
                         resources.getString(R.string.similar_movie_searching)
                     is Resource.Success -> {
                         if (movie.data.isNullOrEmpty()) {
+                            toast(resources.getString(R.string.similar_not_found))
                             getMoviePopular()
                         } else {
                             binding.similarTitle.text = resources.getString(R.string.similar_title)

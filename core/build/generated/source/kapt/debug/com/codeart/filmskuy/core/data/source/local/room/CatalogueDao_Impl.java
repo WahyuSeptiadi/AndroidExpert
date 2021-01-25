@@ -6,12 +6,14 @@ import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.codeart.filmskuy.core.data.source.local.entity.MovieEntity;
 import com.codeart.filmskuy.core.data.source.local.entity.TvShowEntity;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -34,6 +36,10 @@ public final class CatalogueDao_Impl implements CatalogueDao {
   private final EntityDeletionOrUpdateAdapter<MovieEntity> __updateAdapterOfMovieEntity;
 
   private final EntityDeletionOrUpdateAdapter<TvShowEntity> __updateAdapterOfTvShowEntity;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAllUnFavoriteMovie;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAllUnFavoriteTvShow;
 
   public CatalogueDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -231,6 +237,20 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         stmt.bindLong(11, value.getId());
       }
     };
+    this.__preparedStmtOfDeleteAllUnFavoriteMovie = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM movie_favorite WHERE popular = 0 AND isFavorite = 0 AND idSimilar != ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfDeleteAllUnFavoriteTvShow = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM tv_show_favorite WHERE popular = 0 AND isFavorite = 0 AND idSimilar != ?";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -289,6 +309,56 @@ public final class CatalogueDao_Impl implements CatalogueDao {
     } finally {
       __db.endTransaction();
     }
+  }
+
+  @Override
+  public Object deleteAllUnFavoriteMovie(final String id, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllUnFavoriteMovie.acquire();
+        int _argIndex = 1;
+        if (id == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, id);
+        }
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteAllUnFavoriteMovie.release(_stmt);
+        }
+      }
+    }, p1);
+  }
+
+  @Override
+  public Object deleteAllUnFavoriteTvShow(final String id, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllUnFavoriteTvShow.acquire();
+        int _argIndex = 1;
+        if (id == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, id);
+        }
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteAllUnFavoriteTvShow.release(_stmt);
+        }
+      }
+    }, p1);
   }
 
   @Override
@@ -809,5 +879,65 @@ public final class CatalogueDao_Impl implements CatalogueDao {
         _statement.release();
       }
     });
+  }
+
+  @Override
+  public Object getCountMovie(final Continuation<? super Integer> p0) {
+    final String _sql = "SELECT COUNT(id) FROM movie_favorite";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.execute(__db, false, new Callable<Integer>() {
+      @Override
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if(_cursor.moveToFirst()) {
+            final Integer _tmp;
+            if (_cursor.isNull(0)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(0);
+            }
+            _result = _tmp;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, p0);
+  }
+
+  @Override
+  public Object getCountTvShow(final Continuation<? super Integer> p0) {
+    final String _sql = "SELECT COUNT(id) FROM tv_show_favorite";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.execute(__db, false, new Callable<Integer>() {
+      @Override
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if(_cursor.moveToFirst()) {
+            final Integer _tmp;
+            if (_cursor.isNull(0)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(0);
+            }
+            _result = _tmp;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, p0);
   }
 }

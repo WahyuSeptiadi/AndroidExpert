@@ -13,4 +13,5 @@
     <string name="similar_title">Maybe you are interested</string>
     <string name="similar_movie_searching">Searching similar this movie…</string>
     <string name="similar_tv_show_searching">Searching similar this tv show…</string>
+    <string name="similar_not_found">Similar not found</string>
 </resources>

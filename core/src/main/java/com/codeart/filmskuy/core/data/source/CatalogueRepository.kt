@@ -135,6 +135,10 @@ class CatalogueRepository(
             override suspend fun saveCallResult(data: List<MovieResultResponse>) {
                 val movieList = DataMapper.mapSimilarMovieResponsesToEntities(id, data)
                 localDataSource.insertMovie(movieList)
+
+                if (localDataSource.getCountMovie() >= 400) {
+                    localDataSource.deleteAllUnFavoriteMovie(id)
+                }
             }
         }.asFlow()
 
@@ -154,6 +158,10 @@ class CatalogueRepository(
             override suspend fun saveCallResult(data: List<TvShowResultResponse>) {
                 val tvShowList = DataMapper.mapSimilarTvShowResponsesToEntities(id, data)
                 localDataSource.insertTvShow(tvShowList)
+
+                if (localDataSource.getCountTvShow() >= 400) {
+                    localDataSource.deleteAllUnFavoriteTvShow(id)
+                }
             }
         }.asFlow()
 }
