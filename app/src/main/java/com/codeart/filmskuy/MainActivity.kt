@@ -31,9 +31,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        onDestroy()
-        finish()
+        if (isTaskRoot) {
+            finishAfterTransition()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
 
