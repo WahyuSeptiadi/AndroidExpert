@@ -12,10 +12,10 @@ Branches are sorted by step by step development
 **1. Architecture Pattern (Clean Architecture) & Design Pattern**<br>
 **2. Retrofit & Reactive Programming (Coroutine Flow)**<br>
 **3. Dependency Injection (Koin)**<br>
-**4. Modularization (Dynamic Feature)**<br>
+**4. Modularization (Dynamic Feature)**
 
 ### Submission2 (Capstone Project2)
-**5. Continuous Integration (CircleCI)**
+**5. Continuous Integration (CircleCI)**<br>
 **6. Performance**
 - Profiling Performance
 - GPU Overdrawn
