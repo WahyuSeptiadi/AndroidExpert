@@ -9,10 +9,10 @@ Branches are sorted by step by step development
 
 ## Submission
 ### Submission1 (Capstone Project1)
-**1. Architecture Pattern (Clean Architecture) & Design Pattern**
-**2. Retrofit & Reactive Programming (Coroutine Flow)**
-**3. Dependency Injection (Koin)**
-**4. Modularization (Dynamic Feature)**
+**1. Architecture Pattern (Clean Architecture) & Design Pattern**<br>
+**2. Retrofit & Reactive Programming (Coroutine Flow)**<br>
+**3. Dependency Injection (Koin)**<br>
+**4. Modularization (Dynamic Feature)**<br>
 
 ### Submission2 (Capstone Project2)
 **5. Continuous Integration (CircleCI)**
