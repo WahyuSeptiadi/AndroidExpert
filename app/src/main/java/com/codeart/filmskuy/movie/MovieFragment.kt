@@ -3,11 +3,11 @@ package com.codeart.filmskuy.movie
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter

@@ -3,8 +3,8 @@ package com.codeart.filmskuy.detail
 import android.content.Intent
 import android.graphics.text.LineBreaker
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide

@@ -9,7 +9,8 @@ import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.domain.repository.ICatalogueRepository
 import com.codeart.filmskuy.core.utils.AppExecutors
 import com.codeart.filmskuy.core.utils.DataMapper
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 /**
  * Created by wahyu_septiadi on 17, January 2021.

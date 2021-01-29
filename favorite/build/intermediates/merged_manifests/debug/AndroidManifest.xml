@@ -4,7 +4,7 @@
     featureSplit="favorite"
     package="com.codeart.filmskuy"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="21"

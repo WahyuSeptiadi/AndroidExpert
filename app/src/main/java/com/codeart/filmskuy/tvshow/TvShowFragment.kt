@@ -3,19 +3,19 @@ package com.codeart.filmskuy.tvshow
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codeart.filmskuy.core.data.source.Resource
-import com.codeart.filmskuy.databinding.FragmentTvShowBinding
 import com.codeart.filmskuy.core.ui.CatalogueListAdapter
 import com.codeart.filmskuy.core.utils.gone
 import com.codeart.filmskuy.core.utils.hideKeyboard
 import com.codeart.filmskuy.core.utils.toast
 import com.codeart.filmskuy.core.utils.visible
+import com.codeart.filmskuy.databinding.FragmentTvShowBinding
 import com.codeart.filmskuy.detail.DetailTvShowActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 

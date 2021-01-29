@@ -9,7 +9,7 @@ import com.codeart.filmskuy.core.R
 import com.codeart.filmskuy.core.databinding.ItemListSimilarBinding
 import com.codeart.filmskuy.core.domain.model.CatalogueModel
 import com.codeart.filmskuy.core.utils.IMAGE_URL_BASE_PATH
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by wahyu_septiadi on 22, January 2021.
